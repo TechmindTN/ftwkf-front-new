@@ -39,11 +39,15 @@ session_start();
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <div  class="h3 mb-2 text-gray-800"> Age</div>
+<?php
+if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
+?>
 <a href="age.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Ajout</a></div>
 
 
  <?PHP 
+}
 	   	include('connect.php');
 // $sport1 = "";
 //if (isset($_POST['sport'])) {
@@ -83,7 +87,11 @@ $row = mysql_fetch_assoc($result);
 		<td> <div align = "center"> <strong> Max </strong> </div> </td>
 		<td> <div align = "center"> <strong> Prix </strong> </div> </td>
 		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
+    <?php
+if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
+?>
 		<td ><div align = "center">  <strong>Actions</strong></div></td>
+    <?php } ?>
 	</tr>
 	</thead>
 	<tbody>
@@ -96,9 +104,13 @@ do {?>
 	  <td><div align="center"><?php echo $row['sup'];?></div></td>
 	  <td><div align="center"><?php echo $row['prix'];?></div></td>
 	  <td><div align="center"><?php echo $row['nom'];?></div></td>
+    <?php
+if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
+?>
       <td><div align="center"><a href ='updage.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
       <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Age??')" href ='delage.php?code<?php echo "=$row[code]";?>'><b>Supprimer</b></a> </div></td>
-	</tr>
+	<?php } ?>
+    </tr>
 <?php					}while	 ($row=mysql_fetch_assoc($result)); 
 
 
