@@ -120,12 +120,12 @@ $row = mysql_fetch_assoc($result);
                                     </div>
                                   
                                           
-                                        <input name="cod" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['id'];?>">
+                                        <input name="cod" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['code'];?>">
                                     
                                
                                 <div class="container my-3 ">
                <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-danger">Modifier</button>
+               <input name="mod" type="submit" value ="modifier" class="btn btn-danger">
                      </div>
              </div>
                             </form>

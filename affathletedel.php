@@ -52,7 +52,7 @@ $row01 = mysql_fetch_row($result01);
 
 
 
-if (($club=="ADMIN")or($club=="DTN")) {
+// if (($club=="ADMIN")or($club=="DTN")) {
 	$query1 ="SELECT club from athletes where saison = '$saison1' group by club order by club";	 
 	$result1 = mysql_query($query1,$connexion);
 	$row1 = mysql_fetch_assoc($result1);
@@ -61,7 +61,6 @@ if (($club=="ADMIN")or($club=="DTN")) {
 <div id="side"></div>
 
 <div id="content-wrapper" style="margin-left:12%"  class="d-flex flex-column ">
-<div id='side'></div>
 
 
 
@@ -102,7 +101,7 @@ if (($club=="ADMIN")or($club=="DTN")) {
                       </td></tr></table>
           </form>
 
-<?php } ?>
+<?php  ?>
                       </div>
 <div class="card-body">
                             <div class="table-responsive">

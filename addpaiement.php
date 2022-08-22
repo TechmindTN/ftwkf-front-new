@@ -70,7 +70,6 @@ $row2 = mysql_fetch_assoc($result2);
 $date = $_POST['date'];
 $montant = $_POST['montant'];
 $saison = $_POST['saison'];
-
 $decharge ='';
 
 $extension = strrchr($_FILES['decharge']['name'], ".") ;
@@ -83,7 +82,7 @@ move_uploaded_file($_FILES['photo']['tmp_name'], $uploaddir.$photo);
 }
 else {
 if (isset($_POST['aphoto'])) {
-$photo = $aphoto;
+$photo = 'aphoto';
 $extension = '.jpg';
 $size1=1;
 }}
@@ -94,9 +93,7 @@ if (($club <> '')and($date <> '')and($montant <> '')and($saison <> '')and($exten
 $query ="INSERT INTO `paiement` ( `code` ,`club` ,`saison`,`montant` , `date`, `etat`) VALUES ('$club','$saison','$montant','$date',0 )";
 $result = mysql_query($query,$connexion);
 ?>
-<script type="text/javascript">
-window.location.href="affpaiement.php";
-</script>
+
 <?php 
 }
 else 

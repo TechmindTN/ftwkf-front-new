@@ -71,7 +71,7 @@ $row1 = mysql_fetch_assoc($result1);
 
 <form name="stat" method="post" action="">
 <table><tr>
-              <td>Age</td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
+              <td>Poid</td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
         <option><?php echo $cat1;?> </option>
                       <?php
 					   do { 
@@ -96,11 +96,12 @@ $row1 = mysql_fetch_assoc($result1);
  
  
       <?PHP // } 
-
-$query ="SELECT * FROM param where cat = '$cat1' order by sexe, ordre";
+$row=null;
+if ($cat1<>""){$query ="SELECT * FROM param where cat = '$cat1' order by sexe, ordre";
 $result = mysql_query($query,$connexion);
 $totalRows = mysql_num_rows($result);
-$row = mysql_fetch_assoc($result);
+$row = mysql_fetch_assoc($result);}
+$i=0;
 ?>       
 <br>
 </div>
@@ -122,10 +123,12 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 	</tr>
                       </thead>
                       <tbody>
-<?php
 
 
-do {?>
+
+<?php do {
+  
+  ?>
 
 	<tr>
 	  <td><div align="center"><?php echo $row['cat'];?></div></td>
@@ -141,8 +144,12 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 	
   <?php } ?>
     </tr>
-<?php					}while	 ($row=mysql_fetch_assoc($result)); 
 
+
+  <?php		
+$i++;		
+	// }while	 (($row=mysql_fetch_assoc($result))); 
+}while($i<count($row))
 
 ?> 
 </tbody>
