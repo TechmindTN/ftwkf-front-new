@@ -15,51 +15,11 @@ window.location.href="index.html";
 <HTML lang="ar" dir="ltr">
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
-.test {
-	font-size: 24px;
-	font-family: "Times New Roman", Times, serif;
-	color: #F00;
-	text-align: center;
-}
-.h {
-	color: #0F6;
-}
-.j {
-	color: #0F9;
-}
-.bleu {
-	color: #00F;
-}
-</style>
+<title>Consultation competition</title>
 </HEAD>
 <script language="javascript" type="text/javascript">
 // You can place JavaScript like this
 </script>
-<body>
-<html>
-<style>
-.tit{
-width:400px;
-font-size:18px;
-text-align:left;
-font-weight:bold; 
-}
-table {
-border: medium solid #000000;
-width: 100%;
-}
-td, th {
-border: thin solid #6495ed;
-width: 10%;
-}
-td a {color:#ffffff;}
-.cel {
-background: #0FF;
-color:#000;
-font-weight:bold;}
-td a:hover {color:#ffffff;}
-</style>
 <?php
 	   	include('connect.php');
 
@@ -178,7 +138,7 @@ if ($qualite <> "Entraineur"){
 		$poids=$row['CAtPoids'];
 		$hq=$row['qualif'];
 	}else{
-		$annee=$row['date_naiss'];
+		$annee=$row['naiss'];
 		$sexe=$row['sexe'];
 		$hq=0;	}
 }
@@ -240,12 +200,45 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 
 
 ?>
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="7" class="text">
+    <style>
+.ml-1 {
+  margin-left: 15% !important;
+}</style>
+<body>
+<div></div>
+<div id="wrapper">
+<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+            <!-- Sidebar -->
+            <div id='side'></div></div>
+<div id="content-wrapper" class="d-flex flex-column ">
 
+<div id="content" class="ml-1">
+<div class="container-fluid">
+<div class="card shadow mb-4">
+
+
+<div class="mb-4 ">
+
+
+<table >
+<div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h1 class="h3 mb-0 text-gray-800">Consultaion compétition</h1>
+                        
+						
+                 
+
+   
+                    </div>
         <tr>
           <td><form name="stat" method="post" action="">
-              <table border="0"  cellspacing="1" cellpadding="4" class="text" style="BORDER-LEFT: #EEEEEE 7px solid; BORDER-RIGHT: #EEEEEE 7px solid; BORDER-TOP: #EEEEEE 7px solid; BORDER-BOTTOM: #EEEEEE 7px solid">
-    <tr>
+            
+<div class="card-body">
+
+
+<div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" >
+  <tr>
       <td  ><div align="center"><strong>Competition</strong></div></td>
       <td  ><div align="center"><strong>Discipline</strong></div></td>
       <td  ><div align="center"><strong>Age </strong></div></td>
@@ -268,16 +261,16 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
     <td ><input name="type" type="hidden" id="type" size="5" value="<?php echo $type;?>"><?php echo $type;?></td>
     <td ><input name="annee" type="hidden" id="annee" size="5" value="<?php echo $dat;?>"><?php echo $dat;?></td>
     <td ><input name="lieu" type="hidden" id="lieu" size="5" value="<?php echo $lieu;?>"><?php echo $lieu;?></td>
-   <td >                 <select name="qualite" class="head">
+   <td >                 <select name="qualite" class="custom-select">
         <option><?php echo $qualite;?></option>
         <option>Entraineur</option>
         <option>Athlete</option>
 
                   </select></td>
-    <td ><input name="id" type="text" id="id" size="5" value=""></td>
+    <td ><input name="id" type="text" id="id" size="5" value="" class="form-control"></td>
 <?php if ($type == "Equipe"){ ?>
                  <td>
-                    <select name="equip" class="head">
+                    <select name="equip" class="custom-select">
         <option>A</option>
         <option>B</option>
 
@@ -286,7 +279,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 
  <?php if ($qualif <> 2){ ?>
                  <td>
-                    <select name="poids" class="head">
+                    <select name="poids" class="custom-select">
                       <option>-</option>
                       <?php
 					  if ($type <> 'Kata'){
@@ -313,11 +306,11 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 
                 </tr>
                 <tr>
-                  <td colspan="8" valign="center"><div align="center">
-<input name="ok" type="submit" class="Style4" value="Add">
+                  <td colspan="9" valign="center"><div align="center">
+<input name="ok" type="submit" class="btn btn-danger" value="Ajouter" >
                   </td>
                 </tr>
-              </table>
+              </table></div></div>
           </form></td>
         </tr>
 </table>
@@ -354,10 +347,12 @@ $resultat1 = mysql_query($query_resultat1, $connexion) or die(mysql_error());
 ?>
 
 
-<p align="center"><strong>Athletes</strong></p>
+<h1 class="h3 mb-2 text-gray-1000 text-center">Athletes </h1><div class="card-body">
 
-  <table width="100%" border="1">
-    <tr>
+
+<div class="table-responsive">
+<table class="table table-bordered" id="dataTable" >
+    <tr style="color:#fff">
      <td width="81"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Poids</strong></div></td>
       <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>N Licence </strong></div></td>
       <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Nom </strong></div></td>
@@ -369,10 +364,10 @@ $resultat1 = mysql_query($query_resultat1, $connexion) or die(mysql_error());
      <td width="257"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Ligue </strong></div></td>      
       
       <td width="135" bgcolor="#0000FF" ><div align="center"><strong>Date Naissance</strong></div></td>
-      <td width="23" rowspan="2" bgcolor="#0000FF"></td>
+      <td colspan="2" rowspan="3" bgcolor="#0000FF" align="center"><strong>Details</strong></td>
     </tr>
     <tr>
-      <td bgcolor="#0000FF" border="0"><div align="center">(DD/MM/YYYY)</div></td>
+      <td bgcolor="#0000FF" border="0"><div align="center" style="color:#fff">(DD/MM/YYYY)</div></td>
     </tr>
                       <?php
 //if (($club5 <> "ADMIN")AND($club5 <> "ADMIN")AND($club5 <> "DTN")){ 
@@ -388,7 +383,7 @@ $totalRows = mysql_num_rows($result11);
 $row11 = mysql_fetch_assoc($result11);
 
 ?>    <tr>
-      <td colspan="9" bgcolor="#00FF66"><div align="center"><strong>Garcons (<?php echo $totalRows;?>)</strong></div></td>
+      <td colspan="9" bgcolor="#00FF66"><div align="center" style="color:#fff"><strong>Garcons (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#00FF66" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
     </tr>
 
 
@@ -423,7 +418,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
                   <td valign="top">
                     		<form name="refr" method="post" action="" >
  							<input name="<?php echo "codd".$i; ?>" type="hidden" id="<?php echo "codd".$i; ?>" value = "<?php echo $row11['code']; ?>">
-                   			<select name="<?php echo "ppp".$i; ?>" class="head" onChange="document.refr.submit();">
+                   			<select name="<?php echo "ppp".$i; ?>" class="custom-select" onChange="document.refr.submit();">
                       		<option><?php echo $poids;?></option>
                       		<?php
 					   		do { 
@@ -458,7 +453,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
 <?PHP     if (($club5 == "ADMIN")){?>   
 
     <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>' ><div class="bleu"> Qualifier</div></a></td>
-    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>'><div class="bleu"> N Qualifier</div></a></td>
+    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>'><div class="bleu"> Non Qualifier</div></a></td>
  
  <?PHP }if (($club5 <> "DTN")){ ?>
     <td width="23"><a href ='deldel.php?code<?php echo "=$row11[code]"; ?>' ><img src="sup.png" width="16" height="16"></a></td>
@@ -479,7 +474,7 @@ $row11 = mysql_fetch_assoc($result11);
 
 ?>
     <tr>
-      <td colspan="9" bgcolor="#FF0099"><div align="center"><strong>Filles (<?php echo $totalRows;?>)</strong></div></td>
+      <td colspan="9" bgcolor="#FF0099"><div align="center"style="color:#fff"><strong>Filles (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#FF0099" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
     </tr>
     <?PHP 
 
@@ -509,7 +504,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
                   <td valign="top">
                     		<form name="refr" method="post" action="" >
  							<input name="<?php echo "codd".$i; ?>" type="hidden" id="<?php echo "codd".$i; ?>" value = "<?php echo $row11['code']; ?>">
-                   			<select name="<?php echo "ppp".$i; ?>" class="head" onChange="document.refr.submit();">
+                   			<select name="<?php echo "ppp".$i; ?>" class="custom-select" onChange="document.refr.submit();">
                       		<option><?php echo $poids;?></option>
                       		<?php
 					   		do { 
@@ -540,7 +535,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
 <?PHP     if (($club5 == "ADMIN")){?>   
 
     <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> Qualifier</div></a></td>
-    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> N Qualifier</div></a></td>
+    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> Non Qualifier</div></a></td>
   
  <?PHP } 
  if (($club5 <> "DTN")){
@@ -562,7 +557,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
 if (($club5 == "ADMIN")or($club5 == "DTN")){ 
 ?>     
 </p>
-      <td><div align="center"><a href ='exp.php?cat<?php echo "=$cat";?>&comp<?php echo "=$comp";?>&dat<?php echo "=$dat";?>&lieu<?php echo "=$lieu";?>&type<?php echo "=$type";?>' ><img src="./image/ex.jpg" width="33" height="40"></a></td>
+      <td><div align="center"><a href ='exp.php?cat<?php echo "=$cat";?>&comp<?php echo "=$comp";?>&dat<?php echo "=$dat";?>&lieu<?php echo "=$lieu";?>&type<?php echo "=$type";?>' ><img src="./image/ex.jpg" width="33" height="40"><div  class="btn btn-warning">Exporter</div></a></td>
       
   <?php 
 }else {
@@ -575,15 +570,18 @@ if (($club5 == "ADMIN")or($club5 == "DTN")){
  ?>
 </tr>
 </table>
-  <p align="center"><strong>ENTRAINEURS</strong></p>
-  <table width="100%" border="1">
-   <tr>
+<h1 class="h3 mb-2 text-gray-1000 text-center">Entraineurs </h1> <div class="card-body">
+
+
+<div class="table-responsive">
+<table class="table table-bordered" id="dataTable" >
+   <tr style="color:#fff">
       	<td width="103" bgcolor="#0000FF"  ><div align="center"><strong>Nom </strong></div></td>
 		<td width="103" bgcolor="#0000FF"  ><div align="center"><strong>Prénom </strong></div></td>
      	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong>Club </strong></div></td>
      	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong>Ligue </strong></div></td>
  		<td width="257"  bgcolor="#0000FF"><div align="center"><strong>Sexe </strong></div></td>
-    	<td width="18" bgcolor="#0000FF"></td>
+    	<td width="18" bgcolor="#0000FF">Actions</td>
    </tr>
 <?php 
 
@@ -619,14 +617,31 @@ $row12 = mysql_fetch_assoc($result12);
 <?PHP  //   if (($Login <> "ADMIN")AND($Login <> "Admin")AND($Login <> "admin")){ 
 if (($club5 <> "DTN")){
 ?>     
-    <td width="23"><a href ='deldel.php?code<?php echo "=$row1[code]"; ?>' ><img src="sup.png" width="16" height="16"></a></td>
+    <td width="23"><a href ='deldel.php?code<?php echo "=$row1[code]"; ?>' ><b>Supprimer</b></a></td>
 <?php  }
 ?>
   </tr>
 <?php
 					}while	 ($row1=mysql_fetch_assoc($result1)); 
 ?>
-  </table>
+  </table></div></div>
+  </div></div></div></div></div></div>
 
+<!-- Bootstrap core JavaScript-->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="assets/js/demo/datatables-demo.js"></script>
+    <script src="template.js"></script>
   </body>
 </html>

@@ -14,8 +14,13 @@ window.location.href="index.html";
   "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="ar" dir="ltr">
 <HEAD>
+<link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>Un document bilingue</TITLE>
+<TITLE>Modification entraineur</TITLE>
 <script language="JavaScript" src="Calendar1-903.js" type="text/javascript"></script>
 <script language="JavaScript" type="text/javascript">
 function TryCallFunction() {
@@ -51,28 +56,24 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta name="Keywords" content="Popup Date Picker, Softricks Javascript Calendar" />
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 </HEAD>
-<style>
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.Style1 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
-.style2 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
--->
-</style></HEAD>
 
 <BODY>
+<div id="wrapper">
 
+<!-- Sidebar -->
+<div class="navbar-nav sidebar sidebar-dark accordion">
+<!-- Sidebar -->
+<div id='side'></div></div>  
+<div class="container ml-1">        
+<div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card-body p-0">
+<div class="row">    
+<div class="col-lg-12">
+       
+<div class="p-5">
+<div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Modification Coache</h1>
+                            </div>
 <?php
 	include('connect.php');
 $code=$_GET['code'];
@@ -114,28 +115,47 @@ if ($type == "منشط"){ $uploaddird ='./diplomeanim/' ; }
 if ($type == "مرافق"){ $uploaddird ='./diplomeacc/' ; }
 if ($type == "مدرب فدرالي"){ $uploaddird ='./photoentrf/' ; }}
 ?>
-<div align="center" class="style2">Modifier Coches</div>
 
  <form action="addentraineur.php" method="post" enctype="multipart/form-data" name="MForm">
-  <table width="100%" border="0">
-    <tr>
-      <td width="11%" align="left">Nom</td>
-      <td width="14%" align="left"><input name="nom" type="text" id="nom" tabindex="1" size="25" value ="<?php echo $row['nom'];?>"></td>
-      <td width="7%" align="left">Prénom </td>
-      <td width="19%" align="left"><input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="<?php echo $row['prenom'];?>"></td>
-      <td width="4%" align="left">Sexe</td>
-      <td width="4%" align="left"><select name="sexe" size="1" id="sexe" tabindex="13">
+ <div class="form-group row">
+<div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label >Nom :   </label>
+                                      <input name="nom" type="text" id="nom" tabindex="1" size="25" value ="<?php echo $row['nom'];?>" class="form-control form-control-user"   >
+                                    </div>
+                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
+                                    <label>Prénom : </label>
+                                    <input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="<?php echo $row['prenom'];?>" class="form-control form-control-user"  >
+                                    </div>
+                                
+                               
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label>Sexe</label>
+                                      <select name="sexe" size="1" id="sexe" tabindex="13" class="custom-select">
         <option><?php echo $row['sexe'];?></option>        <option>ذكر</option>
         <option>أنثى</option>
-</select></td>
-    </tr>
-    <tr>
-      <td align="left">Discipline</td>
-      <td align="left"><select name="sport" size="1" id="sport" tabindex="6">
+</select>                                    </div>
+                                  
+                                </div>
+                                <div class="form-group row">
+<div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label >Discipline :   </label>
+                                      <select name="sport" size="1" id="sport" tabindex="6" class="custom-select">
         <option><?php echo $row['sport'];?></option>        <option></option>
-        <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select></td>
-      <td align="left">Grade</td>
-      <td align="left"><select name="grade" size="1" id="grade" tabindex="12">
+        <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>                                    </div>
+                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
+                                    <label>Degre : </label>
+                                    <select name="degre" size="1" id="degre" tabindex="9" class="custom-select">
+        <option><?php echo $row['degre'];?> </option>
+        <option>مدرب فدرالي</option>
+        <option>درجة اولى</option>
+        <option>درجة ثانية</option>
+        <option>درجة ثالثه</option>
+      </select>                                    </div>
+                                
+                               
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label>Grade</label>
+                                      <select name="grade" size="1" id="grade" tabindex="12" class="custom-select">
         <option> <?php echo $row['grade'];?></option>       
        <option>أسود درجة أولى</option>
        <option>أسود درجة ثانية</option>
@@ -144,19 +164,13 @@ if ($type == "مدرب فدرالي"){ $uploaddird ='./photoentrf/' ; }}
        <option>أسود درجة خامسة</option>
        <option>أسود درجة سادسة</option>
        <option>أسود درجة سابعة</option>
-      </select></td>
-      <td align="left">Degre</td>
-      <td align="left"><select name="degre" size="1" id="degre" tabindex="9">
-        <option><?php echo $row['degre'];?> </option>
-        <option>مدرب فدرالي</option>
-        <option>درجة اولى</option>
-        <option>درجة ثانية</option>
-        <option>درجة ثالثه</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td align="left">Grade Arbitrage</td>
-      <td align="left"><select name="gradear" size="1" id="degre2" tabindex="9">
+      </select>      </div>
+                                  
+                                </div>
+                                <div class="form-group row">
+<div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label >Grade Arbitrage :   </label>
+                                      <select name="gradear" size="1" id="degre2" tabindex="9"class="custom-select" >
         <option><?php echo $row['arbitrage'];?></option>
         <option>-</option>
         <option>درجة اولى</option>
@@ -167,37 +181,52 @@ if ($type == "مدرب فدرالي"){ $uploaddird ='./photoentrf/' ; }}
         <option>قاري</option>
         <option>إفريقي</option>
         <option>دولي</option>
-      </select></td>
-      <td align="left">Type</td>
-      <td align="left"><select name="type" size="1" id="type" tabindex="9">
+      </select>                                    </div>
+                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
+                                    <label>Type : </label>
+                                    <select name="type" size="1" id="type" tabindex="9" class="custom-select">
         <option><?php echo $row['type'];?></option>
         <option>مسير</option>
         <option>ممرن</option>
         <option>مدرب فدرالي</option>
         <option>مرافق</option>
-      </select></td>
-      <td align="left">Date Naissance</td>
-      <td align="left"><input name="naiss" type="date" id="naiss" tabindex="1" size="15" value="<?php echo $row['naiss'];?>"></td>
-    </tr>
-    <tr>
-      <td align="left">CIN</td>
-      <td align="left"><input name="cin" type="text" id="cin" tabindex="1" size="25" value ="<?php echo $row['cin'];?>"></td>
-      <td align="left">Photo</td>
-      <td align="left"><input name="photo" type="file" id="photo" size="1" tabindex="15"></td>
-      <td align="left">Diplome</td>
-      <td align="left"><input name="diplome" type="file" id="diplome" size="1" tabindex="15"></td>
-    </tr>
-    <tr>
-      <td align="left">&nbsp;</td>
-      <td align="left">&nbsp;</td>
-      <td align="left">&nbsp;</td>
-      <td align="left"><img src="<?php echo $uploaddirp . $row['photo'];?>" width="33" height="50"></td>
-      <td align="left">&nbsp;</td>
-      <td align="left"><img src="<?php echo $uploaddird .$row['photo'];?>" width="33" height="50"></td>
-    </tr>
-       </table>
-<table width="100%" border="0">
-    </table>
+      </select>                                    </div>
+                                
+                               
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label>Date Naissance :</label>
+                                      <input name="naiss" type="date" id="naiss" tabindex="1" size="15" value="<?php echo $row['naiss'];?>" class="form-control form-control-user">                    </div>
+                                  
+                                </div>  
+                                <div class="form-group row">
+<div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label >CIN  :   </label>
+                                      <input name="cin" type="text" id="cin" tabindex="1" size="25" value ="<?php echo $row['cin'];?>"  class="form-control form-control-user">                                </div>
+                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
+                                    <label>Photo : </label>
+                                    <input name="photo" type="file" id="photo" size="1" tabindex="15" class="form-control-file">
+                                  </div>
+                                
+                               
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                      <label>Diplome  :</label>
+                                      <input name="diplome" type="file" id="diplome" size="1" tabindex="15" class="form-control-file">                    </div>
+                                  
+                                </div> 
+                                <div class="form-group row">
+<div class="col-sm-4 mb-3 mb-sm-0">
+<img src="<?php echo $uploaddirp . $row['photo'];?>" width="33" height="50"></div>
+                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
+                                   
+                                  </div>
+                                
+                               
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <img src="<?php echo $uploaddird .$row['photo'];?>" width="33" height="50">      </div>
+                                  
+                                </div> 
+
+
 
   <p align="center">
       <input name="liguee" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['ligue'];?>">
@@ -205,9 +234,26 @@ if ($type == "مدرب فدرالي"){ $uploaddird ='./photoentrf/' ; }}
       <input name="cod" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['n_lic'];?>">
       <input name="aphoto" type="hidden" id="aphoto" tabindex="100" size="0" value ="<?php echo $row['photo'];?>">
       <input name="adiplome" type="hidden" id="adiplome" tabindex="100" size="0" value ="<?php echo $row['photo'];?>">
-      <input type="submit" name="valider" id="valider" value="Valider">
+      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
   </p>
-</form>
+</form></div></div></div></div></div></div>
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="assets/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="assets/js/demo/chart-area-demo.js"></script>
+    <script src="assets/js/demo/chart-pie-demo.js"></script>
+    <script src="template.js"></script>
 </body>
 
 </html>
