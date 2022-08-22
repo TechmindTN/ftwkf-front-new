@@ -25,12 +25,20 @@ let side=`
 
 </head>
 
-
-
+<?php
+$abc = "Abc";
+$number = 052;
+$mydata = array("val1","val2","val3");
+?>
+<script type="text/javascript">
+var abc = '<?php echo $abc?>';
+var number = '<?php echo $number ?>';
+var mydata = <?php echo json_encode($mydata); ?>;
+</script>
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:fixed; z-index:1">
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil2.php" >
 <div class="sidebar-brand-icon "><hr>
-<img src="image/fond.png" alt="" width="100" >
+<img src="image/logo.png" alt="" width="100" >
 </div>
 <li class="nav-item">
 <a class="nav-link" href="affarchive.php">

@@ -43,8 +43,7 @@ window.location.href="index.html";
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <h1 class="h3 mb-2 text-gray-800">Statistiques </h1>
-                        <a href="club.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Ajouter</a>
+                       
                                  
                         </div>
 <?php
@@ -83,7 +82,7 @@ if (isset($_POST['ligue'])) {
 <tr>
 <td><form name="stat" method="post" action="">
 <table >
-      <tr><td> sport </td>
+      <tr><td> sport </td> <td ></td>
         <td><select name="sport" size="1" id="Discipline" tabindex="9"  class="custom-select ">
           <option><?php echo $sport;?></option>
           <option></option>
@@ -105,7 +104,7 @@ if (isset($_POST['ligue'])) {
                        } while ($rowl = mysql_fetch_assoc($resultl));
 ?>
         </select></td>
-       <td >Ligue</td>
+        <td >Ligue </td>    <td ></td>
         <td ><select name="club11" size="1" id="club11" tabindex="9" class="custom-select ">
           <option></option>
           <option><?php echo $club11;?></option>
@@ -116,7 +115,7 @@ if (isset($_POST['ligue'])) {
                        } while ($rowc = mysql_fetch_assoc($resultc));
 ?>
         </select></td>
-        <td>Club</td>
+        <td>Saison</td> <td ></td>
         <td ><select name="saison" size="1" id="saison" tabindex="9" class="custom-select ">
           <option><?php echo $saison;?></option>
           <?php
@@ -177,7 +176,7 @@ $rowagef = mysql_fetch_assoc($resultagef);
 <table align="center"   >
   <tr>
     <td align="right" valign="middle" width="40%">الجامعة التونسية للوشو كونغ فو</td>
-    <td align="center" width="20%"><img src="image/fond.png" alt="" width="60" height="60"></td>
+    <td align="center" width="20%"><img src="image/logo.png" alt="" width="60" height="60"></td>
     <td align="left" valign="middle" width="40%">FEDERATION TUNISIENNE DE WUSHU KUNG FU</td>
   </tr>
 </table>

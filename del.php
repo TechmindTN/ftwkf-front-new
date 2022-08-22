@@ -383,7 +383,7 @@ $totalRows = mysql_num_rows($result11);
 $row11 = mysql_fetch_assoc($result11);
 
 ?>    <tr>
-      <td colspan="9" bgcolor="#00FF66"><div align="center" style="color:#fff"><strong>Garcons (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#00FF66" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
+      <td colspan="9" bgcolor="#00FF00"><div align="center" style="color:#fff"><strong>Garcons (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#00FF66" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
     </tr>
 
 
