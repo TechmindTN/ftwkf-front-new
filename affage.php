@@ -96,6 +96,7 @@ do {?>
 	  <td><div align="center"><?php echo $row['sup'];?></div></td>
 	  <td><div align="center"><?php echo $row['prix'];?></div></td>
 	  <td><div align="center"><?php echo $row['nom'];?></div></td>
+    
       <td><div align="center"><a href ='updage.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
       <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Age??')" href ='delage.php?code<?php echo "=$row[code]";?>'><b>Supprimer</b></a> </div></td>
 	</tr>

@@ -66,7 +66,7 @@ $row1 = mysql_fetch_assoc($result1);
 
 <form name="stat" method="post" action="">
 <table><tr>
-              <td>Age</td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
+              <td>Poid</td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
         <option><?php echo $cat1;?> </option>
                       <?php
 					   do { 
@@ -91,11 +91,12 @@ $row1 = mysql_fetch_assoc($result1);
  
  
       <?PHP // } 
-
-$query ="SELECT * FROM param where cat = '$cat1' order by sexe, ordre";
+$row=null;
+if ($cat1<>""){$query ="SELECT * FROM param where cat = '$cat1' order by sexe, ordre";
 $result = mysql_query($query,$connexion);
 $totalRows = mysql_num_rows($result);
-$row = mysql_fetch_assoc($result);
+$row = mysql_fetch_assoc($result);}
+$i=0;
 ?>       
 <br>
 </div>
@@ -113,10 +114,12 @@ $row = mysql_fetch_assoc($result);
 	</tr>
                       </thead>
                       <tbody>
-<?php
 
 
-do {?>
+
+<?php do {
+  
+  ?>
 
 	<tr>
 	  <td><div align="center"><?php echo $row['cat'];?></div></td>
@@ -127,8 +130,10 @@ do {?>
       <td><div align="center"><a href ='updparam.php?code<?php echo "=$row[id]";?>'><b>Modifier</b></a> </div>
       <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Poids??')" href ='delparam.php?code<?php echo "=$row[id]";?>'><b>Supprimer</b></a> </div></td>
 	</tr>
-<?php					}while	 ($row=mysql_fetch_assoc($result)); 
-
+  <?php		
+$i++;		
+	// }while	 (($row=mysql_fetch_assoc($result))); 
+}while($i<count($row))
 
 ?> 
 </tbody>

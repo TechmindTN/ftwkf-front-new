@@ -19,13 +19,6 @@ window.location.href="index.html";
 <TITLE>Un document bilingue</TITLE>
 </HEAD>
 <BODY>
-<style type="text/css">
-<!--
-body {
-	background-image:  url(../sigle1.gif);
-}
--->
-</style></head>
 
 <body>
 <?php
@@ -37,22 +30,23 @@ $datefin = $_POST['datefin'];
 $id = $_POST['cod'];
 
 
-if ($id == 0) {
-$query = "INSERT INTO `saison` (`saison`,`datedebut`, `datefin`) VALUES ('$saison', '$datedebut','$datefin')";
+// if ($id == 0) {
+// $query = "INSERT INTO `saison` (`saison`,`datedebut`, `datefin`) VALUES ('$saison', '$datedebut','$datefin')";
 
-$nom = "./photoeng/".$saison; // Le nom du répertoire à créer
-    if (is_dir($nom)) {}
-    else { mkdir($nom);}
-$nom = "./photobor/".$saison; // Le nom du répertoire à créer
-    if (is_dir($nom)) {}
-    else { mkdir($nom);}
+// $nom = "./photoeng/".$saison; // Le nom du répertoire à créer
+//     // if (is_dir($nom)) {}
+//     // else { mkdir($nom);}
+// $nom = "./photobor/".$saison; // Le nom du répertoire à créer
+//     // if (is_dir($nom)) {}
+//     // else { mkdir($nom);}
 	
-	}
+// 	}
 
 
-else 
-{
-$query = "update `saison` set `saison`='$saison',`datedebut`='$datedebut', `datefin`='$datefin' WHERE code = '$id'";}
+// else 
+// {
+$query = "update `saison` set `saison`='$saison',`datedebut`='$datedebut', `datefin`='$datefin' WHERE code = '$id'";
+// }
 
 
 $result = mysql_query($query,$connexion);

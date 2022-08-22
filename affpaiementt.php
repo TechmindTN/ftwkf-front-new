@@ -64,13 +64,14 @@ window.location.href="index.html";
 <?php 
 ?>
 <?php 
-
-if (($club <> "ADMIN")AND($club <> "Admin")AND($club <> "admin")){
-$query ="SELECT * FROM paiement where club = '$club' and saison = '$saison' and etat = 0";
-}else{
+$saison = "";
+if (isset($_POST['saison'])) {$saison = (get_magic_quotes_gpc()) ? $_POST['saison'] : addslashes($_POST['saison']);}
+$row=null;
+{
 $query ="SELECT * FROM paiement where saison = '$saison' and etat = 0";}
 $result = mysql_query($query,$connexion);
 $row = mysql_fetch_assoc($result);
+$i=0;
 ?>
 <div class="card-body">
 <div class="table-responsive">
@@ -85,6 +86,7 @@ $row = mysql_fetch_assoc($result);
 	</tr></thead>
 <?php
 do {
+  $i++;		
 
 ?>
 <tbody>
@@ -94,15 +96,17 @@ do {
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['montant'];?></div></td>
 	  <td><div align="center"><?php echo $row['date'];?></div></td>
-      <td><img src="./decharge<?php echo $row['id']. '.jpg';?>?<?php echo time(); ?>" width="33" height="50"  ></td>
-      <td><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer cet paiement??')"><img src="sup.png" width="16" height="16"></a>
+      
+<td><img src="./decharge<?php echo $row['id']. '.jpg';?>?<?php echo time(); ?>" width="33" height="50"  ></td>
+      <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer cet paiement??')">Supprimer</a><br>
       <a href ='valpai.php?code<?php echo "=$row[id]";?>'>Valider</a>
         
         </td>
 
   </tr></tbody>
-<?php					}while	 ($row=mysql_fetch_assoc($result)); 
-
+<?php		
+	// }while	 (($row=mysql_fetch_assoc($result))); 
+}while($i<count($row))
 
 ?> 
 </table></div></div>

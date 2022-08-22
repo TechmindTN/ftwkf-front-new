@@ -171,12 +171,13 @@ $rows = mysql_fetch_assoc($results);
                                         </thead>
 
 <?php
-if ($saison<>""){$query ="SELECT * FROM clubb where club like '%$club1%' and saison like '%$saison%' and ligue like '%$ligue%' ";}
-if ($saison==""){$query ="SELECT * FROM clubb order club";}
+$row=null;
+if ($saison<>""){$query ="SELECT * FROM clubb where club like '%$club1%' and saison like '%$saison%' and ligue like '%$ligue%' ";
+// else if ($saison==""){$query ="SELECT * FROM clubb order club";}
 
 $result = mysql_query($query,$connexion);
-$row = mysql_fetch_assoc($result);
-
+$row = mysql_fetch_assoc($result);}
+$i=0;
 do {?>
 	<tr>
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
@@ -185,8 +186,10 @@ do {?>
     
     
    </tr>
-<?php					}while	 (($row=mysql_fetch_assoc($result))); 
-
+<?php		
+$i++;		
+	// }while	 (($row=mysql_fetch_assoc($result))); 
+}while($i<count($row))
 
 ?> 
 </table>
