@@ -95,10 +95,13 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
                                             <th>Saison</th>
                                             <th>Date début</th>                                            
                                             <th>date fin</th>
-                                            <th>code</th>                                            
-                                            <th>Actif</th>
+                                            <th>Saison Actif</th>                                            
+                                            <?php
+if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
+?>                                          <th>Actif</th>
+
                                             <th>Actions</th>                                       
-                                            
+                          <?php } ?>                  
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -113,10 +116,14 @@ do {?>
 	  <td><?php echo $row['datedebut'];?></td>
 	  <td><?php echo $row['datefin'];?></td>
 	  <td><?php echo $row['actif'];?></td>
-      <td><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b>Actif</b></a></td>
+      <?php
+if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
+?>  <td><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b>Actif</b></a></td>
       <td><div align="center"><a href ='updsaison.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
       <div align="center"><a onclick="return confirm('Vous etes sure de supprimer cette saison??')" href ='delsaison.php?code<?php echo "=$row[code]";?>'><b>Supprimer</b></a></div></td>
-   </tr>
+  
+  <?php } ?>
+    </tr>
 <?php					}while	 ($row=mysql_fetch_assoc($result)); 
 
 
