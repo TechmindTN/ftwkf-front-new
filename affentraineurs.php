@@ -326,7 +326,7 @@ $row001 = mysql_fetch_assoc($result001);
 
  </div>
  <div class="card-body">
-                            <div class="table-responsive">
+  <div class="table-responsive">
 <table class="table table-bordered"  width="100%" id="dataTable">
  <thead><tr>
 	    <td ><div align="center"><strong>Saison </strong> </div> </td>

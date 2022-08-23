@@ -343,47 +343,40 @@ document.forms[0].submit();
 <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Ajout de Staff</h1>
                             </div> 
-  <form action="addentraineur.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()">
-  <div class="form-group row">
+                            <form action="addentraineur.php" method="post" enctype="multipart/form-data" name="MForm" >
+  
+           
+<div class="form-group row">
+
 <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Nom :   </label>
-                                      <input name="nom" type="text" id="nom" tabindex="1" size="25" value ="" class="form-control form-control-user"   >
-                                    </div>
-                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Prénom : </label>
-                                    <input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="" class="form-control form-control-user"  >
-                                    </div>
-                                
-                               
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Sexe</label>
-                                      <select name="sexe" size="1" id="sexe" tabindex="13" class="custom-select">
-        <option>--</option>        <option>ذكر</option>
+<label>Nom</label>
+    <input name="nom" type="text" id="nom" tabindex="1" size="25" class="form-control">
+  </div> 
+<div class="col-sm-4 mb-3 mb-sm-2">
+  <label>Prénom</label>
+  <input name="prenom" type="text" id="prenom" tabindex="2" size="25" class="form-control" >
+</div>  
+<div class="col-sm-4 mb-1 mb-sm-0">
+<label>Sexe</label>
+      <select name="sexe" size="1" id="sexe" tabindex="13" class="custom-select">
+        <option> </option>        <option>ذكر</option>
         <option>أنثى</option>
-</select>                                    </div>
-                                  
-                                </div>
-                                <div class="form-group row">
-<div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Discipline :   </label>
-                                      <select name="sport" size="1" id="sport" tabindex="6" class="custom-select">
-        <option>--</option>        <option></option>
-        <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>                                    </div>
-                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Degre : </label>
-                                    <select name="degre" size="1" id="degre" tabindex="9" class="custom-select">
-        <option>-- </option>
-        <option>مدرب فدرالي</option>
-        <option>درجة اولى</option>
-        <option>درجة ثانية</option>
-        <option>درجة ثالثه</option>
-      </select>                                    </div>
-                                
-                               
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Grade</label>
-                                      <select name="grade" size="1" id="grade" tabindex="12" class="custom-select">
-        <option> --</option>       
+</select>
+  </div>			
+  
+</div>
+<div class="form-group row">
+
+	<div class="col-sm-4 mb-3 mb-sm-0">
+	<label>Discipline</label>
+     <select name="sport" size="1" id="sport" tabindex="6" class="custom-select">
+        <option></option>        <option></option>
+        <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>
+    </div> 
+	<div class="col-sm-4 mb-3 mb-sm-2">
+    <label>Grade</label>	      
+    <select name="grade" size="1" id="grade" tabindex="12" class="custom-select">
+                <option>-</option>
        <option>أسود درجة أولى</option>
        <option>أسود درجة ثانية</option>
        <option>أسود درجة ثالثة</option>
@@ -391,56 +384,77 @@ document.forms[0].submit();
        <option>أسود درجة خامسة</option>
        <option>أسود درجة سادسة</option>
        <option>أسود درجة سابعة</option>
-      </select>      </div>
-                                  
-                                </div>
-                                <div class="form-group row">
-<div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Grade Arbitrage :   </label>
-                                      <select name="gradear" size="1" id="degre2" tabindex="9"class="custom-select" >
-        <option>--</option>
+</select>
+	</div>  
+	<div class="col-sm-4 mb-1 mb-sm-0">
+  <label>Degre</label>
+   <select name="degre" size="1" id="degre" tabindex="9" class="custom-select">
+        <option>-</option>
+        <option>مدرب فدرالي</option>
         <option>درجة اولى</option>
         <option>درجة ثانية</option>
         <option>درجة ثالثه</option>
-         <option>جهوي</option>
-       <option>مغاربي</option>
+      </select>
+    </div>			
+	  
+</div>
+<div class="form-group row">
+
+	<div class="col-sm-4 mb-3 mb-sm-0">
+	<label>Grade Arbitrage</label>
+
+    <select name="gradear" size="1" id="degre2" tabindex="9" class="custom-select">
+        <option>-</option>
+        <option>درجة اولى</option>
+        <option>درجة ثانية</option>
+        <option>درجة ثالثه</option>
+        <option>جهوي</option>
+        <option>مغاربي</option>
         <option>قاري</option>
         <option>إفريقي</option>
         <option>دولي</option>
-      </select>                                    </div>
-                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Type : </label>
-                                    <select name="type" size="1" id="type" tabindex="9" class="custom-select">
-        <option>--</option>
+      </select>
+
+    </div> 
+	<div class="col-sm-4 mb-3 mb-sm-2">
+    <label>Type</label>
+<select name="type" size="1" id="type" tabindex="14" class="custom-select">
+        <option> </option>
         <option>مسير</option>
         <option>ممرن</option>
         <option>مدرب فدرالي</option>
         <option>مرافق</option>
-      </select>                                    </div>
-                                
-                               
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Date Naissance :</label>
-                                      <input name="naiss" type="date" id="naiss" tabindex="1" size="15" value="<?php echo $row['naiss'];?>" class="form-control form-control-user">                    </div>
-                                  
-                                </div> 
-                                <div class="form-group row">
-<div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >CIN  :   </label>
-                                      <input name="cin" type="text" id="nom2" tabindex="1" size="25" value =""  class="form-control form-control-user">                                </div>
-                                    <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Photo : </label>
-                                    <input name="photo" type="file" id="photo" size="1" tabindex="15" class="form-control-file">
-                                  </div>
-                                
-                               
-                                    <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Diplome  :</label>
-                                      <input name="photo2" type="file" id="diplome" size="1" tabindex="15" class="form-control-file">                    </div>
-                                  
-                                </div> 
+      </select>
+	</div>  
+	<div class="col-sm-4 mb-1 mb-sm-0">
+  <label>Date Naissance</label>
+      <input name="naiss" type="date" id="naiss" tabindex="1" size="15" class="form-control">
+</div>	
+	  
+</div>
+<div class="form-group row">
 
+	<div class="col-sm-4 mb-3 mb-sm-0">
+	<label>CIN</label>
 
+  <input name="cin" type="text" id="nom2" tabindex="1" size="25" class="form-control">
+    
+    </div> 
+	<div class="col-sm-4 mb-3 mb-sm-2">
+    <label>Photo</label>
+   <input name="photo" type="file" id="photo" size="1" tabindex="15"class="custom-file">
+
+	</div>  
+	<div class="col-sm-4 mb-1 mb-sm-0">
+  <label>Diplome</label>
+     <input name="diplome" type="file" id="diplome" size="1" tabindex="15"class="custom-file">
+    </div>			
+	  
+</div>             
+      
+   
+<table width="100%" border="0">
+    </table>
 <p align="center">
       <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
   </p>
