@@ -362,9 +362,9 @@ $result2 = mysql_query($query2,$connexion);
 $row2 = mysql_fetch_row($result2);
 $montantpaye = $row2[0];
 
-//$result3 = mysql_query($query3,$connexion);
-//$row3 = mysql_fetch_row($result3);
-//$montanttotal = $row3[0];
+// $result3 = mysql_query($query3,$connexion);
+// $row3 = mysql_fetch_row($result3);
+// $montanttotal = $row3[0];
 
 //$reste = $montanttotal - $montantpaye;
 $result = mysql_query($query,$connexion);
@@ -420,7 +420,7 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 	  <th>Total</th>
 </tr></thead>
 <?php 
-$query0 ="select club, ligue from athletest group by club, ligue order by ligue, club";
+$query0 ="SELECT club, ligue from athletest group by club, ligue order by ligue, club";
 $result0 = mysql_query($query0,$connexion);
 $row0 = mysql_fetch_assoc($result0);
 
@@ -431,7 +431,7 @@ $club0 = $row0['club'];
 $ligue0 = $row0['ligue'];
 $tprix = 0;
 $total = 0;
-$query00 ="select saison from athletest where club = '$club0' group by saison order by saison";
+$query00 ="SELECT saison from athletest where club = '$club0' group by saison order by saison";
 $result00 = mysql_query($query00,$connexion);
 $row00 = mysql_fetch_assoc($result00);
 $totalsais = mysql_num_rows($result00) ;
@@ -534,7 +534,7 @@ do {
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['montant'];?></div></td>
 	  <td><div align="center"><?php echo $row['date'];?></div></td>
-	  <td><div align="center"><?php echo $row['recu'];?></div></td>
+	  <td><div align="center">Aucun recu</div></td>
       <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer paiement?')" >Supprimer</a>
         
         </td>
