@@ -40,22 +40,26 @@ var mydata = <?php echo json_encode($mydata); ?>;
 <div class="sidebar-brand-icon "><hr>
 <img src="image/logo.png" alt="" width="100" >
 </div>
-<li class="nav-item">
+
+<li id="adminhisto" class="nav-item">
 <a class="nav-link" href="affarchive.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Historique</span></a>
 </li>
-<li class="nav-item">
+<li id="adminsaison" class="nav-item">
 <a class="nav-link" href="affsaison.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Saison</span></a>
 </li>
+<li id="filler">&nbsp</li>
+<li id="filler2">&nbsp</li>
+
 <li class="nav-item">
 <a class="nav-link" href="affprogramme.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Competitions</span></a>
 </li>
-<li class="nav-item">
+<li id="admincat" class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnes"
 aria-expanded="true" aria-controls="collapseTwo">
 <i class="fas fa-fw fa-user"></i>
@@ -68,7 +72,7 @@ aria-expanded="true" aria-controls="collapseTwo">
 </div>
 </div>
 </li>
-<li class="nav-item">
+<li id="adminph" class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
 aria-expanded="true" aria-controls="collapseTwo">
 <i class="fas fa-fw fa-user"></i>
@@ -114,10 +118,11 @@ aria-expanded="true" aria-controls="collapseTwo">
 </li>
 
 
-<li class="nav-item">
+<li id="adminclub" class="nav-item">
 <a class="nav-link collapsed" href="# " data-toggle="collapse" data-target="#collapseUtilities"
 aria-expanded="true" aria-controls="collapseUtilities">
 <i class="fas fa-fw fa-wrench"></i>
+
 <span>Clubs</span>
 </a>
 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -190,4 +195,33 @@ aria-expanded="true" aria-controls="collapsePages">
  <script src="assets/js/demo/chart-pie-demo.js"></script>`;
 
 
+
+
+
  document.getElementById('side').innerHTML=side;
+//  alert("current");
+ console.log("current club  ");
+ currentClub=document.getElementById('currentClub').innerText;
+ console.log("current club  "+currentClub);
+ if((currentClub != "ADMIN")&&(currentClub != "Admin")&&(currentClub != "admin")){
+    document.getElementById('adminclub').style.display="none";
+    document.getElementById('adminhisto').style.display="none";
+    document.getElementById('adminsaison').style.display="none";
+    document.getElementById('admincat').style.display="none";
+    document.getElementById('adminph').style.display="none";
+    document.getElementById('filler').style.display="block";
+    document.getElementById('filler2').style.display="block";
+
+
+ }
+ else{
+    document.getElementById('adminclub').style.display="block";
+    document.getElementById('adminhisto').style.display="block";
+    document.getElementById('adminsaison').style.display="block";
+    document.getElementById('admincat').style.display="block";
+    document.getElementById('adminph').style.display="block";
+    document.getElementById('filler').style.display="none";
+    document.getElementById('filler2').style.display="none";
+
+
+ }
