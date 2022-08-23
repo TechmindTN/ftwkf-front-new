@@ -123,7 +123,7 @@ $row = mysql_fetch_assoc($result);
  <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <label>Age</label>
-                                        <select name="age" size="1" id="sport" tabindex="6" class="custom-select">
+                                        <select name="cat" size="1" id="cat" tabindex="6" class="custom-select">
                         <option>Choisir age</option>
                       <?php
 					   do { 

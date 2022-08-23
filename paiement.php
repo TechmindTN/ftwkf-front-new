@@ -136,7 +136,7 @@ $row2 = mysql_fetch_assoc($result2);
                          
  <form action="addpaiement.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()">
  <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+ <div class="col-sm-4 mb-3 mb-sm-0">
                                         <label>Saison</label>
                                         <select name="saison" size="1" id="saison" tabindex="12"  class="custom-select" required>
         <option></option>
@@ -147,8 +147,19 @@ $row2 = mysql_fetch_assoc($result2);
                        } while ($row2 = mysql_fetch_assoc($result2));
 ?>
      </select>
+                                    </div><div class="col-sm-4 mb-3 mb-sm-0">
+                                        <label>Club</label>
+                                        <select name="club" size="1" id="club" tabindex="12"  class="custom-select" required>
+        <option></option>
+                       <?php
+					   do { 
+                                     $res2=$row1['club'];
+                                      echo "<option >$res2</option>";
+                       } while ($row1 = mysql_fetch_assoc($result1));
+?>
+     </select>
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
                                     <label>Montant</label>
                                     <input name="montant" type="text" id="montant" tabindex="10" size="25" class="form-control "  placeholder="Saisir Montant" required>
                                        
