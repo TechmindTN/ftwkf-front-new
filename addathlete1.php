@@ -46,7 +46,6 @@ body {
 <?php
 
 include('connect.php');
-
 $query1 ="SELECT club from clubb group by club order by club";	 
 $result1 = mysql_query($query1,$connexion);
 $row1 = mysql_fetch_assoc($result1);
@@ -61,7 +60,7 @@ $rows = mysql_fetch_assoc($results);
 
 $dat1 = date("Y/m/d H:i:s") ;
 
-$saison = $_POST['saison'];
+ $saison = $_POST['saison'];
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $sexe = $_POST['sexe'];
@@ -204,7 +203,7 @@ else
   </p>
 </form>
 <div align="center" class="style2">الرجاء ملئ جمعية البيانات</div>
-	
+<!-- 	
 	<?php 
 	
 	if (($extension <> ".jpg") and ($extension <> ".JPG")){echo "Format d'Image Invalide";?> <br> <?php }
@@ -216,7 +215,7 @@ else
 	if ($sport == ''){echo "Please choose a Sport";?> <br> <?php }
 
 	}
-?>
+?> -->
 
 </body>
 </html>

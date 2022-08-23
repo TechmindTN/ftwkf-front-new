@@ -22,31 +22,31 @@ window.location.href="index.html";
 
 <body>
 <?php
-$id = 0;
 	include('connect.php');
 $saison = $_POST['saison'];
 $datedebut = $_POST['datedebut'];
 $datefin = $_POST['datefin'];
-$id = $_POST['cod'];
+if (isset($_POST['id'])) { $id = (get_magic_quotes_gpc()) ? $_POST['id'] : addslashes($_POST['id']);}
+else {$id = 0;}
 
 
-// if ($id == 0) {
-// $query = "INSERT INTO `saison` (`saison`,`datedebut`, `datefin`) VALUES ('$saison', '$datedebut','$datefin')";
+if ($id == 0) {
+$query = "INSERT INTO `saison` (`saison`,`datedebut`, `datefin`) VALUES ('$saison', '$datedebut','$datefin')";
 
-// $nom = "./photoeng/".$saison; // Le nom du répertoire à créer
-//     // if (is_dir($nom)) {}
-//     // else { mkdir($nom);}
-// $nom = "./photobor/".$saison; // Le nom du répertoire à créer
-//     // if (is_dir($nom)) {}
-//     // else { mkdir($nom);}
+$nom = "./photoeng/".$saison; // Le nom du répertoire à créer
+    // if (is_dir($nom)) {}
+    // else { mkdir($nom);}
+$nom = "./photobor/".$saison; // Le nom du répertoire à créer
+    // if (is_dir($nom)) {}
+    // else { mkdir($nom);}
 	
-// 	}
+	}
 
 
-// else 
-// {
+else 
+{
 $query = "update `saison` set `saison`='$saison',`datedebut`='$datedebut', `datefin`='$datefin' WHERE code = '$id'";
-// }
+}
 
 
 $result = mysql_query($query,$connexion);

@@ -14,3 +14,4 @@ mysql_select_db(DB,$connexion) or die("erreur de la connexion a la BD");
 mysql_query("SET NAMES 'UTF8' ");
 ?>
 
+

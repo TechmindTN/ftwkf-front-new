@@ -16,14 +16,6 @@ window.location.href="index.html";
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Un document bilingue</TITLE>
 </HEAD>
-<BODY>
-<style type="text/css">
-<!--
-body {
-	background-image:  url(../sigle1.gif);
-}
--->
-</style></head>
 
 <body>
 <?php
@@ -61,8 +53,8 @@ $result1 = mysql_query($query1,$connexion);
 
 }
 
-
 $result = mysql_query($query,$connexion);
+
 ?>
 <script type="text/javascript">
 window.location.href="affclub.php";
