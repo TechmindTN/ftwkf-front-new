@@ -56,8 +56,15 @@ window.location.href="index.html";
                     <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
                     <div align="center" class="h3 mb-2 text-gray-800">Entraineurs</div>
 
-<p ><a href="entraineur.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Ajout</a></p>
+<a href="entraineur.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Ajout</a>
+                                <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
+     
+     <a href ='listee.php' class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i>  Exporter</a>     
+          <a href ='stat.php' class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
+                                class="fas fa-chart-line fa-sm text-white-50"></i> Statistique</a>
+        <?PHP  } ?> 
 
 <?php 
 	   	include('connect.php');
@@ -109,11 +116,7 @@ $row001 = mysql_fetch_assoc($result001);
 
           </form>
 </div>
- <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
-     
-     <!--   <div align="center"><a href ='listee.php'><b>Exporter</b></a>     </div>    
-        <div align="center"><a href ='stat.php'><b>Statistique</b></a></div>-->
-      <?PHP  } ?>       
+      
 
       <div class="card-body">
                             <div class="table-responsive">

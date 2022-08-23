@@ -13,30 +13,25 @@ window.location.href="index.html";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="rtl">
+<HTML lang="ar" dir="ltr">
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>Un document bilingue</TITLE>
+<TITLE>Statistiques entraineur</TITLE>
+<link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<style>
+.ml-1 {
+  margin-left: 20% !important;
+}</style>
 </HEAD>
-<style>
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.Style1 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
-.style2 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
--->
-</style><BODY>
+<BODY>
 
 <?php
 	   	include('connect.php');
@@ -62,17 +57,38 @@ if (isset($_POST['crit'])) {
 }
 
 ?>
+<BODY id="page-top">
+<div id="wrapper">
+<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+            <!-- Sidebar -->
+            <div id='side'></div></div>
+            <div id="content-wrapper" class="d-flex flex-column ">
+
+<div id="content" class="ml-1">
+<div class="container-fluid">
+<div class="card shadow mb-4">
+<div class="mb-4 ">
+<div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
+<h1 class="h3 mb-2 text-gray-800">Statistiques </h1>
+                       
+                                 
+                        </div>
     <form name="stat" method="post" action="">
-<table width="100%" border="0" align="center"  class="text">
-      <tr>
-        <td align="center"><select name="crit" size="1" id="Discipline" tabindex="9">
+
+	<div class="form-group row"><div class="col-sm-1 mb-3 mb-sm-0"></div>
+	<div class="col-sm-3 mb-3 mb-sm-0">
+	<label>Critère</label>
+		<select name="crit" size="1" id="Discipline" tabindex="9" class="custom-select">
           <option><?php echo $crit;?></option>
           <option></option>
           <option>جهات</option>
           <option>نوادي</option>
-        </select></td>
-         <td align="center">Critère</td>
-        <td align="center"><select name="saison" size="1" id="saison" tabindex="9">
+        </select>
+</div> 
+				 <div class="col-sm-3 mb-3 mb-sm-2">
+                               
+				 <label>Saison</label>
+		<select name="saison" size="1" id="saison" tabindex="9" class="custom-select">
           <option><?php echo $saison;?></option>
           <?php
 					   do { 
@@ -80,14 +96,20 @@ if (isset($_POST['crit'])) {
                                       echo "<option >$res</option>";
                        } while ($row = mysql_fetch_assoc($result));
 ?>
-        </select></td>
-        <td align="center">Saison</td>
-      </tr>
-      <tr>
-        <td colspan="8" align="center"><input name="ok" type="submit" class="Style4" value = "Rechercher"></td>
-      </tr>
+        </select>
+					
+								</div>  
+								<div class="col-sm-1 mb-1 mb-sm-0"><br>
+								<input name="ok" type="submit" class="btn btn-primary" value = "Rechercher">
+      </div>			<div class="col-sm-2 mb-1 mb-sm-0"><br>
+								<input type=button value="Imprimer" onClick="window.print()" class="btn btn-warning" >
+      </div>
+</div>
+    
+        
+        
 
-</table>
+     
     </form>
 <?php 
 $query0 ="delete from entraineurt";
@@ -105,12 +127,11 @@ if ($crit == "نوادي"){$critere = "club";}
 
 
 ?>
-<p align="center"><input type=button value="Imprimer" onClick="window.print()"></p>
 <p style="page-break-before:always">
 <table width="100%" border="0">
   <tr>
     <td align="right" valign="middle" width="40%">الجامعة التونسية للوشو كونغ فو</td>
-    <td align="center" width="20%"><img src="image/fond.png" alt="" width="60" height="60"></td>
+    <td align="center" width="20%"><img src="image/logo.png" alt="" width="60" height="60"></td>
     <td align="left" valign="middle" width="40%">FEDERATION TUNISIENNE DE WUSHU KUNG FU</td>
   </tr>
 </table>
@@ -119,16 +140,20 @@ if ($crit == "نوادي"){$critere = "club";}
   
 <div align="center" class="style2">الإحصائيات</div><br>
 <div align="center"><?php echo $saison;?></div></p>
-<table border="1" width="100%" id="table1">
-	<tr>
-	    <td ><div align="center"><strong>الموسم</strong></div></td>
-	    <td ><div align="center"><strong>/النادي</strong></div></td>
-	    <td ><div align="center"><strong>ممرنين</strong></div></td>
-	    <td ><div align="center"><strong>منشطين</strong></div></td>
-	    <td ><div align="center"><strong>حكام</strong></div></td>
-	    <td ><div align="center"><strong>مسيرين</strong></div></td>
-	    <td ><div align="center"><strong>مرافقين</strong></div></td>
-	    <td ><div align="center"><strong>المجموع العام</strong></div></td>
+<div class="card-body">
+
+
+<div class="table-responsive">
+<table class="table " id="dataTable"  border="1">
+	<tr class="text-center">
+	    <th ><strong>الموسم</strong></td>
+	    <td ><strong>/النادي</strong></td>
+	    <td ><strong>ممرنين</strong></td>
+	    <td ><strong>منشطين</strong></td>
+	    <td ><strong>حكام</strongv></td>
+	    <td ><strong>مسيرين</strong></td>
+	    <td ><strong>مرافقين</strong></td>
+	    <td ><strong>المجموع العام</strong></td>
 	</tr>
 <?php 
 
@@ -285,13 +310,26 @@ $nb = mysql_num_rows($result);
 
 
 
-</table>
+</table></div></div>
 <?php 
 ?>
-<p style="page-break-before:always">
-<p align="center"><input type=button value="Imprimer" onClick="window.print()"></p>
-<p align="center">&nbsp;</p>
 
+<!-- Bootstrap core JavaScript-->
+<script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="assets/js/demo/datatables-demo.js"></script>
+    <script src="template.js"></script>
 </body>
 
 </html>
