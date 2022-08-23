@@ -71,7 +71,11 @@ $row01 = mysql_fetch_row($result01);
 
     if (($club=="admin")or($club=="ADMIN")or($club=="Admin") or ($club == "CENTRE")or($club == "Centre")or($club == "centre") or ($club == "NORD")or($club == "Nord")or($club == "nord") or ($club == "SUD")or($club == "Sud")or($club == "sud")) {
 	?>
-   <!--<a href ='liste.php'><b>Exporter</b></a>-->
+   <a href ='liste.php' class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i>Exporter</a>
+ 
+<a href="rechathlete.php?club<?php echo "=$club";?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Renouvellement</a>
+
    
    <?php
 	
@@ -92,7 +96,7 @@ $row1 = mysql_fetch_assoc($result1);
 
                 <table><tr><td> Saison</td> 
    <td><select name="sais" size="1" id="sais" tabindex="9" class="custom-select " onChange="document.stat.submit();">
-        <option><?php echo $saison1;?> </option>
+        <option></option>
                       <?php
 					   do { 
                                      $res=$row01['saison'];
@@ -100,7 +104,7 @@ $row1 = mysql_fetch_assoc($result1);
                        } while ($row01 = mysql_fetch_assoc($result01));
 ?>
       </select></td><td>Club </td><td><select class="custom-select " name="club" size="1" id="club" tabindex="9">
-        <option><?php echo $club1;?> </option>
+        <option></option>
                       <?php
 					   do { 
                                      $res=$row1['club'];

@@ -14,9 +14,12 @@ window.location.href="index.html";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="ltr">
 <HEAD>
-  
+<style>
+.ml-1 {
+  margin-left:10.5% !important;
+}</style>
   <!-- Custom fonts for this template -->
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -29,55 +32,24 @@ window.location.href="index.html";
     <!-- Custom styles for this page -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style type="text/css">
-.test {
-	font-size: 24px;
-	font-family: "Times New Roman", Times, serif;
-	color: #F00;
-	text-align: center;
-}
-.h {
-	color: #0F6;
-}
-.j {
-	color: #0F9;
-}
-.bleu {
-	color: #0000A0;
-}
-</style>
+
 </HEAD>
 <script language="javascript" type="text/javascript">
 // You can place JavaScript like this
 </script>
-<body>
+<body id="page-top">
 <div id="wrapper">
-<div id='side'></div>
+<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+            <!-- Sidebar -->
+            <div id='side'></div></div>
+            <div class="container ">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0 ml-1">
+            <div class="row">
+                       
+            <div class="col-lg-12">
+                        <div class="p-5">
 
-<div class="col-xs-1 col-lg-3 col-md-4 col-sm-3 col-xl-2 ">
- </div>
-<style>
-.tit{
-width:400px;
-font-size:18px;
-text-align:left;
-font-weight:bold; 
-}
-table {
-border: medium solid #000000;
-width: 100%;
-}
-td, th {
-border: thin solid #6495ed;
-width: 10%;
-}
-td a {color:#ffffff;}
-.cel {
-background: #0FF;
-color:#000;
-font-weight:bold;}
-td a:hover {color:#ffffff;}
-</style>
 <?php
 	   	include('connect.php');
 
@@ -87,31 +59,38 @@ $row2 = mysql_fetch_assoc($result2);
 
 
 ?>
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="7" class="text">
-
-        <tr>
-          <td><form name="stat" method="post" action="expliste.php">
-              <table border="0" width="44%"  cellspacing="1" cellpadding="4" class="text" style="BORDER-LEFT: #EEEEEE 7px solid; BORDER-RIGHT: #EEEEEE 7px solid; BORDER-TOP: #EEEEEE 7px solid; BORDER-BOTTOM: #EEEEEE 7px solid">
-    <tr>
-      <td  ><div align="center"><strong>Saison</strong></div></td>
-    </tr>
-                <tr>
-    <td align="center">
-                    <select name="saison" class="head">
+<div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Saison</h1>
+                            </div>
+                            <div class="form-group row">
+                                    <div class="col-sm-2 mb-3 mb-sm-0">
+                                
+                                    </div>
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                        <select name="saison" class="custom-select">
                       <option>-</option>
                       <?php
 					   do { 
                                      $res=$row2['saison'];
                                       echo "<option >$res</option>";
                        } while ($row2 = mysql_fetch_assoc($result2));
-?>    
-    </td>
+?>    </select>
+                                    </div> 
+                                    <div class="col-sm-4 mb-3 mb-sm-0">
+                                    <form name="stat" method="post" action="expliste.php">
+    </tr>
+                <tr>
+   
                 <tr>
                   <td colspan="3" valign="center"><div align="center">
-<input name="ok" type="submit" class="Style4" value="Exporter">
+<input name="ok" type="submit" class="btn btn-primary" value="Exporter">
                   </td>
                 </tr>
               </table>
+          </form>
+                                    </div> 
+                                 
+
           </form></td>
         </tr>
 </table>

@@ -31,7 +31,7 @@ $club5=$row['club'];
 
 $id = "1";
 $qualite = "" ;
-
+$sport= "";
 if (isset($_POST['id'])) {$id = (get_magic_quotes_gpc()) ? $_POST['id'] : addslashes($_POST['id']);}
 if (isset($_POST['comp'])) {  $comp = (get_magic_quotes_gpc()) ? $_POST['comp'] : addslashes($_POST['comp']);}
 if (isset($_POST['sport'])) {  $sport = (get_magic_quotes_gpc()) ? $_POST['sport'] : addslashes($_POST['sport']);}
