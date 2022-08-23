@@ -50,13 +50,14 @@ var mydata = <?php echo json_encode($mydata); ?>;
 <a class="nav-link" href="affsaison.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Saison</span></a>
-<li class="nav-item">
+<li id="filler">&nbsp</li>
+<li id="filler2">&nbsp</li>
+<li id="psd" class="nav-item">
 <a class="nav-link" href="changepw.php">
 <i class="fas fa-fw fa-wrench"></i>
 <span>Modifier mot de pass</span></a>
 </li>
-<li id="filler">&nbsp</li>
-<li id="filler2">&nbsp</li>
+
 
 <li class="nav-item">
 <a class="nav-link" href="affsaison.php">
@@ -214,6 +215,7 @@ aria-expanded="true" aria-controls="collapseTwo">
     document.getElementById('adminph').style.display="none";
     document.getElementById('filler').style.display="block";
     document.getElementById('filler2').style.display="block";
+    document.getElementById('psd').style.display="block";
 
 
  }
@@ -225,6 +227,7 @@ aria-expanded="true" aria-controls="collapseTwo">
     document.getElementById('adminph').style.display="block";
     document.getElementById('filler').style.display="none";
     document.getElementById('filler2').style.display="none";
+    document.getElementById('psd').style.display="none";
 
 
  }
