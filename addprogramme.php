@@ -29,7 +29,7 @@ body {
 
 <body>
 <?php
-	include('connect.php');
+include('connect.php');
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];if (isset($_POST['id'])) { $id = (get_magic_quotes_gpc()) ? $_POST['id'] : addslashes($_POST['id']);}

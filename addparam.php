@@ -35,7 +35,8 @@ body {
 <?php
 include('connect.php');
 
-$id = 0;
+if (isset($_POST['id'])) { $id = (get_magic_quotes_gpc()) ? $_POST['id'] : addslashes($_POST['id']);}
+else {$id = 0;}
 
 
 $type = $_POST['type'];
@@ -43,7 +44,6 @@ $sexe = $_POST['sexe'];
 $age = $_POST['age'];
 $poids = $_POST['poids'];
 $ordre = $_POST['ord'];
-$id = $_POST['id'];
 
 
 if ($id ==0) {
