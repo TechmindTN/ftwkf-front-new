@@ -37,14 +37,9 @@ session_start();
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table>
 <h1 class="h3 mb-2 text-gray-800">Poids </h1>
-<?php
-if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
-?>
-
 <a href="param.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i>Ajout</a></div>
  <?PHP 
-}
 	   	include('connect.php');
 // $sport1 = "";
  $cat1 = "";
@@ -115,11 +110,7 @@ $i=0;
 	  	<th> <div align = "center"> <strong> Sexe </strong> </div> </th>
 		<th> <div align = "center"> <strong> Ordre </strong> </div> </th>
 		<th> <div align = "center"> <strong> Poids </strong> </div> </th>
-    <?php
-if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
-?>
 		<th><div align = "center"> <strong>Actions</strong></div></th>
-    <?php } ?>
 	</tr>
                       </thead>
                       <tbody>
@@ -136,20 +127,12 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 	  <td><div align="center"><?php echo $row['sexe'];?></div></td>
 	  <td><div align="center"><?php echo $row['ordre'];?></div></td>
 	  <td><div align="center"><?php echo $row['poids'];?></div></td>
-    <?php
-if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
-?>
       <td><div align="center"><a href ='updparam.php?code<?php echo "=$row[id]";?>'><b>Modifier</b></a> </div>
       <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Poids??')" href ='delparam.php?code<?php echo "=$row[id]";?>'><b>Supprimer</b></a> </div></td>
+	</tr>
+ <?php		
 	
-  <?php } ?>
-    </tr>
-
-
-  <?php		
-$i++;		
-	// }while	 (($row=mysql_fetch_assoc($result))); 
-}while($i<count($row))
+	 }while	 (($row=mysql_fetch_assoc($result))); 
 
 ?> 
 </tbody>

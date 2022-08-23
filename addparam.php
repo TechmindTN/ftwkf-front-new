@@ -9,27 +9,7 @@ session_start();
 <TITLE>Un document bilingue</TITLE>
 <script language="JavaScript" src="Calendar1-903.js" type="text/javascript"></script>
 </HEAD>
-<BODY>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
-.Style1 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
-.style2 {
-	color: #0000FF;
-	font-weight: bold;
-	font-size: 36px;
-}
--->
-</style></HEAD>
+
 
 <body>
 <?php
@@ -41,7 +21,7 @@ else {$id = 0;}
 
 $type = $_POST['type'];
 $sexe = $_POST['sexe'];
-$age = $_POST['age'];
+$age = $_POST['cat'];
 $poids = $_POST['poids'];
 $ordre = $_POST['ord'];
 
@@ -58,12 +38,12 @@ else {
 $result = mysql_query($query,$connexion);
 
 
+
+
 ?>
 <script type="text/javascript">
 window.location.href="affparam.php";
 </script>
 
-<?php 
-?>
 </body>
 </html>
