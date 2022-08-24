@@ -34,7 +34,7 @@ window.location.href="index.html";
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 </HEAD>
 
-<body>
+<body style="background-color:#fafafa">
 
 
 <div id="wrapper">
@@ -274,11 +274,15 @@ $row2 = mysql_fetch_assoc($result2);
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ">
+
+ <div class="container ">        
             <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0 ml-1">
-            <div class="row">
-                       
+            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Exporter Photos</h1></div>
+           </div>
+            <div class="card-body p-0">
+            <div class="row">    
             <div class="col-lg-12">
                         <div class="p-5">
 
@@ -286,11 +290,11 @@ $row2 = mysql_fetch_assoc($result2);
           <form name="stat" method="post" target="new" action="expphoto.php"   >
           <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Au :   </label>
+                                      <label >De :   </label>
                                       <input name="datau" type="date" id="ord" tabindex="7" size="25" class="form-control form-control-user">
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>De : </label>
+                                    <label>Au : </label>
                                     <input name="datdu" type="date" id="ord" tabindex="7" size="25" class="form-control form-control-user">
                                     </div>
                                 

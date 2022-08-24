@@ -52,7 +52,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 }</style>
 </head>
 
-<body id="page-top">
+<body id="page-top" style="background-color:#fafafa">
+    <?php  session_start(); ?>
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -282,15 +283,19 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 </nav>
 <!-- End of Topbar -->
 <div class="container ">
-            <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0 ml-1">
-            <div class="row">
-                       
-            <div class="col-lg-12">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Club</h1></div>
+           </div>
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
                         <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Ajouter un club</h1>
-                            </div>
+                          
                             <form class="user" action="addclub.php" method="post" enctype="multipart/form-data" name="MForm">
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
