@@ -17,6 +17,15 @@ $club = $_SESSION['club'];
 window.location.href="index.html";;
 </script>
 <?php	 }
+$queryatt1 ="SELECT count(*) FROM athletes ";
+$resultatt1 = mysql_query($queryatt1,$connexion);
+$rowatt1 = mysql_fetch_row($resultatt1);
+$queryatt2 ="SELECT count(*) FROM athletess ";
+$resultatt2 = mysql_query($queryatt2,$connexion);
+$rowatt2 = mysql_fetch_row($resultatt2);
+$queryatt3 ="SELECT count(*) FROM athletedel ";
+$resultatt3 = mysql_query($queryatt3,$connexion);
+$rowatt3 = mysql_fetch_row($resultatt3);
 $query01 ="SELECT saison FROM saison where actif = 1";
 $result01 = mysql_query($query01,$connexion);
 $row01 = mysql_fetch_row($result01);
@@ -494,13 +503,13 @@ $saison = $row01[0];
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Affiliés
+                                            <i class="fas fa-circle text-primary"></i><div id="aff"><?php echo $rowatt1[0] ?> Affiliés</div>
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> En attente
+                                            <i class="fas fa-circle text-success"></i><div id="att"><?php echo $rowatt2[0] ?> En attente</div>
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i>Refusé
+                                            <i class="fas fa-circle text-info"></i><div id="del"><?php echo $rowatt3[0] ?> Refusé</div>
                                         </span>
                                     </div>
                                 </div>
@@ -517,11 +526,7 @@ $saison = $row01[0];
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
+              
             </footer>
             <!-- End of Footer -->
 
