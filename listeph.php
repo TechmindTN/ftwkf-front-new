@@ -274,13 +274,13 @@ $row2 = mysql_fetch_assoc($result2);
 
 </nav>
 <!-- End of Topbar -->
- <div class="container ml-1">        
+<div class="container ">
             <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-            <div class="row">    
+            <div class="card-body p-0 ml-1">
+            <div class="row">
+                       
             <div class="col-lg-12">
-                   
-            <div class="p-5">
+                        <div class="p-5">
 
 
           <form name="stat" method="post" target="new" action="expphoto.php"   >

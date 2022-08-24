@@ -6,16 +6,15 @@
 ************************************************** -->
 <HTML>
 <HEAD>
-<TITLE>Fédération Tunisienne de Judo</TITLE>
-<META NAME="Author" CONTENT="Usager non enregistré">
+<TITLE>Fï¿½dï¿½ration Tunisienne de Judo</TITLE>
+<META NAME="Author" CONTENT="Usager non enregistrï¿½">
 <META NAME="Description" CONTENT="">
 <META NAME="Keywords" CONTENT="">
 </HEAD>
 
-<FRAMESET border =0 COLS="10%,*">
+<FRAMESET border =0 >
  
- <FRAME border =0 NAME="left" SRC="left.htm" target="_self" >
- <FRAME border =0 NAME="maine" SRC="accueil.htm" scrolling=auto target="_self">
+ <FRAME border =0 NAME="maine" SRC="accueil.html" scrolling=auto target="_self">
 <NOFRAMES>
 
 <BODY>

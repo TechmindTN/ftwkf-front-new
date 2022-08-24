@@ -261,7 +261,7 @@ window.location.href="index.html";
 </nav>
 <!-- End of Topbar -->
 <div class="container-fluid">
-<div class="card shadow mb-4">
+<div class="card shadow mb-4 ml-1">
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <h1 class="h3 mb-2 text-gray-800">Statistiques </h1>

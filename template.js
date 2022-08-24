@@ -60,7 +60,7 @@ var mydata = <?php echo json_encode($mydata); ?>;
 
 
 <li class="nav-item">
-<a class="nav-link" href="affsaison.php">
+<a class="nav-link" href="affprogramme.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Competitions</span></a>
 </li>
