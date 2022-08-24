@@ -23,18 +23,7 @@ let side=`
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
-</head>
 
-<?php
-$abc = "Abc";
-$number = 052;
-$mydata = array("val1","val2","val3");
-?>
-<script type="text/javascript">
-var abc = '<?php echo $abc?>';
-var number = '<?php echo $number ?>';
-var mydata = <?php echo json_encode($mydata); ?>;
-</script>
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:fixed; z-index:1">
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil2.php" >
 <div class="sidebar-brand-icon "><hr>
@@ -46,24 +35,30 @@ var mydata = <?php echo json_encode($mydata); ?>;
 <i class="fas fa-fw fa-table"></i>
 <span>Historique</span></a>
 </li>
+<li id="adminclub" class="nav-item">
+<a class="nav-link collapsed" href="# " data-toggle="collapse" data-target="#collapseUtilities"
+aria-expanded="true" aria-controls="collapseUtilities">
+<i class="fas fa-fw fa-wrench"></i>
+
+<span>Clubs</span>
+</a>
+<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+<div class="bg-white py-2 collapse-inner rounded">
+<a class="collapse-item" href="affclub.php">Club</a>
+<a class="collapse-item" href="affclubs.php">Club Saison</a>
+</div>
+</div>
+</li>
 <li id="adminsaison" class="nav-item">
 <a class="nav-link" href="affsaison.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Saison</span></a>
 <li id="filler">&nbsp</li>
 <li id="filler2">&nbsp</li>
-<li id="psd" class="nav-item">
-<a class="nav-link" href="changepw.php">
-<i class="fas fa-fw fa-wrench"></i>
-<span>Modifier mot de pass</span></a>
-</li>
 
 
-<li class="nav-item">
-<a class="nav-link" href="affprogramme.php">
-<i class="fas fa-fw fa-table"></i>
-<span>Competitions</span></a>
-</li>
+
+
 <li id="admincat" class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnes"
 aria-expanded="true" aria-controls="collapseTwo">
@@ -91,36 +86,14 @@ aria-expanded="true" aria-controls="collapseTwo">
 </div>
 </li>
 
-<li class="nav-item">
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-aria-expanded="true" aria-controls="collapseTwo">
-<i class="fas fa-fw fa-user"></i>
-<span>athletes</span>
-</a>
-<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-<div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affathlete.php">Déja affiliés</a>  
- <a class="collapse-item" href="affathletes.php">Demandes</a>
-<a class="collapse-item" href="affathletedel.php">Refusées</a>
-</div>
-</div>
-</li>
 
 
-<li id="adminclub" class="nav-item">
-<a class="nav-link collapsed" href="# " data-toggle="collapse" data-target="#collapseUtilities"
-aria-expanded="true" aria-controls="collapseUtilities">
+<li id="psd" class="nav-item">
+<a class="nav-link" href="changepw.php">
 <i class="fas fa-fw fa-wrench"></i>
-
-<span>Clubs</span>
-</a>
-<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-<div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affclub.php">Club</a>
-<a class="collapse-item" href="affclubs.php">Club Saison</a>
-</div>
-</div>
+<span>Modifier mot de pass</span></a>
 </li>
+
 
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiess"
@@ -153,8 +126,32 @@ aria-expanded="true" aria-controls="collapsePages">
 </div>
 </li>
 
+<li class="nav-item">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+aria-expanded="true" aria-controls="collapseTwo">
+<i class="fas fa-fw fa-user"></i>
+<span>athletes</span>
+</a>
+<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+<div class="bg-white py-2 collapse-inner rounded">
+<a class="collapse-item" href="affathlete.php">Déja affiliés</a>  
+ <a class="collapse-item" href="affathletes.php">Demandes</a>
+<a class="collapse-item" href="affathletedel.php">Refusées</a>
+</div>
+</div>
+</li>
 
 
+<li class="nav-item">
+<a class="nav-link" href="affprogramme.php">
+<i class="fas fa-fw fa-table"></i>
+<span>Competitions</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="affstatistique.php">
+<i class="fas fa-fw fa-chart-area"></i>
+<span>Statistiques</span></a>
+</li>
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
 aria-expanded="true" aria-controls="collapseTwo">
@@ -167,11 +164,6 @@ aria-expanded="true" aria-controls="collapseTwo">
  <a class="collapse-item" href="affpaiementt.php">Paiement a valider    </a>
 </div>
 </div>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="affstatistique.php">
-<i class="fas fa-fw fa-chart-area"></i>
-<span>Statistiques</span></a>
 </li>
 
 
