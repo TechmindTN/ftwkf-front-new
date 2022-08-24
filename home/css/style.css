@@ -63,7 +63,7 @@ h4,
 h5,
 h6 {
      letter-spacing: 0;
-     font-weight: normal;
+     font-weight: small;
      position: relative;
      padding: 0 0 10px 0;
      font-weight: normal;
@@ -305,6 +305,7 @@ button {
 /** banner section **/
 
 .banner_main {
+     background-color: #dff5f587;     
      background-repeat: no-repeat;
      min-height: 900px;
      background-size: 100% 100%;
@@ -329,6 +330,7 @@ button {
 }
 
 .text-bg {
+     color: #02246a;
      text-align: left;
      padding-right: 71px;
 }
@@ -345,6 +347,7 @@ button {
      font-weight: 500;
      padding-bottom: 70px;
      display: block;
+     color: #000;
 }
 
 .text_img {
@@ -419,10 +422,10 @@ button {
 .text-bg a {
      font-size: 17px;
      background-color: transparent;
-     border: #fff solid 2px;
-     color: #fff;
+     border:#02246a solid 1px;
+     color: #02246a;
      font-weight: 500;
-     padding: 14px 0px;
+     padding: 12px 0px;
      width: 100%;
      max-width: 215px;
      text-align: center;
@@ -433,7 +436,7 @@ button {
 
 .text-bg a:hover {
      background-color: #ffca56;
-     color: #fff;
+     color: #02246a;
      transition: ease-in all 0.5s;
 }
 
@@ -446,7 +449,7 @@ button {
 }
 
 .titlepage h2 {
-     font-size: 40px;
+     font-size: 35px;
      color: #02246a;
      line-height: 55px;
      padding: 0;
@@ -947,7 +950,7 @@ ul.social_icon li a:hover {
 .about_us li {
      color: #fff;
      font-size: 17px;
-     text-align: left;
+     text-align: center;
      display: inline-block;
 }
 

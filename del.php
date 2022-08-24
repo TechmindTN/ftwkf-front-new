@@ -100,8 +100,6 @@ $_SESSION['max'] = $max;
 $_SESSION['min'] = $min;
 $_SESSION['qualif'] = $qualif;
 $_SESSION['sais'] = $sais;
-
-
 $query01 ="SELECT saison FROM saison where actif = 1";
 $result01 = mysql_query($query01,$connexion);
 $row01 = mysql_fetch_row($result01);
