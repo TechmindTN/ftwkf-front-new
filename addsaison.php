@@ -26,6 +26,8 @@ window.location.href="index.html";
 $saison = $_POST['saison'];
 $datedebut = $_POST['datedebut'];
 $datefin = $_POST['datefin'];
+$id = $_POST['id'];
+
 if (isset($_POST['id'])) { $id = (get_magic_quotes_gpc()) ? $_POST['id'] : addslashes($_POST['id']);}
 else {$id = 0;}
 
