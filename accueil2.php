@@ -17,7 +17,20 @@ $club = $_SESSION['club'];
 window.location.href="index.html";;
 </script>
 <?php	 }
+if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
+    $queryatt1 ="SELECT count(*) FROM athletes ";
+    $queryatt2 ="SELECT count(*) FROM athletess ";
+    $queryatt3 ="SELECT count(*) FROM athletedel ";
 $querymon='SELECT count(*) as nbr,extract(month from date_saisie) as dat FROM `athletes` as a where date_saisie > (select datedebut from saison as s where actif=1) and date_saisie < (select datefin from saison as s where actif=1) group by Extract(Month from date_saisie) ';
+}
+else{
+
+    $queryatt1 ="SELECT count(*) FROM athletes where club='$club'";
+    $queryatt2 ="SELECT count(*) FROM athletess  where club='$club'";
+    $queryatt3 ="SELECT count(*) FROM athletedel where club='$club'";
+    $querymon='SELECT count(*) as nbr,extract(month from date_saisie) as dat FROM `athletes` as a where club="$club" and date_saisie > (select datedebut from saison as s where actif=1) and date_saisie < (select datefin from saison as s where actif=1) group by Extract(Month from date_saisie) ';
+
+}
 $resultmon=mysql_query($querymon,$connexion);
 $rowmon=mysql_fetch_assoc($resultmon);
 
@@ -48,14 +61,14 @@ do{
     $j++;
 }while($j<count($monthstats));
 
-$queryatt1 ="SELECT count(*) FROM athletes ";
+
 
 $resultatt1 = mysql_query($queryatt1,$connexion);
 $rowatt1 = mysql_fetch_row($resultatt1);
-$queryatt2 ="SELECT count(*) FROM athletess ";
+
 $resultatt2 = mysql_query($queryatt2,$connexion);
 $rowatt2 = mysql_fetch_row($resultatt2);
-$queryatt3 ="SELECT count(*) FROM athletedel ";
+
 $resultatt3 = mysql_query($queryatt3,$connexion);
 $rowatt3 = mysql_fetch_row($resultatt3);
 $query01 ="SELECT saison FROM saison where actif = 1";
