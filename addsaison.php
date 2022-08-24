@@ -26,6 +26,8 @@ window.location.href="index.html";
 $saison = $_POST['saison'];
 $datedebut = $_POST['datedebut'];
 $datefin = $_POST['datefin'];
+
+
 $id = $_POST['cod'];
 
 
