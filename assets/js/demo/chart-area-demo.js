@@ -27,6 +27,22 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   return s.join(dec);
 }
 
+stat1=parseInt(document.getElementById("stat0").innerText);
+stat2=parseInt(document.getElementById("stat1").innerText);
+stat3=parseInt(document.getElementById("stat2").innerText);
+stat4=parseInt(document.getElementById("stat3").innerText);
+stat5=parseInt(document.getElementById("stat4").innerText);
+stat6=parseInt(document.getElementById("stat5").innerText);
+stat7=parseInt(document.getElementById("stat6").innerText);
+stat8=parseInt(document.getElementById("stat7").innerText);
+stat9=parseInt(document.getElementById("stat8").innerText);
+stat10=parseInt(document.getElementById("stat9").innerText);
+stat11=parseInt(document.getElementById("stat10").innerText);
+stat12=parseInt(document.getElementById("stat11").innerText);
+console.log(stat1)
+
+
+
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
@@ -46,7 +62,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 11230, 11245, 13258, 11326, 13260, 13305, 13890, 14000, 14025, 14200, 15570],
+      data: [stat1, stat2, stat3, stat4, stat5, stat6, stat7, stat8, stat9, stat10, stat11, stat12],
     }],
   },
   options: {
