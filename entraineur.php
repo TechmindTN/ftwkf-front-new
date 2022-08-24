@@ -102,7 +102,7 @@ document.forms[0].submit();
 <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 </HEAD>
 
-<BODY>
+<BODY style="background-color:#fafafa">
 
 <div id="wrapper">
 
@@ -333,20 +333,20 @@ document.forms[0].submit();
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ml-1">        
+<div class="container ">        
 <div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Staff</h1></div>
+           </div>
 <div class="card-body p-0">
 <div class="row">    
 <div class="col-lg-12">
        
 <div class="p-5">
-<div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Ajout de Staff</h1>
-                            </div> 
-                            <form action="addentraineur.php" method="post" enctype="multipart/form-data" name="MForm" >
-  
-           
-<div class="form-group row">
+
+  <form action="addentraineur.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()">
+  <div class="form-group row">
 
 <div class="col-sm-4 mb-3 mb-sm-0">
 <label>Nom</label>

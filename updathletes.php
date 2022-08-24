@@ -58,7 +58,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="JavaScript" src="Calendar1-903.js" type="text/javascript"></script></HEAD>
 
-<BODY>
+<BODY style="background-color:#fafafa">
 <?php
 	include('connect.php');
 $code=$_GET['code'];
@@ -306,16 +306,18 @@ $annee= substr("$date_naiss", 0, 4);
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ml-1">        
+<div class="container ">        
 <div class="card o-hidden border-0 shadow-lg my-5">
+<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Athlete</h1></div>
+           </div>
 <div class="card-body p-0">
 <div class="row">    
 <div class="col-lg-12">
        
 <div class="p-5">
-<div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Modification des Athlètes</h1>
-                            </div>
+
 
  <form action="addathletes.php" method="post" enctype="multipart/form-data" name="MForm">
  <div class="form-group row">

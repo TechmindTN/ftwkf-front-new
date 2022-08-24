@@ -93,7 +93,7 @@ document.forms[0].submit();
 }</style>
 </HEAD>
 
-<body id="page-top">
+<body style="background-color: #fafafa" id="page-top">
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -323,6 +323,10 @@ document.forms[0].submit();
 <!-- End of Topbar -->
             <div class="container ">
             <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
+           
+<div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter un poid</h1></div>
+</div>
             <div class="card-body p-0 ml-1">
             <div class="row">
                        
@@ -339,9 +343,7 @@ $row = mysql_fetch_assoc($result);
 
 
 
-  <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Ajouter un poid</h1>
-                            </div>
+
  <form action="addparam.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()" class="user">
  <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">

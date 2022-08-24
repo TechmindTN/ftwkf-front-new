@@ -89,7 +89,7 @@ document.forms[0].submit();
   margin-left: 20% !important;
 }</style>
 </HEAD>
-<BODY  id="page-top">
+<BODY style="background-color:#fafafa"  id="page-top">
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -318,17 +318,19 @@ document.forms[0].submit();
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ml-1">
-<div class="card o-hidden border-0 shadow-lg my-5">
+<div class="container ">
+<div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter un age</h1></div>
+           </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     
                     <div class="col-lg-12">
                         <div class="p-5">
-                        <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Ajouter Age</h1>
-                        </div>
+                       
 
                         <form  class="user" action="addage.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()">
                                 <div class="form-group row">
