@@ -61,13 +61,14 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta name="Keywords" content="Popup Date Picker, Softricks Javascript Calendar" />
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 <style>
+   
 .ml-1 {
   margin-left: 20% !important;
 }</style>
 </HEAD>
 
 
-<body>
+<body style="background-color:#fafafa">
 <div id="wrapper">
 <div class="navbar-nav sidebar sidebar-dark accordion  ">
             <!-- Sidebar -->
@@ -297,9 +298,13 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 </nav>
 <!-- End of Topbar -->
-    <div class="container ml-1">
+    <div class="container ">
 
         <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Competition</h1></div>
+           </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
@@ -321,9 +326,6 @@ if ($row1['qualif'] == 2) { $niveau ="Final Après Eliminatoire";}
 
 ?>
 
-<div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Modifier compétition</h1>
-                            </div>
 <form class="user" action="addprogramme.php" method="post" enctype="multipart/form-data" name="MForm">
 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
