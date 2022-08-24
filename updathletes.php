@@ -58,7 +58,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="JavaScript" src="Calendar1-903.js" type="text/javascript"></script></HEAD>
 
-<BODY style="background-color:#fafafa">
+<BODY style="background-color:#fafafa"  >
 <?php
 	include('connect.php');
 $code=$_GET['code'];
