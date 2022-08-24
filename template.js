@@ -24,16 +24,38 @@ let side=`
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:fixed; z-index:1">
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="accueil2.php" >
-<div class="sidebar-brand-icon "><hr>
-<img src="image/logo.png" alt="" width="100" >
-</div>
-
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:scroll; z-index:1">
+<li  class="nav-item center-text" style="padding-top:15px " ><img src="image/logo.png" class="rounded mx-auto d-block" width="100">
+</li>
 <li id="adminhisto" class="nav-item">
 <a class="nav-link" href="affarchive.php">
 <i class="fas fa-fw fa-table"></i>
 <span>Historique</span></a>
+</li>
+<li id="pw" class="nav-item">
+<a class="nav-link" href="changepw.php">
+<i class="fas fa-fw fa-wrench"></i>
+<span>Modifier mot de pass</span></a>
+</li>
+<li id="adminsaison" class="nav-item">
+<a class="nav-link" href="affsaison.php">
+<i class="fas fa-fw fa-table"></i>
+<span>Saison</span></a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+aria-expanded="true" aria-controls="collapseTwo">
+<i class="fas fa-fw fa-user"></i>
+<span>athletes</span>
+</a>
+<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+<div class="bg-white py-2 collapse-inner rounded">
+<a class="collapse-item" href="affathlete.php">Déja affiliés</a>  
+ <a class="collapse-item" href="affathletes.php">Demandes</a>
+<a class="collapse-item" href="affathletedel.php">Refusées</a>
+</div>
+</div>
 </li>
 <li id="adminclub" class="nav-item">
 <a class="nav-link collapsed" href="# " data-toggle="collapse" data-target="#collapseUtilities"
@@ -49,51 +71,6 @@ aria-expanded="true" aria-controls="collapseUtilities">
 </div>
 </div>
 </li>
-<li id="adminsaison" class="nav-item">
-<a class="nav-link" href="affsaison.php">
-<i class="fas fa-fw fa-table"></i>
-<span>Saison</span></a>
-<li id="filler">&nbsp</li>
-<li id="filler2">&nbsp</li>
-
-
-
-
-<li id="admincat" class="nav-item">
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnes"
-aria-expanded="true" aria-controls="collapseTwo">
-<i class="fas fa-fw fa-user"></i>
-<span>Catégories</span>
-</a>
-<div id="collapseOnes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-<div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affparam.php">Poids</a>  
- <a class="collapse-item" href="affage.php">Age</a>
-</div>
-</div>
-</li>
-<li id="adminph" class="nav-item">
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-aria-expanded="true" aria-controls="collapseTwo">
-<i class="fas fa-fw fa-user"></i>
-<span>Photos</span>
-</a>
-<div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-<div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="listeph.php">Photos</a>  
- <a class="collapse-item" href="listephs.php">Photos Staff</a>
-</div>
-</div>
-</li>
-
-
-
-<li id="psd" class="nav-item">
-<a class="nav-link" href="changepw.php">
-<i class="fas fa-fw fa-wrench"></i>
-<span>Modifier mot de pass</span></a>
-</li>
-
 
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiess"
@@ -126,32 +103,35 @@ aria-expanded="true" aria-controls="collapsePages">
 </div>
 </li>
 
-<li class="nav-item">
-<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+
+<li id="admincat" class="nav-item">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOnes"
 aria-expanded="true" aria-controls="collapseTwo">
 <i class="fas fa-fw fa-user"></i>
-<span>athletes</span>
+<span>Catégories</span>
 </a>
-<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+<div id="collapseOnes" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 <div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affathlete.php">Déja affiliés</a>  
- <a class="collapse-item" href="affathletes.php">Demandes</a>
-<a class="collapse-item" href="affathletedel.php">Refusées</a>
+<a class="collapse-item" href="affparam.php">Poids</a>  
+ <a class="collapse-item" href="affage.php">Age</a>
+</div>
+</div>
+</li>
+<li id="adminph" class="nav-item">
+<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
+aria-expanded="true" aria-controls="collapseTwo">
+<i class="fas fa-fw fa-user"></i>
+<span>Photos</span>
+</a>
+<div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+<div class="bg-white py-2 collapse-inner rounded">
+<a class="collapse-item" href="listeph.php">Photos</a>  
+ <a class="collapse-item" href="listephs.php">Photos Staff</a>
 </div>
 </div>
 </li>
 
 
-<li class="nav-item">
-<a class="nav-link" href="affprogramme.php">
-<i class="fas fa-fw fa-table"></i>
-<span>Competitions</span></a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="affstatistique.php">
-<i class="fas fa-fw fa-chart-area"></i>
-<span>Statistiques</span></a>
-</li>
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
 aria-expanded="true" aria-controls="collapseTwo">
@@ -165,6 +145,24 @@ aria-expanded="true" aria-controls="collapseTwo">
 </div>
 </div>
 </li>
+
+
+
+
+
+
+
+<li class="nav-item">
+<a class="nav-link" href="affprogramme.php">
+<i class="fas fa-fw fa-table"></i>
+<span>Competitions</span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="affstatistique.php">
+<i class="fas fa-fw fa-chart-area"></i>
+<span>Statistiques</span></a>
+</li>
+
 
 
 </ul>

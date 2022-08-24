@@ -319,7 +319,7 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
                                             <th>Saison Actif</th>                                            
                                             <?php
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
-?>                                          <th>Actif</th>
+?>                                       
 
                                             <th>Actions</th>                                       
                           <?php } ?>                  
@@ -336,11 +336,18 @@ do {?>
 	  <td><?php echo $row['saison'];?></td>
 	  <td><?php echo $row['datedebut'];?></td>
 	  <td><?php echo $row['datefin'];?></td>
-	  <td><?php echo $row['actif'];?></td>
+	  <td><?php 
+      
+      $bol= $row['actif'];
+      if($bol =="1"){
+     echo"Activé";
+     }
+      else{ echo"désactivé";}
+      ?>
       <?php
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
-?>  <td><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b>Actif</b></a></td>
-      <td><div align="center"><a href ='updsaison.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
+?>  <td> <div align="center"><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b>Activer</b></a></div>
+      <div align="center"><a href ='updsaison.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
       <div align="center"><a onclick="return confirm('Vous etes sure de supprimer cette saison??')" href ='delsaison.php?code<?php echo "=$row[code]";?>'><b>Supprimer</b></a></div></td>
   
   <?php } ?>
