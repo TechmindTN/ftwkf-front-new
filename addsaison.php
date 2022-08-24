@@ -30,6 +30,7 @@ $id = $_POST['cod'];
 
 
 
+
 if ($id == 0) {
 $query = "INSERT INTO `saison` (`saison`,`datedebut`, `datefin`) VALUES ('$saison', '$datedebut','$datefin')";
 

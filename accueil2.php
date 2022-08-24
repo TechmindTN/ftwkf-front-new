@@ -17,7 +17,39 @@ $club = $_SESSION['club'];
 window.location.href="index.html";;
 </script>
 <?php	 }
+$querymon='SELECT count(*) as nbr,extract(month from date_saisie) as dat FROM `athletes` as a where date_saisie > (select datedebut from saison as s where actif=1) and date_saisie < (select datefin from saison as s where actif=1) group by Extract(Month from date_saisie) ';
+$resultmon=mysql_query($querymon,$connexion);
+$rowmon=mysql_fetch_assoc($resultmon);
+
+$monthstats=[];
+$stats=[];
+$i=1;
+do{
+    if($i!=$rowmon['dat']){
+        array_push($monthstats,$i);
+        array_push($stats,0);
+    }
+    else{
+        array_push($monthstats,$rowmon['dat']);
+        array_push($stats,$rowmon['nbr']);
+        $rowmon = mysql_fetch_assoc($resultmon);
+
+    }
+    
+
+    $i++;
+    
+}while($i<=12);
+$j=0;
+do{
+     ?> <div id="<?php echo "month".$monthstats[$j]?>" style="display:none"><?php echo $monthstats[$j] ?></div>
+     <div id="<?php echo "stat".$j?>" style="display:none"><?php echo $stats[$j] ?></div>
+    <?php 
+    $j++;
+}while($j<count($monthstats));
+
 $queryatt1 ="SELECT count(*) FROM athletes ";
+
 $resultatt1 = mysql_query($queryatt1,$connexion);
 $rowatt1 = mysql_fetch_row($resultatt1);
 $queryatt2 ="SELECT count(*) FROM athletess ";
@@ -449,7 +481,7 @@ $saison = $row01[0];
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Statisques athletes par mois</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Statisques athletes par saison</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
