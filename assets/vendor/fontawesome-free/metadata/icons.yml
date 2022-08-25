@@ -1356,7 +1356,7 @@ bars:
       - navigation
       - ol
       - reorder
-      - settings
+      - Réglages
       - todo
       - ul
   styles:
@@ -4338,7 +4338,7 @@ cog:
     terms:
       - gear
       - mechanical
-      - settings
+      - Réglages
       - sprocket
       - wheel
   styles:
@@ -4354,7 +4354,7 @@ cogs:
     terms:
       - gears
       - mechanical
-      - settings
+      - Réglages
       - sprocket
       - wheel
   styles:
@@ -6248,7 +6248,7 @@ ellipsis-h:
       - navigation
       - ol
       - reorder
-      - settings
+      - Réglages
       - ul
   styles:
     - solid
@@ -6270,7 +6270,7 @@ ellipsis-v:
       - navigation
       - ol
       - reorder
-      - settings
+      - Réglages
       - ul
   styles:
     - solid
@@ -9302,7 +9302,7 @@ hammer:
       - admin
       - fix
       - repair
-      - settings
+      - Réglages
       - tool
   styles:
     - solid
@@ -16004,7 +16004,7 @@ screwdriver:
       - fix
       - mechanic
       - repair
-      - settings
+      - Réglages
       - tool
   styles:
     - solid
@@ -16553,7 +16553,7 @@ sign-out-alt:
       - exit
       - leave
       - log out
-      - logout
+      - Déconnexion
       - sign-out
   styles:
     - solid
@@ -16873,7 +16873,7 @@ sliders-h:
   search:
     terms:
       - adjust
-      - settings
+      - Réglages
       - sliders
       - toggle
   styles:
@@ -18574,7 +18574,7 @@ tasks:
       - loading
       - progress
       - project management
-      - settings
+      - Réglages
       - to do
   styles:
     - solid
@@ -19256,7 +19256,7 @@ toolbox:
       - container
       - fix
       - repair
-      - settings
+      - Réglages
       - tools
   styles:
     - solid
@@ -19273,7 +19273,7 @@ tools:
       - fix
       - repair
       - screwdriver
-      - settings
+      - Réglages
       - tools
       - wrench
   styles:
@@ -20194,7 +20194,7 @@ user-cog:
       - admin
       - cog
       - person
-      - settings
+      - Réglages
   styles:
     - solid
   unicode: f4fe
@@ -20491,7 +20491,7 @@ users-cog:
       - cog
       - group
       - person
-      - settings
+      - Réglages
       - team
   styles:
     - solid
@@ -21572,7 +21572,7 @@ wrench:
       - fix
       - mechanic
       - plumbing
-      - settings
+      - Réglages
       - spanner
       - tool
       - update

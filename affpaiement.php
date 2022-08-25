@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 include('connect.php');
 //$ip = $_SERVER["REMOTE_ADDR"];
 //$query ="SELECT nom,date FROM archive where ip = '$ip' order by date desc";
@@ -57,7 +61,7 @@ if (isset($_POST['test'])) {
 }
 
 ?>
-<BODY id="page-top">
+<body id="page-top" lang="<?=$_SESSION["lang"]?>">
 <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -69,7 +73,7 @@ if (isset($_POST['test'])) {
  
   <div id="content-wrapper" class="d-flex flex-column ">
   <div id="content" class="ml-1">
-    <!-- Logout Modal-->
+    <!-- Déconnexion Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -80,10 +84,10 @@ if (isset($_POST['test'])) {
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -136,7 +140,18 @@ if (isset($_POST['test'])) {
             </form>
         </div>
     </li>
+    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li> 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -273,16 +288,16 @@ if (isset($_POST['test'])) {
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                Réglages
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
+                Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Déconnexion
             </a>
         </div>
     </li>
@@ -296,7 +311,7 @@ if (isset($_POST['test'])) {
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table >
-<h1 class="h3 mb-2 text-gray-800">Paiement des Licences </h1><?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[47]?></h1><?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
                         <a href="paiement.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Ajouter</a><?php } ?>
                                  
@@ -306,7 +321,7 @@ if (isset($_POST['test'])) {
           <td><form name="stat" method="post" action="">
 <table>
       <tr><input name="test" type="hidden" id="montant" tabindex="10" size="25" value="1">
-        <td >Saison</td>
+        <td ><?=$_TXT[0]?></td>
         <td ><select name="saison" size="1" id="saison" tabindex="9" class="custom-select ">
         <option><?php echo $saison;?> </option>
                       <?php
@@ -319,7 +334,7 @@ if (isset($_POST['test'])) {
 
  <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
 
-        <td >Club</td>
+        <td ><?=$_TXT[4]?></td>
         <td><select name="club1" size="1" id="saison" tabindex="9" class="custom-select ">
         <option><?php echo $club1;?> </option>
                       <?php
@@ -333,7 +348,7 @@ if (isset($_POST['test'])) {
 
 
       
-        <td><input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value="Rechercher"></td>
+        <td><input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value=<?=$_TXT[20]?>></td>
       </tr>
 </table>
     </form></table> </div>
@@ -401,13 +416,13 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 <table class="table table-bordered text-center" id="dataTable"   >
 <thead>
 <tr>
-	    <th rowspan="2" >Club</th>
-	    <th rowspan="2" >Ligue</th>
-	    <th rowspan="2" >Saison</th>
-	    <th colspan="<?php echo $totalRows ; ?>" align="center" > Categories</th>
-	    <th rowspan="2" >Montant</th>
-	    <th rowspan="2" >Montant Payé</th>
-	    <th rowspan="2" >Reste a Payer</th>
+	    <th rowspan="2" ><?=$_TXT[12]?></th>
+	    <th rowspan="2" ><?=$_TXT[13]?></th>
+	    <th rowspan="2" ><?=$_TXT[0]?></th>
+	    <th colspan="<?php echo $totalRows ; ?>" align="center" > <?=$_TXT[39]?></th>
+	    <th rowspan="2" ><?=$_TXT[40]?></th>
+	    <th rowspan="2" ><?=$_TXT[42]?></th>
+	    <th rowspan="2" ><?=$_TXT[43]?></th>
 	</tr>
 
 	<tr>
@@ -417,7 +432,7 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 <?php					}while	 ($row000=mysql_fetch_assoc($result000)); 
 
 ?>
-	  <th>Total</th>
+	  <th><?=$_TXT[41]?></th>
 </tr></thead>
 <?php 
 $query0 ="SELECT club, ligue from athletest group by club, ligue order by ligue, club";
@@ -496,11 +511,11 @@ $ttprix = $ttprix+$tprix;
 <div class="table-responsive ">
 <table class="table table-bordered " id="dataTable "   >
 	<tr>
-	    <td ><div align="center"><strong>Montant Total </strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[41]?> </strong></div></td>
 	    <td ><div align="center"><strong><?php echo $ttprix ;?> </strong></div></td>
-	    <td ><div align="center"><strong>Montant Payé</strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[42]?></strong></div></td>
 	    <td ><div align="center"><strong><?php echo $montantpaye ;?>  </strong></div></td>
-	    <td ><div align="center"><strong>Reste a Payer</strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[43]?></strong></div></td>
 	    <td ><div align="center"><strong><?php echo $ttprix - $montantpaye ;?> </strong></div></td>
 	</tr>
 
@@ -510,12 +525,12 @@ $ttprix = $ttprix+$tprix;
 
 <div class="table-responsive">
 <table class="table table-bordered" id="dataTable"   >	<tr>
-	    <td ><strong>Saison</strong></td>
-	    <td ><div align="center"><strong>Club</strong></div></td>
-	    <td ><div align="center"><strong>Montant</strong></div></td>
-	    <td ><div align="center"><strong>Date</strong></div></td>
-        <td ><div align="center"><strong>Recu</strong></div></td>
-	    <td ><div align="center"><strong>Actions</strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[0]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[42]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[44]?></strong></div></td>
+        <td ><div align="center"><strong><?=$_TXT[45]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[23]?></strong></div></td>
 	</tr>
 <?php
 
@@ -534,8 +549,8 @@ do {
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['montant'];?></div></td>
 	  <td><div align="center"><?php echo $row['date'];?></div></td>
-	  <td><div align="center">Aucun recu</div></td>
-      <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer paiement?')" >Supprimer</a>
+	  <td><div align="center"><?=$_TXT[46]?></div></td>
+      <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer paiement?')" ><?=$_TXT[22]?></a>
         
         </td>
 
@@ -548,7 +563,7 @@ do {
 
 <?php } ?>
 <p style="page-break-before:always">
-<p align="center"><input type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" value="Imprimer" onClick="window.print()"></p>
+<p align="center"><input type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" value=<?=$_TXT[38]?> onClick="window.print()"></p>
 </div>
 </div></div>
 <!-- Bootstrap core JavaScript-->
