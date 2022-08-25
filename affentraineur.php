@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];include('connect.php');
@@ -34,7 +39,7 @@ window.location.href="login.html";
   margin-left: 10% !important;
 }</style>
 </HEAD>
-<BODY id="page-top">
+<BODY id="page-top"  lang="<?=$_SESSION["lang"]?>">
 
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -49,7 +54,7 @@ window.location.href="login.html";
             <div id="content-wrapper" class="d-flex flex-column ">
 
 <div id="content" class="ml-1">
-  <!-- Logout Modal-->
+  <!-- Déconnexion Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -60,10 +65,10 @@ window.location.href="login.html";
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -116,7 +121,18 @@ window.location.href="login.html";
             </form>
         </div>
     </li>
+    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -253,16 +269,16 @@ window.location.href="login.html";
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                Réglages
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
+                Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Déconnexion
             </a>
         </div>
     </li>
@@ -275,17 +291,17 @@ window.location.href="login.html";
 
                     <div class="card shadow mb-4">
                     <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                    <div align="center" class="h3 mb-2 text-gray-800">Entraineurs</div>
+                    <div align="center" class="h3 mb-2 text-gray-800"><?=$_TXT[30]?></div>
 
 <a href="entraineur.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Ajout</a>
-                                <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
+                                class="fas fa-plus fa-sm text-white-50"></i> <?=$_TXT[16]?></a>
+                               
      
      <a href ='listee.php' class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>  Exporter</a>     
+                                class="fas fa-download fa-sm text-white-50"></i>  <?=$_TXT[19]?></a>     
           <a href ='stat.php' class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
-                                class="fas fa-chart-line fa-sm text-white-50"></i> Statistique</a>
-        <?PHP  } ?> 
+                                class="fas fa-chart-line fa-sm text-white-50"></i>  <?=$_TXT[31]?></a>
+     
 
 <?php 
 	   	include('connect.php');
@@ -312,7 +328,7 @@ $row001 = mysql_fetch_assoc($result001);
          <form name="stat" method="post" action="">
 
 
-                   Saison <select name="sais" size="1" class="custom-select col-sm-4" id="sais" tabindex="9" onChange="document.stat.submit();">
+         <?=$_TXT[0]?> <select name="sais" size="1" class="custom-select col-sm-4" id="sais" tabindex="9" onChange="document.stat.submit();">
         <option><?php echo $saison1;?> </option>
                       <?php
 					   do { 
@@ -321,6 +337,8 @@ $row001 = mysql_fetch_assoc($result001);
                        } while ($row01 = mysql_fetch_assoc($result01));
 ?>
       </select>
+      <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
+
                     Club 
 
  <select name="club" class="custom-select col-sm-4" size="1" id="club" tabindex="9">
@@ -331,8 +349,8 @@ $row001 = mysql_fetch_assoc($result001);
                                       echo "<option >$res</option>";
                        } while ($row001 = mysql_fetch_assoc($result001));
 ?>
-      </select>
-<input name="ok" type="submit"  class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"  value = "Rechercher">
+      </select>   <?PHP  } ?> 
+<input name="ok" type="submit"  class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"  value =  <?=$_TXT[20]?>>
                 
 
           </form>
@@ -345,22 +363,22 @@ $row001 = mysql_fetch_assoc($result001);
   
 <thead>	
 <tr>
-	    <td ><div align="center"><strong>Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-	    <td ><div align="center"><strong>Date Naissance</strong></div></td>
-	    <td ><div align="center"><strong>Club</strong></div></td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
-		<td ><div align="center"><strong>Grade</strong></div></td>
-		<td ><div align="center"><strong>Degre</strong></div></td>
-		<td ><div align="center"><strong>Function</strong></div></td>
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
-		<td ><div align="center"><strong>Photo</strong></div></td>
-		<td ><div align="center"><strong>Diplome</strong></div></td>
-		<td >Actions</td>
+	    <td ><div align="center"><strong><?=$_TXT[0]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[4]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[5]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[6]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[7]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[9]?></strong> </div> </td>
+	    <td ><div align="center"><strong><?=$_TXT[8]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
+		<td> <div align = "center"> <strong><?=$_TXT[13]?> </strong> </div> </td>
+		<td ><div align="center"><strong><?=$_TXT[32]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[33]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[34]?></strong></div></td>
+		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+		<td ><div align="center"><strong><?=$_TXT[15]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[35]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[23]?></strong></div></td>
 	
 	</tr>
   </thead>

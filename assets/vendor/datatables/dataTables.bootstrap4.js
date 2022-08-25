@@ -64,11 +64,11 @@ $.extend( DataTable.ext.classes, {
 
 
 /* Bootstrap paging button renderer */
-DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, buttons, page, pages ) {
-	var api     = new DataTable.Api( settings );
-	var classes = settings.oClasses;
-	var lang    = settings.oLanguage.oPaginate;
-	var aria = settings.oLanguage.oAria.paginate || {};
+DataTable.ext.renderer.pageButton.bootstrap = function ( Réglages, host, idx, buttons, page, pages ) {
+	var api     = new DataTable.Api( Réglages );
+	var classes = Réglages.oClasses;
+	var lang    = Réglages.oLanguage.oPaginate;
+	var aria = Réglages.oLanguage.oAria.paginate || {};
 	var btnDisplay, btnClass, counter=0;
 
 	var attach = function( container, buttons ) {
@@ -131,22 +131,22 @@ DataTable.ext.renderer.pageButton.bootstrap = function ( settings, host, idx, bu
 					node = $('<li>', {
 							'class': classes.sPageButton+' '+btnClass,
 							'id': idx === 0 && typeof button === 'string' ?
-								settings.sTableId +'_'+ button :
+								Réglages.sTableId +'_'+ button :
 								null
 						} )
 						.append( $('<a>', {
 								'href': '#',
-								'aria-controls': settings.sTableId,
+								'aria-controls': Réglages.sTableId,
 								'aria-label': aria[ button ],
 								'data-dt-idx': counter,
-								'tabindex': settings.iTabIndex,
+								'tabindex': Réglages.iTabIndex,
 								'class': 'page-link'
 							} )
 							.html( btnDisplay )
 						)
 						.appendTo( container );
 
-					settings.oApi._fnBindAction(
+					Réglages.oApi._fnBindAction(
 						node, {action: button}, clickHandler
 					);
 
