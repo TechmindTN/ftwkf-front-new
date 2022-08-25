@@ -203,9 +203,9 @@ aria-expanded="true" aria-controls="collapseTwo">
     document.getElementById('adminsaison').style.display="none";
     document.getElementById('admincat').style.display="none";
     document.getElementById('adminph').style.display="none";
-    document.getElementById('filler').style.display="block";
-    document.getElementById('filler2').style.display="block";
-    document.getElementById('psd').style.display="block";
+    // document.getElementById('filler').style.display="block";
+    // document.getElementById('filler2').style.display="block";
+    document.getElementById('pw').style.display="block";
 
 
  }
@@ -215,9 +215,13 @@ aria-expanded="true" aria-controls="collapseTwo">
     document.getElementById('adminsaison').style.display="block";
     document.getElementById('admincat').style.display="block";
     document.getElementById('adminph').style.display="block";
-    document.getElementById('filler').style.display="none";
-    document.getElementById('filler2').style.display="none";
-    document.getElementById('psd').style.display="none";
+    // document.getElementById('filler').style.display="none";
+    // document.getElementById('filler2').style.display="none";
+    document.getElementById('pw').style.display="none";
 
 
  }
+
+
+ var sw = document.getElementById('sw').value;
+ console.log(sw);

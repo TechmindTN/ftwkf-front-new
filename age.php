@@ -110,7 +110,7 @@ document.forms[0].submit();
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -307,7 +307,7 @@ document.forms[0].submit();
                 Activity Log
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>

@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
     <title>Modification club</title>
-
     <!-- Custom fonts for this template-->
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -19,6 +18,8 @@
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
     <script language="JavaScript" type="text/javascript">
 function TryCallFunction() {
 	var sd = document.MForm.txt_mydate.value.split("\/");
@@ -61,7 +62,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }	
@@ -92,7 +93,7 @@ $row = mysql_fetch_assoc($result);
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -289,7 +290,7 @@ $row = mysql_fetch_assoc($result);
                 Activity Log
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>
@@ -337,10 +338,15 @@ $row = mysql_fetch_assoc($result);
                                     </div>
                                     <div class="col-sm-6 ">
                                       
-                                      <label >Actif</label>
-                                         <div class="col-11"><input class="form-control form-control-user"
+                                      <label >Activite</label>
+                                      <div><input name="actif" value="1" type="checkbox" <?php if($row['actif']==1){?>checked <?php } ?>  data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></div>
+                                      <!-- <div class="custom-control custom-switch">
+  <input type="checkbox"  class="custom-control-input" tabindex="1" size="25" id="sw">
+  <label class="custom-control-label" id="switchtxt" for="customSwitch1">Toggle this switch element</label>
+</div> -->
+                                         <!-- <div class="col-11"><input class="form-control form-control-user"
                                         name="actif" type="text" id="pw" tabindex="1" size="25" value ="<?php echo $row['actif'];?>"></div>
-                                        </div> 
+                                        </div>  -->
                                           
                                         <input name="cod" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['id'];?>">
                                     
@@ -372,6 +378,8 @@ $row = mysql_fetch_assoc($result);
     <!-- Custom scripts for all pages-->
     <script src="assets/js/sb-admin-2.min.js"></script>
     <script src="template.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 
 </body>
 

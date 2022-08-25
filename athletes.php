@@ -7,7 +7,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }
@@ -136,7 +136,7 @@ document.forms[0].submit();
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -333,7 +333,7 @@ document.forms[0].submit();
                 Activity Log
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>
@@ -371,7 +371,7 @@ document.forms[0].submit();
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                       <label>CIN</label>
-                                    <input name="cin" type="text" id="cin" tabindex="7" size="25" value ="" class="form-control form-control-user" required>
+                                    <input name="cin" type="number" id="cin" tabindex="7" size="25" value ="" class="form-control form-control-user" required>
                                     </div>
                                   
                                 </div>
@@ -379,11 +379,11 @@ document.forms[0].submit();
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label>Date naissance: </label>
                                      <div class="form-group row">
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>Jour </label> <input name="jour" type="text" id="jour" tabindex="3" size="4" maxlength="2" value =""  class="form-control form-control-user" required></div> 
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>Jour </label> <input name="jour" type="number" id="jour" tabindex="3" size="4" maxlength="2" value =""  class="form-control form-control-user" required></div> 
                                    <div class="col-sm-4 mb-3 mb-sm-0"> <label>Mois </label>
-                                   <input required name="mois" type="text" id="mois" tabindex="4" size="4" maxlength="2" value ="" class="form-control form-control-user">
+                                   <input required name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="" class="form-control form-control-user">
                                   </div> 
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>année</label> <input required name="annee" type="text" id="annee" tabindex="5" size="8" maxlength="4" value ="" class="form-control form-control-user"></div></div>
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>année</label> <input required name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="" class="form-control form-control-user"></div></div>
                                      
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">

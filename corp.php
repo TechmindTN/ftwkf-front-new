@@ -52,7 +52,7 @@ $club = $_SESSION['club'];
 <script type="text/javascript">
     
 
-window.location.href="index.html";;
+window.location.href="login.html";;
 </script>
 <?php	 }
 

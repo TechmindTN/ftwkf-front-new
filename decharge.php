@@ -6,7 +6,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }
@@ -49,11 +49,11 @@ if (isset($_POST['annee'])) { $annee = (get_magic_quotes_gpc()) ? $_POST['annee'
 <table width="50%" border="0" align="center"  class="text">
 <tr>
 <td width="50%"><div align="right">Jours</div></td>
-<td width="50%"><input name="jour" id="jour" type="text" class="Style4" value="<?php echo $jour; ?>" size="4" maxlength="2"></td>
+<td width="50%"><input name="jour" id="jour" type="number" class="Style4" value="<?php echo $jour; ?>" size="4" maxlength="2"></td>
 <td width="50%"><div align="right">Mois</div></td>
-<td width="50%"><input name="mois" id="mois" type="text" class="Style4" id="mois" value="<?php echo $mois; ?>" size="4" maxlength="2"></td>
+<td width="50%"><input name="mois" id="mois" type="number" class="Style4" id="mois" value="<?php echo $mois; ?>" size="4" maxlength="2"></td>
 <td width="50%"><div align="right">Annee</div></td>
-<td width="50%"><input name="annee" id="annee" type="text" class="Style4" id="annee" value="<?php echo $annee; ?>" size="8" maxlength="4"></td>
+<td width="50%"><input name="annee" id="annee" type="number" class="Style4" id="annee" value="<?php echo $annee; ?>" size="8" maxlength="4"></td>
 <td colspan="2" align="center"><input name="ok" type="submit" class="Style4" value="Afficher"></td>
 </tr>
 </table>
