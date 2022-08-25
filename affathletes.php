@@ -23,7 +23,7 @@ $club = $_SESSION['club'];
 </HEAD>
 <BODY id="page-top">
 <div id="wrapper">
-<div class="navbar-nav  sidebar sidebar-dark accordion">
+<div class="navbar-nav  sidebar sidebar-dark accordion bg-gradient-primary">
             <!-- Sidebar -->
             <div id='side'></div></div>
 

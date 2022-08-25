@@ -21,7 +21,7 @@ $club = $_SESSION['club'];
     <!-- Custom styles for this page -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>Un document bilingue</TITLE>
+<TITLE>Athletes Non valide</TITLE>
 </HEAD>
 <BODY>
 <?php
@@ -58,7 +58,9 @@ $row01 = mysql_fetch_row($result01);
 	$row1 = mysql_fetch_assoc($result1);
 	  ?>
 	 <div id="wrapper"> 
-<div id="side"></div>
+     <div class="navbar-nav  sidebar sidebar-dark accordion bg-gradient-primary">
+            <!-- Sidebar -->
+            <div id='side'></div></div>
 
 <div id="content-wrapper" style="margin-left:12%"  class="d-flex flex-column ">
 

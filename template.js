@@ -24,9 +24,9 @@ let side=`
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 
 
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:scroll; z-index:1">
-<li  class="nav-item center-text" style="padding-top:15px " ><img src="image/logo.png" class="rounded mx-auto d-block" width="100">
-</li>
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  id="accordionSidebar" style="position:fixed; z-index:1">
+<li  class="nav-item center-text" style="padding-top:15px " ><a href="accueil2.php"><img src="image/logo.png"  class="rounded mx-auto d-block" width="100">
+</a></li>
 <li id="adminhisto" class="nav-item">
 <a class="nav-link" href="affarchive.php">
 <i class="fas fa-fw fa-table"></i>
@@ -194,9 +194,7 @@ aria-expanded="true" aria-controls="collapseTwo">
 
  document.getElementById('side').innerHTML=side;
 //  alert("current");
- console.log("current club  ");
  currentClub=document.getElementById('currentClub').innerText;
- console.log("current club  "+currentClub);
  if((currentClub != "ADMIN")&&(currentClub != "Admin")&&(currentClub != "admin")){
     document.getElementById('adminclub').style.display="none";
     document.getElementById('adminhisto').style.display="none";

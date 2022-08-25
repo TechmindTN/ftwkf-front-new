@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 ////$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -109,6 +114,18 @@ $club = $_SESSION['club'];
     </li>
 
     <!-- Nav Item - Alerts -->
+    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li> 
     <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -377,21 +394,20 @@ if (($actif == "1") and ($club <> "ADMIN")) {?>
 <table class="table table-bordered" id="dataTable"   width="100%" >
 	<thead>
   <tr>
-	    <td ><div align="center"><strong>Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>
-
-		<td> <div align = "center"> <strong> Nationalité </strong> </div> </td>
-		<td> <div align = "center"> <strong> Date Naissance </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-		<td> <div align = "center"> <strong> Age </strong> </div> </td>
-		<td> <div align = "center"> <strong> Club </strong> </div> </td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
-		<td> <div align = "center"> <strong> Photo </strong></div></td>
-		<td >Actions</td>
+	    <td ><div align="center"><strong><?=$_TXT[0]?></strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[4]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[5]?></strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[6]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[7]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[8]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[9]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[10]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[11]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[12]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[13]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[15]?></strong> </div> </td>
+		<td ><div align = "center"> <strong>Actions </strong> </div> </td>
     </tr>
 	</thead>
   <tbody>

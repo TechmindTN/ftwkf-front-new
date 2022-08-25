@@ -25,7 +25,7 @@ header("Content-Disposition: attachment; filename=liste.$file_ending");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?php
 	   	include('connect.php');
-$saison = $_POST ['saison'];
+$saison =$_POST['saison'];
 
 $filename = "liste.xls";
 header("Content-type: application/vnd.ms-word; lang=ar charset=utf8_unicode_ci");
