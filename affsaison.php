@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -42,7 +47,7 @@ window.location.href="login.html";
 }</style>
 </head>
 
-<body id="page-top ">
+<body id="page-top "  lang="<?=$_SESSION["lang"]?>">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -130,6 +135,18 @@ window.location.href="login.html";
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li> <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter">3+</span>
@@ -179,6 +196,7 @@ window.location.href="login.html";
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
+                            
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
@@ -243,7 +261,9 @@ window.location.href="login.html";
                             </div>
                         </li>
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <div class="topbar-divider d-none d-sm-block">
+                            
+                        </div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
@@ -304,6 +324,8 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
 ?>     
    
                     </div> 
+              
+
                     <!-- DataTales Example -->
                      
                         <div class="card-body">
@@ -313,10 +335,10 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
                              <form name="stat" method="post" action="">
                              <thead>
                                         <tr>
-                                            <th>Saison</th>
-                                            <th>Date début</th>                                            
-                                            <th>date fin</th>
-                                            <th>Saison Actif</th>                                            
+                                            <th><?=$_TXT[0]?></th>
+                                            <th><?=$_TXT[1]?></th>                                            
+                                            <th><?=$_TXT[2]?></th>
+                                            <th><?=$_TXT[3]?></th>                                            
                                             <?php
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
 ?>                                       

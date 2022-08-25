@@ -286,11 +286,13 @@ $row2 = mysql_fetch_assoc($result2);
 
 
 ?>
-
+<form name="stat" method="post" action="expliste.php">
                             <div class="form-group row">
-                                    
+                            <div class="col-sm-3 mb-3 mb-sm-0">
+               
+                                    </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                       Saison <select name="saison" class="custom-select">
+                                       Saison <select name="saison" id="saison" class="custom-select">
                       <option>-</option>
                       <?php
 					   do { 
@@ -300,16 +302,11 @@ $row2 = mysql_fetch_assoc($result2);
 ?>    </select>
                                     </div> 
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <form name="stat" method="post" action="expliste.php">
-    </tr>
-                <tr>
-   
-                <tr>
-                  <td colspan="3" valign="center"><div align="center">
+                                    
+    
+                  <td colspan="3" valign="center"><div align="center"><br>
 <input name="ok" type="submit" class="btn btn-primary" value="Exporter">
-                  </td>
-                </tr>
-              </table>
+                
           </form>
                                     </div> 
                                  

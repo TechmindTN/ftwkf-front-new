@@ -21,6 +21,9 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
     $queryatt1 ="SELECT count(*) FROM athletes ";
     $queryatt2 ="SELECT count(*) FROM athletess ";
     $queryatt3 ="SELECT count(*) FROM athletedel ";
+    $query ="SELECT count(*) FROM club";
+
+    $query2 ="SELECT count(*) as total2 from entraineurs";
 $querymon='SELECT count(*) as nbr,extract(month from date_saisie) as dat FROM `athletes` as a where date_saisie > (select datedebut from saison as s where actif=1) and date_saisie < (select datefin from saison as s where actif=1) group by Extract(Month from date_saisie) ';
 }
 else{
@@ -28,6 +31,9 @@ else{
     $queryatt1 ="SELECT count(*) FROM athletes where club='$club'";
     $queryatt2 ="SELECT count(*) FROM athletess  where club='$club'";
     $queryatt3 ="SELECT count(*) FROM athletedel where club='$club'";
+    $query ="SELECT count(*)  FROM club where club='$club'";
+  
+    $query2 ="SELECT count(*) as total2 from entraineurs where club='$club'";
     $querymon='SELECT count(*) as nbr,extract(month from date_saisie) as dat FROM `athletes` as a where club="$club" and date_saisie > (select datedebut from saison as s where actif=1) and date_saisie < (select datefin from saison as s where actif=1) group by Extract(Month from date_saisie) ';
 
 }
@@ -62,6 +68,13 @@ do{
 }while($j<count($monthstats));
 
 
+$result = mysql_query($query,$connexion);
+$row = mysql_fetch_row($result);
+
+
+
+$result2 = mysql_query($query2,$connexion);
+$row2 = mysql_fetch_row($result2);
 
 $resultatt1 = mysql_query($queryatt1,$connexion);
 $rowatt1 = mysql_fetch_row($resultatt1);
@@ -76,24 +89,12 @@ $result01 = mysql_query($query01,$connexion);
 $row01 = mysql_fetch_row($result01);
 $saison = $row01[0];
 
-                                                    $query ="SELECT count(*) as total from clubb";
-        
-                                                    $result = mysql_query($query,$connexion);
-                                                    $row = mysql_fetch_assoc($result);
+                                               
 
-                                                    $query1 ="SELECT count(*) as total1 from athletes1";
-        
-                                                    $result1 = mysql_query($query1,$connexion);
-                                                    $row1 = mysql_fetch_assoc($result1);
+                                               
 
-                                                    $query2 ="SELECT count(*) as total2 from entraineur1";
+                                                   
         
-                                                    $result2 = mysql_query($query2,$connexion);
-                                                    $row2 = mysql_fetch_assoc($result2);
-                                                    $query3 ="SELECT count(*) as total3 from athletes";
-        
-                                                    $result3 = mysql_query($query3,$connexion);
-                                                    $row3 = mysql_fetch_assoc($result3);
 
 // $club = $_SESSION['club'];
 // $club = $_GET['club'];
@@ -146,25 +147,7 @@ $result01 = mysql_query($query01,$connexion);
 $row01 = mysql_fetch_row($result01);
 $saison = $row01[0];
 
-                                                    $query ="SELECT count(*) as total from clubb";
-        
-                                                    $result = mysql_query($query,$connexion);
-                                                    $row = mysql_fetch_assoc($result);
-
-                                                    $query1 ="SELECT count(*) as total1 from athletes1";
-        
-                                                    $result1 = mysql_query($query1,$connexion);
-                                                    $row1 = mysql_fetch_assoc($result1);
-
-                                                    $query2 ="SELECT count(*) as total2 from entraineur1";
-        
-                                                    $result2 = mysql_query($query2,$connexion);
-                                                    $row2 = mysql_fetch_assoc($result2);
-                                                    $query3 ="SELECT count(*) as total3 from athletes";
-        
-                                                    $result3 = mysql_query($query3,$connexion);
-                                                    $row3 = mysql_fetch_assoc($result3);
-
+    
                                                 ?>
 
     <!-- Page Wrapper -->
@@ -408,7 +391,7 @@ $saison = $row01[0];
                                                 CLUBS</div>
                                                 
 
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $row['total'];?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $row[0];?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -426,7 +409,7 @@ $saison = $row01[0];
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 ATHLETES</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="atl"><?php echo $row1['total1'];?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="atl"><?php echo $rowatt1[0];?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -446,7 +429,7 @@ $saison = $row01[0];
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $row2['total2'];?></div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $row2[0];?></div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
@@ -473,7 +456,7 @@ $saison = $row01[0];
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Arbitres</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $row3['total3'];?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
