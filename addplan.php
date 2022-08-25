@@ -18,7 +18,7 @@ window.location.href="login.html";
  $type=$_SESSION['type'] ;
 $dat=substr("$dat1", 6, 4);
 ?>
-<HTML lang="ar" dir="rtl">
+<HTML lang="en" dir="rtl">
 <head>
 <title>Untitled Document</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

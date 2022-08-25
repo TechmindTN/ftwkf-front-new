@@ -12,7 +12,7 @@ window.location.href="login.html";
 <?php	 }?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <meta name="Keywords" content="Popup Date Picker, Softricks Javascript Calendar" />
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />

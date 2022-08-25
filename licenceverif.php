@@ -18,7 +18,7 @@ window.location.href="login.html";
 <!-- Custom styles for this page -->
 <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Vérification athlete</TITLE>

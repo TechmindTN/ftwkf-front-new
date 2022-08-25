@@ -16,7 +16,7 @@ window.location.href="login.html";
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
    <!-- Custom fonts for this template-->
    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -387,7 +387,7 @@ $row2 = mysql_fetch_assoc($result2);
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <label>Montant</label>
-                                    <input name="montant" type="text" id="montant" tabindex="10" size="25" class="form-control "  placeholder="Saisir Montant" required>
+                                    <input name="montant" type="number" id="montant" tabindex="10" size="25" class="form-control "  placeholder="Saisir Montant" required>
                                        
                                     </div>
                                 </div>   <div class="form-group row">

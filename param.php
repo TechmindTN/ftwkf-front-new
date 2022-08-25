@@ -5,7 +5,7 @@ session_start();
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Ajout Poid</TITLE>
@@ -377,11 +377,11 @@ $row = mysql_fetch_assoc($result);
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <label>Ordre</label>
-                                        <input name="ord" type="text" id="ord" tabindex="7" class="form-control ">
+                                        <input name="ord" type="number" id="ord" tabindex="7" class="form-control ">
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <label>Poids</label>
-                                        <input name="poids" type="text" id="poids" tabindex="8" class="form-control ">
+                                        <input name="poids" type="number" id="poids" tabindex="8" class="form-control ">
                                     </div> 
                                     <div class="col-sm-4 mb-9 mb-sm-4 text-center">
                                    <br>
