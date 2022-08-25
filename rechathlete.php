@@ -6,7 +6,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }
@@ -48,7 +48,7 @@ window.location.href="index.html";
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="index.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
@@ -245,7 +245,7 @@ window.location.href="index.html";
                 Activity Log
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Logout
             </a>
@@ -379,9 +379,9 @@ if (($totalRows > 0)){
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select></td>
     
     <tr>
-      <td align="center"><input name="jour" type="text" id="jour" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>"></td>
-      <td align="center"><input name="mois" type="text" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>"></td>
-      <td align="left"><input name="annee" type="text" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
+      <td align="center"><input name="jour" type="number" id="jour" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>"></td>
+      <td align="center"><input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>"></td>
+      <td align="left"><input name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
     </tr><thead>
        </table></div></div>
        <div class="card-body">
@@ -391,7 +391,7 @@ if (($totalRows > 0)){
 <table class="table table-bordered" id="dataTable" >
     <thead><tr>
       <td width="" align="left">N° CIN </td>
-      <td width="" align="left"><input name="cin" type="text" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
+      <td width="" align="left"><input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
       <td width="" align="left">Sexe</td>
       <td width="" align="left"><select name="sexe" size="1" id="sexe" tabindex="9">
         <option><?php echo $sexe;?></option>

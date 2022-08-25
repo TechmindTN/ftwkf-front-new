@@ -6,7 +6,7 @@ $cin = $_SESSION['cin'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }
@@ -176,7 +176,7 @@ body {
     </tr>
     <tr>
       <td align="left">CIN</td>
-      <td align="left"><input name="cin" type="text" id="nom2" tabindex="1" size="25" value="<?php echo $cin;?>"></td>
+      <td align="left"><input name="cin" type="number" id="nom2" tabindex="1" size="25" value="<?php echo $cin;?>"></td>
       <td align="left">Photo</td>
       <td align="left"><input name="photo" type="file" id="photo" size="1" tabindex="15"></td>
       <td align="left">Diplome</td>

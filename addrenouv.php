@@ -220,15 +220,15 @@ else
     </tr>
 
     <tr>
-      <td align="center"><input name="jour" type="text" id="jour" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>"></td>
-      <td align="center"><input name="mois" type="text" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>"></td>
-      <td align="left"><input name="annee" type="text" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
+      <td align="center"><input name="jour" type="number" id="jour" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>"></td>
+      <td align="center"><input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>"></td>
+      <td align="left"><input name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
     </tr>
        </table>
 <table width="100%" border="0">
     <tr>
       <td width="" align="left">N° CIN </td>
-      <td width="" align="left"><input name="cin" type="text" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
+      <td width="" align="left"><input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
       <td width="" align="left">Sexe</td>
       <td width="" align="left"><select name="sexe" size="1" id="sexe" tabindex="9">
         <option><?php echo $sexe;?></option>

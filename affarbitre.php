@@ -7,7 +7,7 @@ $cin = $_SESSION['cin'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }

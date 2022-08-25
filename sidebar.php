@@ -47,7 +47,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";;
+window.location.href="login.html";;
 </script>
 <?php	 }
 $query01 ="SELECT saison FROM saison where actif = 1";
@@ -84,7 +84,7 @@ $saison = $row01[0];
      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion "  >
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="login.html">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-user"></i>
     </div>
@@ -96,7 +96,7 @@ $saison = $row01[0];
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="login.html">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span></a>
 </li>

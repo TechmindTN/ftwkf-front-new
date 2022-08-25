@@ -4,7 +4,7 @@ $club1 = $_SESSION['club'];
  if ($club1 <> 'ADMIN') {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }

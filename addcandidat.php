@@ -106,11 +106,11 @@ else
     </tr>
     <tr>
       <td align="left">Date de Naissance</td>
-      <td align="left"><input name="jour" type="text" id="jour" tabindex="4" size="4" maxlength="2" value ="<?php echo $jour;?>">
+      <td align="left"><input name="jour" type="number" id="jour" tabindex="4" size="4" maxlength="2" value ="<?php echo $jour;?>">
         /
-        <input name="mois" type="text" id="mois" tabindex="5" size="4" maxlength="2" value ="<?php echo $mois;?>">
+        <input name="mois" type="number" id="mois" tabindex="5" size="4" maxlength="2" value ="<?php echo $mois;?>">
         /
-        <input name="annee" type="text" id="annee" tabindex="6" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
+        <input name="annee" type="number" id="annee" tabindex="6" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
     </tr>
     <tr>
       <td align="left">N° Tel</td>

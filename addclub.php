@@ -4,7 +4,7 @@ $club1 = $_SESSION['club'];
  if ($club1 <> 'ADMIN') {
 ?>	 
 <script type="text/javascript">
-window.location.href="index.html";
+window.location.href="login.html";
 </script>
 
 <?php	 }
@@ -32,8 +32,9 @@ $anclub = $_POST['anclub'];
 $ligue = $_POST['ligue'];
 $pw = $_POST['pw'];
 $id = $_POST['cod'];
-$actif = $_POST['actif'];
+$actif = (int)$_POST['actif'][0];?>
 
+<?php
 if ($id == 0) {
 $query1 = "INSERT INTO `clubb` (`club`,`ligue`, `saison`) VALUES ('$club', '$ligue','$saison')";
 $result1 = mysql_query($query1,$connexion);

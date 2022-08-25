@@ -223,7 +223,7 @@ else
 <table width="100%" border="0">
     <tr>
       <td width="" align="left">N° CIN </td>
-      <td width="" align="left"><input name="cin" type="text" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
+      <td width="" align="left"><input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
       <td width="" align="left">Sexe</td>
       <td width="" align="left"><select name="sexe" size="1" id="sexe" tabindex="10">
         <option><?php echo $sexe;?></option>
