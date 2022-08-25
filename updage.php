@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
       <!-- Custom fonts for this template-->
       <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -331,17 +331,17 @@ $row = mysql_fetch_assoc($result);
                                     </div>
                                     <div class="col-sm-4">
                                     <label>Min</label>
-                                    <input name="min" type="text" class="form-control " id="poids" tabindex="8" size="25" value ="<?php echo $row['min'];?>">
+                                    <input name="min" type="number" class="form-control " id="poids" tabindex="8" size="25" value ="<?php echo $row['min'];?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <label>Max</label>
-                                        <input name="sup"  class="form-control " type="text" id="name" tabindex="8" size="25" value ="<?php echo $row['sup'];?>">
+                                        <input name="sup"  class="form-control " type="number" id="name" tabindex="8" size="25" value ="<?php echo $row['sup'];?>">
                                     </div>
                                     <div class="col-sm-4">
                                     <label>Prix</label>
-                                    <input name="prix" class="form-control " type="text" id="name2" tabindex="8" size="25" value ="<?php echo $row['prix'];?>">
+                                    <input name="prix" class="form-control " type="number" id="name2" tabindex="8" size="25" value ="<?php echo $row['prix'];?>">
                                     </div>
                                     <div class="col-sm-4">
                                     <label>Nom</label>

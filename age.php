@@ -5,7 +5,7 @@ session_start();
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <link href="Calendar.css" rel="stylesheet" type="text/css" />
 <link href="../../styles/default.css" rel="stylesheet" type="text/css" />
@@ -355,15 +355,15 @@ document.forms[0].submit();
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                       <label>Min</label>
-                                      <input name="min" type="text" id="poids" tabindex="8" size="25" class="form-control" required>
+                                      <input name="min" type="number" id="poids" tabindex="8" size="25" class="form-control" required>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <label>Max</label>
-                                    <input name="sup" type="text" id="name" tabindex="8" size="25" class="form-control" required>
+                                    <input name="sup" type="number" id="name" tabindex="8" size="25" class="form-control" required>
                                     </div> 
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <label>Prix </label>
-                                    <input name="prix" type="text" id="name2" tabindex="8" size="25" class="form-control" required >
+                                    <input name="prix" type="number" id="name2" tabindex="8" size="25" class="form-control" required >
                                     </div> 
                                  
                                 </div></div>

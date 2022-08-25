@@ -5,7 +5,7 @@ session_start();
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Un document bilingue</TITLE>
@@ -122,7 +122,7 @@ body {
     </tr>
     <tr>
       <td align="left">Ordre</td>
-      <td align="left"><input name="ordre" type="text" id="poids" tabindex="8" size="25"></td>
+      <td align="left"><input name="ordre" type="number" id="poids" tabindex="8" size="25"></td>
     </tr>
     <tr>
       <td align="left">Time</td>

@@ -13,7 +13,7 @@ window.location.href="login.html";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
 <!-- Custom styles for this template -->
 <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@ window.location.href="login.html";
 <!-- Custom styles for this page -->
 <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <TITLE>Vérification athlete</TITLE>
 <style>
 .ml-1 {

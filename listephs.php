@@ -14,7 +14,7 @@ window.location.href="login.html";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML lang="ar" dir="ltr">
+<HTML lang="en" dir="ltr">
 <HEAD>
   <title>Liste photo</title>
      <!-- Custom fonts for this template -->
