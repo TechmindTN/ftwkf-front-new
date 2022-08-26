@@ -52,7 +52,7 @@ window.location.href="login.html";
 <body>
 <div id="wrapper">
 <div id='side'></div>
-<div class="content" style="width:100%">
+<div class="content"  style="width:100%;margin-left:11%">
             <!-- Logout Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -312,7 +312,7 @@ $row2 = mysql_fetch_assoc($result2);
             <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Exporter Athletes</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Exporter Entraineurs</h1></div>
            </div>
             <div class="card-body p-0 ml-1">
             <div class="row">
