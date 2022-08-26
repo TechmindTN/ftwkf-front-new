@@ -72,7 +72,7 @@ function Verification(theForm)
 					<div id="header" class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="login.html"><img src="images/ftj.png" width="75px"/></a></h1>
+							<h1 id="logo"><a href="login.php"><img src="images/ftj.png" width="75px"/></a></h1>
 
 					</div>
 			<!-- Hero -->

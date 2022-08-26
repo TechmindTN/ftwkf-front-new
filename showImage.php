@@ -32,7 +32,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";;
+window.location.href="login.php";;
 </script>
 <?php	 }
 $query01 ="SELECT saison FROM saison where actif = 1";

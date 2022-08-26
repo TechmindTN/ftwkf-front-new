@@ -80,6 +80,10 @@ img {
 </style>
 </HEAD>
 <BODY>
+	<?php
+	session_start();
+	$_SESSION['club']=null;
+	?>
 <p>
   <script language="JavaScript1.2" >
 function Verification(theForm)
@@ -138,9 +142,11 @@ function Verification(theForm)
 		<div class="col-md-6 login-form-1">
 			<img  src="image/logo2.png" class="img-fluid" alt="Responsive image" width="400px">
 		</div>
-		<div class="col-md-6 login-form-2">
-			
-			<form  name="form1" method="post" action= "ident.php" onSubmit= "writecookie()" >
+		<div class="col-md-6 login-form-2 ">
+	<div class="row" style="float:right" >	<a href="index.php" style="color:#fff ;"><i class="fa fa-home fa-2xl" style="font-size:70px;float:right" aria-hidden="true"></i></a></div><br>
+	
+		<form  name="form1" method="post" action= "ident.php" onSubmit= "writecookie()" >
+
 				<h3>Connectez-vous </h3>
 				<br>
 				<div class="form-group">

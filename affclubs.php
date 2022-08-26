@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -7,7 +12,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -36,7 +41,7 @@ window.location.href="login.html";
 }</style>
 </HEAD>
 
-<BODY>
+<BODY lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
 <div id="side"></div>
 
@@ -74,6 +79,8 @@ $rows = mysql_fetch_assoc($results);
 
 ?>
 <div id="wrapper">
+<div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+
 <div id="content-wrapper" class="d-flex flex-column ">
 <div id="side"></div>
 <div id="content" class="ml-1">
@@ -83,15 +90,15 @@ $rows = mysql_fetch_assoc($results);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -120,7 +127,18 @@ $rows = mysql_fetch_assoc($results);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -288,7 +306,7 @@ $rows = mysql_fetch_assoc($results);
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -308,12 +326,12 @@ $rows = mysql_fetch_assoc($results);
 
 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table >
-                        <h1 class="h3 mb-2 text-gray-800">Club par saison</h1>
+                        <h1 class="h3 mb-2 text-gray-800"><?=$_TXT[64]?></h1>
                         <?php
 if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
 ?>
                         <a href="clubs.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Ajouter</a>
+                                class="fas fa-download fa-sm text-white-50"></i> <?=$_TXT[16]?></a>
                                  <?php } ?>
                         </div>
         <tr>
@@ -322,7 +340,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
               <table>
                 <tr >
 
-                   <td > Saison </td>
+                   <td > <?=$_TXT[0]?> </td>
 
    <td ><select name="saison" size="1" id="club" tabindex="9" class="custom-select " >
         <option>Choisir...</option>
@@ -335,7 +353,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
       </select></td>
       
 
-                   <td > Ligue </td>
+                   <td > <?=$_TXT[13]?> </td>
 
    <td ><select name="ligue" size="1" id="club" tabindex="9"  class="custom-select "  >
         <option><?php echo $ligue;?> </option>
@@ -349,7 +367,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
       </select></td>
 
 
-                   <td > Club </td>
+                   <td > <?=$_TXT[12]?> </td>
 
    <td  ><select name="club" size="1" id="club" tabindex="9" class="custom-select "  >
         <option><?php echo $club1;?> </option>
@@ -363,7 +381,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
       </select></td>
 
                    <td >
-<input name="ok" type="submit" class="btn btn-sm btn-primary" value = "Rechercher">
+<input name="ok" type="submit" class="btn btn-sm btn-primary" value =<?=$_TXT[20]?>>
                   </td>
 
 
@@ -386,9 +404,9 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 <table class="table table-bordered" id="dataTable" >
 <thead>
                                         <tr>
-                                            <th>Club</th>
-                                            <th>Ligue</th>                                            
-                                            <th>Saison</th>
+                                            <th><?=$_TXT[12]?></th>
+                                            <th><?=$_TXT[13]?></th>                                            
+                                            <th><?=$_TXT[0]?></th>
                                         
                                            
                                             

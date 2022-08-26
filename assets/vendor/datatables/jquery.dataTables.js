@@ -3418,7 +3418,7 @@
 	 */
 	function _fnDraw( oSettings )
 	{
-		/* Provide a pre-callback function which can be used to cancel the draw is false is returned */
+		/* Provide a pre-callback function which can be used to Annuler the draw is false is returned */
 		var aPreDraw = _fnCallbackFire( oSettings, 'aoPreDrawCallback', 'preDraw', [oSettings] );
 		if ( $.inArray( false, aPreDraw ) !== -1 )
 		{
@@ -7626,7 +7626,7 @@
 		else {
 			_fnProcessingDisplay( Réglages, true );
 	
-			// Cancel an existing request
+			// Annuler an existing request
 			var xhr = Réglages.jqXHR;
 			if ( xhr && xhr.readyState !== 4 ) {
 				xhr.abort();
@@ -10909,12 +10909,12 @@
 	
 	
 		/**
-		 * Called at the very start of each table draw and can be used to cancel the
+		 * Called at the very start of each table draw and can be used to Annuler the
 		 * draw by returning false, any other return (including undefined) results in
 		 * the full draw occurring).
 		 *  @type function
 		 *  @param {object} Réglages DataTables Réglages object
-		 *  @returns {boolean} False will cancel the draw, anything else (including no
+		 *  @returns {boolean} False will Annuler the draw, anything else (including no
 		 *    return) will allow it to complete.
 		 *
 		 *  @dtopt Callbacks
@@ -13415,7 +13415,7 @@
 	
 		/**
 		 * Callback functions for just before the table is redrawn. A return of
-		 * false will be used to cancel the draw.
+		 * false will be used to Annuler the draw.
 		 *  @type array
 		 *  @default []
 		 */
@@ -13575,7 +13575,7 @@
 		 * object with the following parameters:
 		 *   <ul>
 		 *     <li>function:fn - function to call. Takes two parameters, oSettings
-		 *       and the object stored. May return false to cancel state loading</li>
+		 *       and the object stored. May return false to Annuler state loading</li>
 		 *     <li>string:sName - name of callback</li>
 		 *   </ul>
 		 *  @type array

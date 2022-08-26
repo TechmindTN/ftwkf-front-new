@@ -1,12 +1,17 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -34,7 +39,7 @@ window.location.href="login.html";
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 </HEAD>
 
-<body style="background-color:#fafafa">
+<body style="background-color:#fafafa" lang="<?=$_SESSION["lang"]?>">
 
 
 <div id="wrapper">
@@ -58,15 +63,15 @@ $row2 = mysql_fetch_assoc($result2);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -95,7 +100,19 @@ $row2 = mysql_fetch_assoc($result2);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -263,7 +280,7 @@ $row2 = mysql_fetch_assoc($result2);
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -279,7 +296,7 @@ $row2 = mysql_fetch_assoc($result2);
             <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Exporter Photos</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[73]?></h1></div>
            </div>
             <div class="card-body p-0">
             <div class="row">    
@@ -290,17 +307,17 @@ $row2 = mysql_fetch_assoc($result2);
           <form name="stat" method="post" target="new" action="expphoto.php"   >
           <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >De :   </label>
+                                      <label ><?=$_TXT[74]?>   </label>
                                       <input name="datau" type="date" id="ord" tabindex="7" size="25" class="form-control form-control-user">
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Au : </label>
+                                    <label><?=$_TXT[75]?> </label>
                                     <input name="datdu" type="date" id="ord" tabindex="7" size="25" class="form-control form-control-user">
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Saison</label>
+                                      <label><?=$_TXT[0]?></label>
                                       
                                       <select name="saison" class="form-control form-control-user">
                       <option>-</option>
@@ -314,7 +331,7 @@ $row2 = mysql_fetch_assoc($result2);
                                   
                                 </div>
    <br>
-                                <div class="col-md-12 text-center"><input name="ok" type="submit" class="btn btn-warning" value="Exporter"></div>
+                                <div class="col-md-12 text-center"><input name="ok" type="submit" class="btn btn-warning" value=<?=$_TXT[18]?>></div>
 </div>
   
           </form>

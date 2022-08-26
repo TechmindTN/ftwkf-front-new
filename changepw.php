@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 $club = $_SESSION['club'];
 //$club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -7,7 +12,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -36,7 +41,7 @@ window.location.href="login.html";
   margin-left: 20% !important;
 }</style>
 </head>
-<body>
+
 
   <script language="JavaScript1.2" >
 function Verification(theForm)
@@ -85,15 +90,15 @@ function Verification(theForm)
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -122,7 +127,19 @@ function Verification(theForm)
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -290,7 +307,7 @@ function Verification(theForm)
                                     Journal d'activité
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Déconnexion
                                 </a>
@@ -311,18 +328,18 @@ function Verification(theForm)
 <form  name="form1" method="post" action= "changepw.php" onSubmit= "writecookie()"  >
 
 <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Changer mot de passe</h1>
+                                <h1 class="h4 text-gray-900 mb-4 text-center"><?=$_TXT[54]?>   </h1>
                             </div>
 	<div class="form-group row">
 	<div class="col-sm-4 mb-3 mb-sm-0">
                                 
-								</div>  <div class="col-sm-3 mb-3 mb-sm-0">
-                                <label>Nouveau mot de passe</label>
+								</div>  <div class="col-sm-3 mb-3 mb-sm-0 text-center">
+                                <label><?=$_TXT[55]?></label>
 		<input type="password" name="pw" maxlength="4" required class="form-control">
-		 <p>(4 Characters Minimum)</p>
+		 <p><?=$_TXT[56]?></p>
 								</div>  <div class="col-sm-3 mb-5 mb-sm-0">
                             <br>
-	    <input type="Submit" name="Submit" value="Valider" class="btn btn-danger" > 
+	    <input type="Submit" name="Submit" value=<?=$_TXT[57]?> class="btn btn-danger" > 
 		<input type="hidden" name="club" value="<?php echo $club;?>">
       </div>
 </div>

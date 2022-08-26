@@ -51,15 +51,15 @@ $club = $_SESSION['club'];
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -267,7 +267,7 @@ $club = $_SESSION['club'];
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -459,7 +459,7 @@ if (($club <> "CENTRE")and($club <> "Centre")and($club <> "centre") and ($club <
 		  
 		  
 		  ?>       
-        <div align="center"><a  style="color:#000" href ='updathleteverif.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b><strong>  <?=$_TXT[21]?></b></a>
+        <div align="center"><a  style="color:#000" href ='updathletes.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b><strong>  <?=$_TXT[21]?></b></a>
 	</div>
       <?PHP  } }
 ?>	  
@@ -483,6 +483,8 @@ if (($club <> "CENTRE")and($club <> "Centre")and($club <> "centre") and ($club <
 </div></div></div></div></div>
 </div>
 </div>
+<div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

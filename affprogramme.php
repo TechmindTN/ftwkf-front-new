@@ -10,7 +10,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -55,15 +55,15 @@ window.location.href="login.html";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -92,7 +92,18 @@ window.location.href="login.html";
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -260,7 +271,7 @@ window.location.href="login.html";
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -288,7 +299,7 @@ function diff_date($day , $month , $year , $day2 , $month2 , $year2){
 }
 
 ?>
-<div align="center" class="h3 mb-2 text-gray-800">Programme  des Competitions</div>
+<div align="center" class="h3 mb-2 text-gray-800"><?=$_TXT[46]?></div>
 <?php
 if (($club == "ADMIN")){ 
 ?>
@@ -298,21 +309,22 @@ if (($club == "ADMIN")){
 } 
 ?>
 </div>
+<div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
 <div class="card-body">
 
 <div class="table-responsive">
-<table class="table table-bordered"  id="dataTable" >
+<table class="table table-bordered text-center"  id="dataTable" >
 	<thead>
 	<tr>
-		<th><strong>Competition</strong></th>
-		<th><strong>Discipline</strong></th>
-		<th><strong>Age</strong></th>
-		<th><strong>Type</strong></th>
-		<th><strong>Lieu</strong></th>
-		<th><strong>Date</strong></th>
-		<th><strong>Deadline</strong></th>
-		<th><strong>Actions</strong></th>
+		<th><strong><?=$_TXT[59]?></strong></th>
+		<th><strong><?=$_TXT[14]?></strong></th>
+		<th><strong><?=$_TXT[11]?></strong></th>
+		<th><strong><?=$_TXT[11]?></strong></th>
+		<th><strong><?=$_TXT[61]?></strong></th>
+		<th><strong><?=$_TXT[43]?></strong></th>
+		<th><strong><?=$_TXT[62]?></strong></th>
+        <th><strong><?=$_TXT[23]?></strong></th>
 	</tr>
 </thead>
 <tbody>
@@ -374,7 +386,7 @@ if (($jours1 >= 0) and ($actif ==1)){
 ?>
       <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b>Enregistrement</b></a>
       </div>
-<?php }      
+<?php}      
 
 if (($jours1 < 0)and(($club == "ADMIN")or($club == "DTN"))){ 
 ?>

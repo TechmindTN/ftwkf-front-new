@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -7,7 +12,7 @@ $club = $_SESSION['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -38,7 +43,8 @@ window.location.href="login.html";
 }</style>
 
 </style>
-<BODY id="page-top"> 
+<BODY id="page-top" lang="<?=$_SESSION["lang"]?>"> 
+
     <div></div>
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
@@ -53,15 +59,15 @@ window.location.href="login.html";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -90,7 +96,19 @@ window.location.href="login.html";
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -258,7 +276,7 @@ window.location.href="login.html";
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -276,9 +294,9 @@ window.location.href="login.html";
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table >
-<h1 class="h3 mb-2 text-gray-800">Clubs </h1>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[12]?> </h1>
                         <a href="club.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Ajouter</a>
+                                class="fas fa-download fa-sm text-white-50"></i> <?=$_TXT[16]?></a>
                                  
                         </div>
 
@@ -306,7 +324,7 @@ $row1 = mysql_fetch_assoc($result1);}
               <table>
                 <tr>
 
-                   <td> Club </td>
+                   <td> <?=$_TXT[12]?> </td>
 
    <td ><select name="club" size="1" id="club" tabindex="9"  class="custom-select ">
         <option><?php echo $club1;?> </option>
@@ -319,7 +337,7 @@ $row1 = mysql_fetch_assoc($result1);}
 ?>
       </select></td>
                    <td>
-<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = "Rechercher">
+<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?>>
                   </td>
 
 
@@ -343,13 +361,13 @@ $row1 = mysql_fetch_assoc($result1);}
 <table class="table table-bordered" id="dataTable" >
 <thead>
                                         <tr>
-                                            <th>Club</th>
-                                            <th>Ligue</th>                                            
-                                            <th>Login</th>
-                                            <th>Pw</th>
-                                            <th>Actif</th>
+                                            <th><?=$_TXT[12]?></th>
+                                            <th><?=$_TXT[13]?></th>                                            
+                                            <th><?=$_TXT[65]?></th>
+                                            <th><?=$_TXT[66]?></th>
+                                            <th><?=$_TXT[67]?></th>
                                             
-                                            <th>Actions</th>
+                                            <th><?=$_TXT[23]?></th>
                                         
                                            
                                             
@@ -372,8 +390,8 @@ do {?>
 	  <td><div align="center"><?php echo $row['actif'];?></div></td>
     
     
-      <td><div align="center"><?php if ($row['club'] <> "ADMIN") {?><a href ='delclub.php?code<?php echo "=$row[id]";?>'  onclick="return confirm('Vous etes sure de supprimer ce club??')"><b>Supprimer</b></a><?php }?>
-      <div align="center"><a href ='updclub.php?code<?php echo "=$row[id]";?>'><b>Modifier</b></a></td>
+      <td><div align="center"><?php if ($row['club'] <> "ADMIN") {?><a href ='delclub.php?code<?php echo "=$row[id]";?>'  onclick="return confirm('Vous etes sure de supprimer ce club??')"><b><?=$_TXT[22]?></b></a><?php }?>
+      <div align="center"><a href ='updclub.php?code<?php echo "=$row[id]";?>'><b><?=$_TXT[21]?></b></a></td>
    </tr>
 <?php					}while	 ($row=mysql_fetch_assoc($result)); 
 

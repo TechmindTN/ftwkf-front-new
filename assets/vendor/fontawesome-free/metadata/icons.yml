@@ -1286,7 +1286,7 @@ ban:
       - abort
       - ban
       - block
-      - cancel
+      - Annuler
       - delete
       - hide
       - prohibit
@@ -1584,7 +1584,7 @@ bell-slash:
   search:
     terms:
       - alert
-      - cancel
+      - Annuler
       - disabled
       - notification
       - 'off'
@@ -4522,7 +4522,7 @@ comment-slash:
   search:
     terms:
       - bubble
-      - cancel
+      - Annuler
       - chat
       - commenting
       - conversation
@@ -6215,7 +6215,7 @@ eject:
   search:
     terms:
       - abort
-      - cancel
+      - Annuler
       - cd
       - discharge
   styles:
@@ -14195,7 +14195,7 @@ phone-slash:
   search:
     terms:
       - call
-      - cancel
+      - Annuler
       - earphone
       - mute
       - number
@@ -14766,7 +14766,7 @@ power-off:
   label: Power Off
   search:
     terms:
-      - cancel
+      - Annuler
       - computer
       - 'on'
       - reboot
@@ -15434,7 +15434,7 @@ remove-format:
   label: Remove Format
   search:
     terms:
-      - cancel
+      - Annuler
       - font
       - format
       - remove
@@ -16837,7 +16837,7 @@ slash:
   label: Slash
   search:
     terms:
-      - cancel
+      - Annuler
       - close
       - mute
       - 'off'
@@ -16986,7 +16986,7 @@ smoking-ban:
   search:
     terms:
       - ban
-      - cancel
+      - Annuler
       - no smoking
       - non-smoking
   styles:
@@ -18060,7 +18060,7 @@ strikethrough:
   label: Strikethrough
   search:
     terms:
-      - cancel
+      - Annuler
       - edit
       - font
       - format
@@ -21304,7 +21304,7 @@ window-close:
   search:
     terms:
       - browser
-      - cancel
+      - Annuler
       - computer
       - development
   styles:

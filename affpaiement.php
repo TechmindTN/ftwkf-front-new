@@ -13,7 +13,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -87,7 +87,7 @@ if (isset($_POST['test'])) {
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -295,7 +295,7 @@ if (isset($_POST['test'])) {
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -305,6 +305,8 @@ if (isset($_POST['test'])) {
 </ul>
 
 </nav>
+<div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+
 <!-- End of Topbar -->
   <div class="container-fluid">
 <div class="card shadow mb-4">
@@ -334,7 +336,7 @@ if (isset($_POST['test'])) {
 
  <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
 
-        <td ><?=$_TXT[4]?></td>
+        <td ><?=$_TXT[12]?></td>
         <td><select name="club1" size="1" id="saison" tabindex="9" class="custom-select ">
         <option><?php echo $club1;?> </option>
                       <?php
@@ -420,10 +422,10 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 	    <th rowspan="2" ><?=$_TXT[12]?></th>
 	    <th rowspan="2" ><?=$_TXT[13]?></th>
 	    <th rowspan="2" ><?=$_TXT[0]?></th>
-	    <th colspan="<?php echo $totalRows ; ?>" align="center" > <?=$_TXT[39]?></th>
-	    <th rowspan="2" ><?=$_TXT[40]?></th>
+	    <th colspan="<?php echo $totalRows ; ?>" align="center" > <?=$_TXT[38]?></th>
+	    <th rowspan="2" ><?=$_TXT[39]?></th>
+	    <th rowspan="2" ><?=$_TXT[41]?></th>
 	    <th rowspan="2" ><?=$_TXT[42]?></th>
-	    <th rowspan="2" ><?=$_TXT[43]?></th>
 	</tr>
 
 	<tr>
@@ -433,7 +435,7 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 <?php					}while	 ($row000=mysql_fetch_assoc($result000)); 
 
 ?>
-	  <th><?=$_TXT[41]?></th>
+	  <th><?=$_TXT[40]?></th>
 </tr></thead>
 <?php 
 $query0 ="SELECT club, ligue from athletest group by club, ligue order by ligue, club";
@@ -512,11 +514,11 @@ $ttprix = $ttprix+$tprix;
 <div class="table-responsive ">
 <table  border="1" class="table table-bordered " id="dataTable "   >
 	<tr>
-	    <td ><div align="center"><strong><?=$_TXT[41]?> </strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[39]?> </strong></div></td>
 	    <td ><div align="center"><strong><?php echo $ttprix ;?> </strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[42]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[41]?></strong></div></td>
 	    <td ><div align="center"><strong><?php echo $montantpaye ;?>  </strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[43]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[42]?></strong></div></td>
 	    <td ><div align="center"><strong><?php echo $ttprix - $montantpaye ;?> </strong></div></td>
 	</tr>
 
@@ -525,6 +527,7 @@ $ttprix = $ttprix+$tprix;
 <div class="card-body">
 
 <div class="table-responsive">
+
 <table border="1" class="table table-bordered" id="dataTable"   >	<tr>
 	    <td ><strong>Saison</strong></td>
 	    <td ><div align="center"><strong>Club</strong></div></td>
@@ -551,7 +554,7 @@ do {
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['montant'];?></div></td>
 	  <td><div align="center"><?php echo $row['date'];?></div></td>
-	  <td><div align="center"><?=$_TXT[46]?></div></td>
+	  <td><div align="center"><?=$_TXT[45]?></div></td>
       <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer paiement?')" ><?=$_TXT[22]?></a>
         
         </td>
@@ -566,6 +569,7 @@ do {
 
 <?php } ?>
 <p style="page-break-before:always">
+
 <p align="center"><input type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" value="Imprimer" onClick="printthis()"></p>
 
 </div>

@@ -6,11 +6,17 @@
 ************************************************** -->
 <HTML>
 <HEAD>
-<TITLE>F�d�ration Tunisienne de Judo</TITLE>
+<TITLE>FTWKF</TITLE>
 <META NAME="Author" CONTENT="Usager non enregistr�">
 <META NAME="Description" CONTENT="">
 <META NAME="Keywords" CONTENT="">
 </HEAD>
+<?php 
+session_start();
+if(isset($_SESSION['club'])and($_SESSION['club']!=null)){?>
+      <script>  window.location.href="accueil2.php";
+      </script>
+<?php } ?>
 
 <FRAMESET border =0 >
  
