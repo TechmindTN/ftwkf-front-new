@@ -9358,14 +9358,14 @@ jQuery.extend( {
 		}
 	},
 
-	// Creates a full fledged settings object into target
-	// with both ajaxSettings and settings fields.
+	// Creates a full fledged Réglages object into target
+	// with both ajaxSettings and Réglages fields.
 	// If target is omitted, writes into ajaxSettings.
-	ajaxSetup: function( target, settings ) {
-		return settings ?
+	ajaxSetup: function( target, Réglages ) {
+		return Réglages ?
 
-			// Building a settings object
-			ajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :
+			// Building a Réglages object
+			ajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), Réglages ) :
 
 			// Extending ajaxSettings
 			ajaxExtend( jQuery.ajaxSettings, target );
@@ -9517,7 +9517,7 @@ jQuery.extend( {
 		deferred.promise( jqXHR );
 
 		// Add protocol if not provided (prefilters might expect it)
-		// Handle falsy url in the settings object (#10093: consistency with old signature)
+		// Handle falsy url in the Réglages object (#10093: consistency with old signature)
 		// We also use the url parameter if available
 		s.url = ( ( url || s.url || location.href ) + "" )
 			.replace( rprotocol, location.protocol + "//" );
@@ -10199,7 +10199,7 @@ jQuery.ajaxTransport( "script", function( s ) {
 var oldCallbacks = [],
 	rjsonp = /(=)\?(?=&|$)|\?\?/;
 
-// Default jsonp settings
+// Default jsonp Réglages
 jQuery.ajaxSetup( {
 	jsonp: "callback",
 	jsonpCallback: function() {

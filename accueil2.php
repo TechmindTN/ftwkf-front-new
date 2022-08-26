@@ -7,6 +7,11 @@
 
 <?PHP
 session_start(); 
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 	include('connect.php');
 ////$club = $_SESSION['club'];
 $club = $_SESSION['club'];
@@ -117,7 +122,7 @@ $saison = $row01[0];
   margin-left: 25% !important;
 }</style>    
 </head>
-<body id="page-top">
+<body id="page-top"  lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
 
 <!-- Sidebar -->
@@ -186,7 +191,18 @@ $saison = $row01[0];
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+   <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -347,16 +363,16 @@ $saison = $row01[0];
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Réglages
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Journal d'activité
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Déconnexion
                                 </a>
                             </div>
                         </li>
@@ -387,8 +403,7 @@ $saison = $row01[0];
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                CLUBS</div>
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?=$_TXT[12]?>    </div>
                                                 
 
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $row[0];?></div>
@@ -529,16 +544,14 @@ $saison = $row01[0];
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i><div id="aff"><?php echo $rowatt1[0] ?> Affiliés</div>
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i><div id="att"><?php echo $rowatt2[0] ?> En attente</div>
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i><div id="del"><?php echo $rowatt3[0] ?> Refusé</div>
-                                        </span>
+                                    <div class=" row mt-4 text-center small">
+                                     
+                                    <div id="aff"><i class="fas fa-circle text-primary"></i><?php echo $rowatt1[0] ?> Affiliés</div>
+                                    &nbsp; 
+                                    <div id="att"> <i class="fas fa-circle text-success"></i><?php echo $rowatt2[0] ?> En attente</div>
+                                    &nbsp; 
+                                    <div id="del">
+                                            <i class="fas fa-circle text-info"></i><?php echo $rowatt3[0] ?> Refusé</div>
                                     </div>
                                 </div>
                             </div>
@@ -569,7 +582,7 @@ $saison = $row01[0];
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
+    <!-- Déconnexion Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -580,10 +593,10 @@ $saison = $row01[0];
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>

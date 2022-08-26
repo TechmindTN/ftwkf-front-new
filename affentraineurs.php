@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];include('connect.php');
@@ -35,7 +40,7 @@ window.location.href="login.html";
   }
   </style>
 </HEAD>
-<BODY id="top-page">
+<BODY id="top-page" lang="<?=$_SESSION["lang"]?>">
 
 
 <!-- Page Wrapper -->
@@ -51,7 +56,7 @@ window.location.href="login.html";
 
 <div id="content-wrapper" class="d-flex flex-column ml-1">
  <div id="content " class="">
-<!-- Logout Modal-->
+<!-- Déconnexion Modal-->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -62,10 +67,10 @@ window.location.href="login.html";
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -118,7 +123,18 @@ window.location.href="login.html";
             </form>
         </div>
     </li>
+    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -255,16 +271,16 @@ window.location.href="login.html";
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                Réglages
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
+                Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Déconnexion
             </a>
         </div>
     </li>
@@ -279,8 +295,8 @@ window.location.href="login.html";
 <!-- DataTales Example -->
                    <div class="card shadow mb-4">
                    <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                   <h1 class="h3 mb-2 text-gray-800">Entraineurs</h1>
-                   <a href="entraineur.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Ajout</a> 
+                   <h1 class="h3 mb-2 text-gray-800"><?=$_TXT[36]?></h1>
+                   <a href="entraineur.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><?=$_TXT[16]?></a> 
 
 <?php 
 	   	include('connect.php');
@@ -300,11 +316,15 @@ if (isset($_POST['sais'])) {
 $query001 ="SELECT club FROM entraineurs where saison like '%$saison1%' group by club order by club";
 $result001 = mysql_query($query001,$connexion);
 $row001 = mysql_fetch_assoc($result001);
+$query1 ="SELECT saison from entraineurs group by saison order by saison";
+$result1 = mysql_query($query1,$connexion);
+$row1 = mysql_fetch_assoc($result1);
 ?>
-
+  <?php if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) {	 ?>
 <form name="stat" method="post" action="">
-
-              Club <select class="custom-select col-sm-4"  name="club" size="1" id="club" tabindex="9">
+<table>
+<tr><td>
+              Club </td><td><select class="custom-select col-sm-4"  name="club" size="1" id="club" tabindex="9">
      <option><?php echo $club1;?> </option>
      <?php
 					   do { 
@@ -313,38 +333,46 @@ $row001 = mysql_fetch_assoc($result001);
                        } while ($row001 = mysql_fetch_assoc($result001));
 ?>
    </select>
-<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value = "Rechercher">
+                    </td>
       
 
-          </form>
-      
- <?PHP     if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
-        <div align="center"></div>
-        <div align="center"></div>
-      <?PHP  } ?>       
 
+      <?PHP  } ?>  
+    <td>  
+      Saison</td>
+       <td> <select name="saison" id="saison" tabindex="9" class="custom-select col-sm-2">
+        <option><?php echo $saison1;?> </option>
+                      <?php
+					   do { 
+                                     $res=$row1['saison'];
+                                      echo "<option >$res</option>";
+                       } while ($row1 = mysql_fetch_assoc($result1));
+?>
+      </select> </td>
+      <td><input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value =<?=$_TXT[20]?>></td></tr></table>
+      </form>
  </div>
  <div class="card-body">
   <div class="table-responsive">
 <table class="table table-bordered"  width="100%" id="dataTable">
  <thead><tr>
-	    <td ><div align="center"><strong>Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-	    <td ><div align="center"><strong>Date Naissance</strong></div></td>
-	    <td ><div align="center"><strong>Club</strong></div></td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
-		<td ><div align="center"><strong>Grade</strong></div></td>
-		<td ><div align="center"><strong>Degre</strong></div></td>
-		<td ><div align="center"><strong>Function</strong></div></td>
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
-		<td ><div align="center"><strong>Photo</strong></div></td>
-		<td ><div align="center"><strong>Diplome</strong></div></td>
-		<td align="center"><strong>Actions</strong></td>
+	    <td ><div align="center"><strong><?=$_TXT[0]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[4]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[5]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[6]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[7]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[9]?> </strong> </div> </td>
+	    <td ><div align="center"><strong><?=$_TXT[8]?></strong></div></td>
+	    <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
+		<td> <div align = "center"> <strong> <?=$_TXT[13]?> </strong> </div> </td>
+		<td ><div align="center"><strong><?=$_TXT[32]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[33]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[34]?></strong></div></td>
+		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+		<td ><div align="center"><strong><?=$_TXT[15]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[35]?></strong></div></td>
+		<td align="center"><strong><?=$_TXT[23]?></strong></td>
 		
 	</tr>
  </thead>
@@ -423,7 +451,7 @@ if ($etat == "1") {
     <td><?PHP 
   //    if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
-      <div align="center"><a href ='updentraineurs.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b>Modifier</b></a>
+      <div align="center"><a href ='updentraineurs.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b><?=$_TXT[21]?></b></a>
       </div>
       <?PHP // } ?>       
         
@@ -439,9 +467,11 @@ if ($etat == "1") {
      <?PHP 
       //if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
-        <a   onclick="return confirm('Vous etes sure de supprimer ce Entraineur??')" href ='delentraineurs.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b>Supprimer</b></a>
-      <?PHP //  } ?>       
         
+     <div align="center"><a   onclick="return confirm('Vous etes sure de supprimer ce Entraineur??')" href ='delentraineurs.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b><?=$_TXT[22]?></b></a>
+      <?PHP //  } ?>       
+      </div>
+
       </td>
   
   </tr>

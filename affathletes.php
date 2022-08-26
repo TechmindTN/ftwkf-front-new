@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 ////$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];?>
@@ -21,7 +26,7 @@ $club = $_SESSION['club'];
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Liste athletes à valider</TITLE>
 </HEAD>
-<BODY id="page-top">
+<BODY id="page-top"  lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
 <div class="navbar-nav  sidebar sidebar-dark accordion bg-gradient-primary">
             <!-- Sidebar -->
@@ -40,7 +45,7 @@ $club = $_SESSION['club'];
 
             <!-- Main Content -->
             <div id="content" >
-              <!-- Logout Modal-->
+              <!-- Déconnexion Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -51,10 +56,10 @@ $club = $_SESSION['club'];
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -107,7 +112,18 @@ $club = $_SESSION['club'];
             </form>
         </div>
     </li>
+    <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
@@ -244,16 +260,16 @@ $club = $_SESSION['club'];
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                Réglages
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
+                Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Déconnexion
             </a>
         </div>
     </li>
@@ -267,7 +283,7 @@ $club = $_SESSION['club'];
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-2 text-gray-800">Athletes a valider</h1>
+                                <h1 class="h3 mb-2 text-gray-800"><?=$_TXT[24]?></h1>
                                
 
 <?php  
@@ -349,24 +365,24 @@ $row = mysql_fetch_assoc($result);
 <table  class="table table-bordered" width="100%" id="dataTable">
 	<thead>
 	<tr>
-	    <td ><div align = "center"> <strong> Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>		
-		<td> <div align = "center"> <strong> Nationalité </strong> </div> </td>
-<td> <div align = "center"> <strong> Date Naissance </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-		<td> <div align = "center"> <strong> Age </strong> </div> </td>
-		<td> <div align = "center"> <strong> Club </strong> </div> </td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
+	    <td ><div align = "center"> <strong> <?=$_TXT[0]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[4]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[5]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[6]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[7]?> </strong> </div> </td>		
+		<td> <div align = "center"> <strong> <?=$_TXT[9]?></strong> </div> </td>
+<td> <div align = "center"> <strong> <?=$_TXT[8]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[10]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[11]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[12]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[13]?> </strong> </div> </td>
 
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
-		<td> <div align = "center"> <strong> Photo </strong></div></td>
-		<td ><div align = "center"> <strong> Identité</strong></div></td>
-		<td ><div align = "center"> <strong> Fiche Medical</strong></div></td>
-		<td ><div align = "center"> <strong> Eng Parental</strong></div></td>
-		<td >Actions</td>
+		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[15]?> </strong></div></td>
+		<td ><div align = "center"> <strong> <?=$_TXT[25]?></strong></div></td>
+		<td ><div align = "center"> <strong> <?=$_TXT[26]?></strong></div></td>
+		<td ><div align = "center"> <strong>  <?=$_TXT[27]?></strong></div></td>
+		<td ><div align = "center"> <strong>  <?=$_TXT[23]?></strong></div></td>
 	</tr>
   </thead>
   <tbody>
@@ -443,7 +459,7 @@ if (($club <> "CENTRE")and($club <> "Centre")and($club <> "centre") and ($club <
 		  
 		  
 		  ?>       
-        <div align="center"><a  style="color:#000" href ='updathleteverif.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b>Modifier</b></a>
+        <div align="center"><a  style="color:#000" href ='updathleteverif.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b><strong>  <?=$_TXT[21]?></b></a>
 	</div>
       <?PHP  } }
 ?>	  
