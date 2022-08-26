@@ -37,7 +37,7 @@ const translations = {
     "Historique": "أرشيف ",
     "Saison": "الموسم",
     "Athletes":"الرياضيين",
-    "Clubs": " قائمة الفريق",
+    "Clubs": " النوادي ",
     "Arbitres": "حكم",
     "Entraineurs": "المدربين",
     "Catégories":"التصنيفات",
@@ -45,7 +45,7 @@ const translations = {
     "Paiement":"دفع",
     "Competitions": "المسابقات",
     "Statistiques":"الاحصاء",
-    "Déja affiliés":"التابعين",
+    "Déja affiliés":"المقبولين",
     "En attente":"في الانتظار",
     "Refusées ":"مرفوضين ",
     "Entraineurs a valider":"مدربين في الانتظار",  
@@ -152,9 +152,9 @@ aria-expanded="true" aria-controls="collapseUtilitiess">
 </a>
 <div id="collapseUtilitiess" class="collapse" aria-labelledby="headingUtilitiess" data-parent="#accordionSidebar">
 <div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="utilities-color.html">Déja affiliés</a>
-<a class="collapse-item" href="utilities-border.html">Demandes</a>
-<a class="collapse-item" href="utilities-animation.html">Refusées</a>
+<a class="collapse-item" href="#">Déja affiliés</a>
+<a class="collapse-item" href="#">Demandes</a>
+<a class="collapse-item" href="#">Refusées</a>
 </div>
 </div>
 </li>
@@ -167,7 +167,7 @@ aria-expanded="true" aria-controls="collapsePages">
 </a>
 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 <div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affentraineur.php"  data-i18n-key="Refusées ">Entraineurs</a>
+<a class="collapse-item" href="affentraineur.php"  data-i18n-key="Entraineurs ">Entraineurs</a>
 <a class="collapse-item" href="affentraineurs.php"  data-i18n-key="Entraineurs a valider">Entraineurs a valider</a>
 
 <div class="collapse-divider"></div>

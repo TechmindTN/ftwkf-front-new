@@ -284,7 +284,7 @@ lang="<?=$_SESSION["lang"]?>">
                        
                                  
                         </div>
-                        <p align="center"><input type=button value="Imprimer" onClick="printthis()" class="btn btn-warning"></p>
+                        <p align="center"><input type=button value=<?=$_TXT[37]?> onClick="printthis()" class="btn btn-warning"></p>
  
 <?php
 	   	include('connect.php');
