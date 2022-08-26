@@ -284,6 +284,8 @@ lang="<?=$_SESSION["lang"]?>">
                        
                                  
                         </div>
+                        <p align="center"><input type=button value="Imprimer" onClick="printthis()" class="btn btn-warning"></p>
+ 
 <?php
 	   	include('connect.php');
 
@@ -369,9 +371,11 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 ?>
         </select></td>
         <td ></td>
+
         <td> <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?> >
         
  </td>
+
         
       </tr>
    
@@ -413,9 +417,9 @@ $rowagef = mysql_fetch_assoc($resultagef);
 
 
 ?>
-<div class="card-body">
+<div id="divprint" class="card-body">
 
-<p style="page-break-before:always">
+<p id="pprint" style="page-break-before:always">
 <table align="center"   >
   <tr>
     <td align="right" valign="middle" width="40%">الجامعة التونسية للوشو كونغ فو</td>
@@ -428,9 +432,9 @@ $rowagef = mysql_fetch_assoc($resultagef);
 <div align="center" class="style2">الإحصائيات</div><br>
 <div align="center" class="style2"><?php echo $sport;?></div><br>
 <div align="center"><?php echo $saison;?></div></p>
-<div class="table-responsive">
+<div  class="table-responsive">
 
-<table class="table table-bordered" id="dataTable">
+<table border="1" width:"100%" class="table table-bordered" >
 	<thead>
 <tr>
 	    <td rowspan="2" ><strong>الموسم</strong></td>
@@ -586,7 +590,54 @@ $male = mysql_num_rows($result);
 <?php 
 ?>
 <p style="page-break-before:always">
-<p align="center"><input type=button value=<?=$_TXT[37]?>  onClick="window.print()" class="btn btn-warning"></p>
+
+
+<script>
+   function printthis(){
+
+    // divprint=document.getElementById("divprint").innerHTML;
+    // divprint.document.getElementById('datatable').id="";
+        pprint= document.getElementById("pprint").innerHTML;
+    //  dataTable=document.getElementById("dataTable").innerHTML
+    //  dataTable.id="blabla";
+
+    original=document.getElementById("wrapper").innerHTML;
+            var a = window.open('', '', 'height=1000, width=1000');
+            // document.getElementById('dataTable').removeAttribute('id');
+            
+            a.document.write('<html>');
+            a.document.write(`<head>
+       
+    <style>
+    @page{
+        size:landscape;
+        
+    }
+    table{
+        table-layout: auto;
+        border-collapse: collapse;
+    },
+   
+    </style>
+</HEAD>`)
+            a.document.write('<body > ');
+            // a.document.write(pprint);
+            // a.document.write(dataTable);
+            divprint=document.getElementById("divprint").innerHTML;
+
+            a.document.write(divprint);
+            // a.document.getElementById('dataTable').id="bla";
+            a.document.write('</body></html>');
+            a.document.close();
+            // a.document.style.size='landscape';
+            a.print();
+    // divprint.print();
+    // document.body.innerHTML=divprint;
+    // window.print();
+    // document.body.innerHTML=original;
+    // window.print();
+   } 
+    </script>
 <p align="center">&nbsp;</p></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>

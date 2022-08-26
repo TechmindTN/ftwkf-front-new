@@ -413,9 +413,10 @@ $totalRows = mysql_num_rows($result000) + 1 ;
 
 
 ?>
-<div class="card-body">
+<div id="divprint">
+<div  class="card-body">
 <div class="table-responsive">
-<table class="table table-bordered text-center" id="dataTable"   >
+<table  class="table table-bordered text-center" border="1" id="dataTable"   >
 <thead>
 <tr>
 	    <th rowspan="2" ><?=$_TXT[12]?></th>
@@ -511,7 +512,7 @@ $ttprix = $ttprix+$tprix;
 </table></div></div>
 <div class="card-body">
 <div class="table-responsive ">
-<table class="table table-bordered " id="dataTable "   >
+<table  border="1" class="table table-bordered " id="dataTable "   >
 	<tr>
 	    <td ><div align="center"><strong><?=$_TXT[39]?> </strong></div></td>
 	    <td ><div align="center"><strong><?php echo $ttprix ;?> </strong></div></td>
@@ -521,18 +522,20 @@ $ttprix = $ttprix+$tprix;
 	    <td ><div align="center"><strong><?php echo $ttprix - $montantpaye ;?> </strong></div></td>
 	</tr>
 
-</table></div></div></div>
+</table></div></div>
 <br>
 <div class="card-body">
 
 <div class="table-responsive">
-<table class="table table-bordered" id="dataTable"   >	<tr>
-	    <td ><div align="center"><strong><?=$_TXT[0]?></strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[41]?></strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[43]?></strong></div></td>
-        <td ><div align="center"><strong><?=$_TXT[44]?></strong></div></td>
-	    <td ><div align="center"><strong><?=$_TXT[23]?></strong></div></td>
+
+<table border="1" class="table table-bordered" id="dataTable"   >	<tr>
+	    <td ><strong>Saison</strong></td>
+	    <td ><div align="center"><strong>Club</strong></div></td>
+	    <td ><div align="center"><strong>Montant</strong></div></td>
+	    <td ><div align="center"><strong>Date</strong></div></td>
+        <td ><div align="center"><strong>Recu</strong></div></td>
+	    <td ><div align="center"><strong>Actions</strong></div></td>
+
 	</tr>
 <?php
 
@@ -562,12 +565,64 @@ do {
 
 ?> 
 </table></div></div>
+</div>
 
 <?php } ?>
 <p style="page-break-before:always">
-<p align="center"><input type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" value=<?=$_TXT[37]?> onClick="window.print()"></p>
+
+<p align="center"><input type="button" class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm" value="Imprimer" onClick="printthis()"></p>
+
 </div>
 </div></div>
+
+
+
+<script>
+   function printthis(){
+
+    // divprint=document.getElementById("divprint").innerHTML;
+    // divprint.document.getElementById('datatable').id="";
+        // pprint= document.getElementById("pprint").innerHTML;
+    //  dataTable=document.getElementById("dataTable").innerHTML
+    //  dataTable.id="blabla";
+
+    original=document.getElementById("wrapper").innerHTML;
+            var a = window.open('', '', 'height=1000, width=1000');
+            // document.getElementById('dataTable').removeAttribute('id');
+            
+            a.document.write('<html>');
+            a.document.write(`<head>
+         
+    <style>
+    @page{
+        size:landscape;
+        
+    }
+    table{
+        table-layout: auto;
+        border-collapse: collapse;
+    },
+   
+    </style>
+</HEAD>`)
+            a.document.write('<body > ');
+            // a.document.write(pprint);
+            // a.document.write(dataTable);
+            divprint=document.getElementById("divprint").innerHTML;
+
+            a.document.write(divprint);
+            // a.document.getElementById('dataTable').id="bla";
+            a.document.write('</body></html>');
+            a.document.close();
+            // a.document.style.size='landscape';
+            a.print();
+    // divprint.print();
+    // document.body.innerHTML=divprint;
+    // window.print();
+    // document.body.innerHTML=original;
+    // window.print();
+   } 
+    </script>
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
