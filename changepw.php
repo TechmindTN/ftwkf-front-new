@@ -37,7 +37,7 @@ window.location.href="login.html";
 }</style>
 </head>
 <body>
-<p>
+
   <script language="JavaScript1.2" >
 function Verification(theForm)
 {
@@ -63,14 +63,23 @@ function Verification(theForm)
 
   
 
-</p>
-<body id="page-top">
-<div id="wrapper">
-<div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
+
+<body id="page-top "  lang="<?=$_SESSION["lang"]?>">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+
+   <!-- Sidebar -->
+   <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
             <div id='side'></div></div>
-            <div class="content" style="width:100%">
-            <!-- Logout Modal-->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content" class="ml-1">
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -81,10 +90,10 @@ function Verification(theForm)
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -274,16 +283,16 @@ function Verification(theForm)
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Réglages
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Journal d'activité
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Déconnexion
                                 </a>
                             </div>
                         </li>
@@ -353,7 +362,7 @@ window.location.href="corp.php";
 <?PHP
 }else{if ($pw != "1"){
 echo "Mot de Passe Incorrect";}}
-?> 
+?> </div></div></div>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

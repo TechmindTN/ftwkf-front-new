@@ -45,7 +45,7 @@ $club = $_SESSION['club'];
   
 
 <div id="content " class="ml-1">
-              <!-- Logout Modal-->
+              <!-- Déconnexion Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -56,10 +56,10 @@ $club = $_SESSION['club'];
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -261,16 +261,16 @@ $club = $_SESSION['club'];
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                Settings
+                Réglages
             </a>
             <a class="dropdown-item" href="#">
                 <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Activity Log
+                Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                Logout
+                Déconnexion
             </a>
         </div>
     </li>
@@ -284,9 +284,9 @@ $club = $_SESSION['club'];
  <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                        <div class="h3 mb-2 text-gray-800">Athletes</div>
+                        <div class="h3 mb-2 text-gray-800"><?=$_TXT[17]?></div>
                         <a href="athletes.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Ajout</a>
+                                class="fas fa-plus fa-sm text-white-50"></i> <?=$_TXT[16]?></a>
    <?PHP 
 	   	include('connect.php');
  $club1 = "";
@@ -310,9 +310,11 @@ $row01 = mysql_fetch_row($result01);
     if (($club=="admin")or($club=="ADMIN")or($club=="Admin") or ($club == "CENTRE")or($club == "Centre")or($club == "centre") or ($club == "NORD")or($club == "Nord")or($club == "nord") or ($club == "SUD")or($club == "Sud")or($club == "sud")) {
 	?>
    <a href ='liste.php' class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Exporter</a>
+                                class="fas fa-download fa-sm text-white-50"></i><?=$_TXT[18]?></a>
  
-<a href="rechathlete.php?club<?php echo "=$club";?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Renouvellement</a>
+<a href="rechathlete.php?club<?php echo "=$club";?>" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+
+<?=$_TXT[19]?></a>
 
    
    <?php
@@ -332,7 +334,7 @@ $row1 = mysql_fetch_assoc($result1);
 
               
 
-                <table><tr><td> Saison</td> 
+                <table><tr><td> <?=$_TXT[0]?></td> 
    <td><select name="sais" size="1" id="sais" tabindex="9" class="custom-select " onChange="document.stat.submit();">
         <option></option>
                       <?php
@@ -341,16 +343,22 @@ $row1 = mysql_fetch_assoc($result1);
                                       echo "<option >$res</option>";
                        } while ($row01 = mysql_fetch_assoc($result01));
 ?>
-      </select></td><td>Club </td><td><select class="custom-select " name="club" size="1" id="club" tabindex="9">
+      </select>
+    <?php if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) {	 ?>
+    
+    
+    
+    </td><td><?=$_TXT[12]?> </td><td><select class="custom-select " name="club" size="1" id="club" tabindex="9">
         <option></option>
                       <?php
 					   do { 
                                      $res=$row1['club'];
                                       echo "<option >$res</option>";
                        } while ($row1 = mysql_fetch_assoc($result1));
+                    }
 ?>
       </select></td><td>
-<input name="ok" type="submit"  class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value = "Rechercher">
+<input name="ok" type="submit"  class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value = <?=$_TXT[20]?>>
                  
 <td></tr></table>
 
@@ -379,16 +387,8 @@ $totalRows = mysql_num_rows($result);
 $row = mysql_fetch_assoc($result);
 ?>       
 <br>
-<?PHP
-if (($club == "ADMIN")) {?>
 
-<?PHP
-}
 
-if (($actif == "1") and ($club <> "ADMIN")) {?>
-<p align="center"><a href="athletes.php?club<?php echo "=$club";?>">Ajout</a>-----------<a href="rechathlete.php?club<?php echo "=$club";?>">Renouvellement</a></p>
-<?PHP
-}?>
 <div class="card-body">
                             <div class="table-responsive">
 <table class="table table-bordered" id="dataTable"   width="100%" >
@@ -407,11 +407,13 @@ if (($actif == "1") and ($club <> "ADMIN")) {?>
 		<td> <div align = "center"> <strong> <?=$_TXT[13]?></strong> </div> </td>
 		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
 		<td> <div align = "center"> <strong> <?=$_TXT[15]?></strong> </div> </td>
-		<td ><div align = "center"> <strong>Actions </strong> </div> </td>
+        <?php if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) {	 ?>
+
+        <td ><div align = "center"> <strong><?=$_TXT[23]?> </strong> </div> </td>
     </tr>
 	</thead>
   <tbody>
-<?php
+<?php }
 //$federation = $_SESSION['federation'];
 //$pers = $_SESSION['pers'];
 //$tache = $_SESSION['tache'];
@@ -465,27 +467,25 @@ if (file_exists($filename)) {
  
  
     </td>
-      <td><?PHP 
+    <?PHP 
       if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
+      <td>
         <div align="center">
-          <a href ='updathletes.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&club<?php echo "=$club";?>'><b>Modifier</b></a>
+          <a href ='updathletes.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&club<?php echo "=$club";?>'><b><?=$_TXT[21]?></b></a>
           <?PHP
 if (($actif == "1")) {?>
 <p align="center"><a href="athletes.php"><b>Ajout</b></a></p><p align="center"><a href="rechathlete.php"><b>Renouvellementl</b></a></p>
 <?PHP
 }?> 
         </div>
-        <?PHP  } ?>       
-        
-       <?PHP 
-      if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
+      
      
-     <p align="center">  <a  onclick="return confirm('Vous etes sure de supprimer ce Athlete??')" href ='delathlete.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>'><b>Supprimer</b></a></p>
-      <?PHP  } ?> 
+     <p align="center">  <a  onclick="return confirm('Vous etes sure de supprimer ce Athlete??')" href ='delathlete.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>'><b><?=$_TXT[22]?></b></a></p>
+   
      
         
-        </td>
+        </td>   <?PHP  } ?> 
   
   </tr>
 <?php					}while	 ($row=mysql_fetch_assoc($result)); 

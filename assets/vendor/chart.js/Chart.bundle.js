@@ -8114,7 +8114,7 @@ var core_scaleService = {
 		return this.constructors.hasOwnProperty(type) ? this.constructors[type] : undefined;
 	},
 	getScaleDefaults: function(type) {
-		// Return the scale defaults merged with the global settings so that we always use the latest ones
+		// Return the scale defaults merged with the global Réglages so that we always use the latest ones
 		return this.defaults.hasOwnProperty(type) ? helpers$1.merge(Object.create(null), [core_defaults.scale, this.defaults[type]]) : {};
 	},
 	updateScaleDefaults: function(type, additions) {
@@ -11115,7 +11115,7 @@ core_defaults._set('scale', {
 	position: 'left',
 	offset: false,
 
-	// grid line settings
+	// grid line Réglages
 	gridLines: {
 		display: true,
 		color: 'rgba(0,0,0,0.1)',
@@ -11148,7 +11148,7 @@ core_defaults._set('scale', {
 		}
 	},
 
-	// label settings
+	// label Réglages
 	ticks: {
 		beginAtZero: false,
 		minRotation: 0,
@@ -13139,7 +13139,7 @@ function generateTicks$1(generationOptions, dataRange) {
 var defaultConfig$2 = {
 	position: 'left',
 
-	// label settings
+	// label Réglages
 	ticks: {
 		callback: core_ticks.formatters.logarithmic
 	}
@@ -13413,7 +13413,7 @@ var defaultConfig$3 = {
 		circular: false
 	},
 
-	// label settings
+	// label Réglages
 	ticks: {
 		// Boolean - Show a backdrop to the scale label
 		showLabelBackdrop: true,
