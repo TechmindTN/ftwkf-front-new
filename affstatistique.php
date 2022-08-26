@@ -1,12 +1,17 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";//$club = $_SESSION['club'];
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -27,10 +32,9 @@ window.location.href="login.html";
     <!-- Custom styles for this page -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </HEAD>
-<style>
 
-</style>
-<BODY id="page-top">
+<BODY id="page-top"
+lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -44,15 +48,15 @@ window.location.href="login.html";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -81,7 +85,18 @@ window.location.href="login.html";
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -105,6 +120,7 @@ window.location.href="login.html";
             </form>
         </div>
     </li>
+    <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
     <!-- Nav Item - Alerts -->
     <li class="nav-item dropdown no-arrow mx-1">
@@ -249,7 +265,7 @@ window.location.href="login.html";
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -264,7 +280,7 @@ window.location.href="login.html";
 <div class="card shadow mb-4 ml-1">
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h3 mb-2 text-gray-800">Statistiques </h1>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[63]?> </h1>
                        
                                  
                         </div>
@@ -304,7 +320,7 @@ if (isset($_POST['ligue'])) {
 <tr>
 <td><form name="stat" method="post" action="">
 <table >
-      <tr><td> Sport </td> <td ></td>
+      <tr><td> <?=$_TXT[14]?>  </td> <td ></td>
         <td><select name="sport" size="1" id="Discipline" tabindex="9"  class="custom-select ">
           <option><?php echo $sport;?></option>
           <option></option>
@@ -319,7 +335,7 @@ if (isset($_POST['ligue'])) {
         <?php
 if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
 ?> 
-        <td >Ligue</td>
+        <td ><?=$_TXT[13]?></td>
         <td align="center">
           <select name="ligue" size="1" id="club" tabindex="9" class="custom-select ">
           <option><?php echo $ligue;?></option>
@@ -330,7 +346,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
                        } while ($rowl = mysql_fetch_assoc($resultl));
 ?>
         </select></td>
-        <td >Club </td>    <td ></td>
+        <td ><?=$_TXT[12]?> </td>    <td ></td>
         <td ><select name="club11" size="1" id="club11" tabindex="9" class="custom-select ">
           <option></option>
           <option><?php echo $club11;?></option>
@@ -342,7 +358,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 ?>
         </select></td>
         <?php } ?>  
-        <td>Saison</td> <td ></td>
+        <td><?=$_TXT[0]?> </td> <td ></td>
         <td ><select name="saison" size="1" id="saison" tabindex="9" class="custom-select ">
           <option><?php echo $saison;?></option>
           <?php
@@ -353,7 +369,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 ?>
         </select></td>
         <td ></td>
-        <td> <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = "Rechercher">
+        <td> <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?> >
         
  </td>
         
@@ -570,7 +586,7 @@ $male = mysql_num_rows($result);
 <?php 
 ?>
 <p style="page-break-before:always">
-<p align="center"><input type=button value="Imprimer" onClick="window.print()" class="btn btn-warning"></p>
+<p align="center"><input type=button value=<?=$_TXT[37]?>  onClick="window.print()" class="btn btn-warning"></p>
 <p align="center">&nbsp;</p></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>

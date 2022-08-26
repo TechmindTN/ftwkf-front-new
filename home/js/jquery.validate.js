@@ -49,8 +49,8 @@ $.extend( $.fn, {
 				// submits later.
 				validator.submitButton = event.currentTarget;
 
-				// Allow suppressing validation by adding a cancel class to the submit button
-				if ( $( this ).hasClass( "cancel" ) ) {
+				// Allow suppressing validation by adding a Annuler class to the submit button
+				if ( $( this ).hasClass( "Annuler" ) ) {
 					validator.cancelSubmit = true;
 				}
 

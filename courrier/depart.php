@@ -4,7 +4,7 @@ $login = $_SESSION['login'];
  if ($login == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }

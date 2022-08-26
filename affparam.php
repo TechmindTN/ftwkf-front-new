@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 ////$club = $_SESSION['club'];
 //$club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -25,8 +30,10 @@ session_start();
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Liste de Poids</TITLE>
 </HEAD>
-<BODY>
+<BODY  lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
+<div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+
 <div class="navbar-nav sidebar sidebar-dark accordion">
 <div id='side'></div></div>
 <div id="content" class="col-10" >
@@ -36,15 +43,15 @@ session_start();
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -73,7 +80,19 @@ session_start();
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -241,7 +260,7 @@ session_start();
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -258,9 +277,9 @@ session_start();
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table>
-<h1 class="h3 mb-2 text-gray-800">Poids </h1>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[68]?> </h1>
 <a href="param.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>Ajout</a></div>
+                                class="fas fa-download fa-sm text-white-50"></i><?=$_TXT[16]?></a></div>
  <?PHP 
 	   	include('connect.php');
 // $sport1 = "";
@@ -288,7 +307,7 @@ $row1 = mysql_fetch_assoc($result1);
 
 <form name="stat" method="post" action="">
 <table><tr>
-              <td>Poid</td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
+              <td><?=$_TXT[68]?></td><td><select class="custom-select " name="cat" size="1" id="club" tabindex="9">
         <option><?php echo $cat1;?> </option>
                       <?php
 					   do { 
@@ -297,7 +316,7 @@ $row1 = mysql_fetch_assoc($result1);
                        } while ($row1 = mysql_fetch_assoc($result1));
 ?>
       </select></td><td>
-<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = "Rechercher"></td>
+<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?>></td>
                  
 
           </form></td>
@@ -327,12 +346,12 @@ $i=0;
 <div class="table-responsive">
 <table class="table table-bordered" width="100%" id="dataTable" >
 	<thead><tr>
-		<th> <div align = "center"> <strong> Age </strong> </div> </th>
-	  	<th> <div align = "center"> <strong> Type </strong> </div> </th>
-	  	<th> <div align = "center"> <strong> Sexe </strong> </div> </th>
-		<th> <div align = "center"> <strong> Ordre </strong> </div> </th>
-		<th> <div align = "center"> <strong> Poids </strong> </div> </th>
-		<th><div align = "center"> <strong>Actions</strong></div></th>
+		<th> <div align = "center"> <strong> <?=$_TXT[11]?> </strong> </div> </th>
+	  	<th> <div align = "center"> <strong> <?=$_TXT[60]?>  </strong> </div> </th>
+	  	<th> <div align = "center"> <strong> <?=$_TXT[10]?>  </strong> </div> </th>
+		<th> <div align = "center"> <strong>  <?=$_TXT[69]?> </strong> </div> </th>
+		<th> <div align = "center"> <strong> <?=$_TXT[68]?> </strong> </div> </th>
+		<th><div align = "center"> <strong><?=$_TXT[23]?></strong></div></th>
 	</tr>
                       </thead>
                       <tbody>
@@ -349,8 +368,8 @@ $i=0;
 	  <td><div align="center"><?php echo $row['sexe'];?></div></td>
 	  <td><div align="center"><?php echo $row['ordre'];?></div></td>
 	  <td><div align="center"><?php echo $row['poids'];?></div></td>
-      <td><div align="center"><a href ='updparam.php?code<?php echo "=$row[id]";?>'><b>Modifier</b></a> </div>
-      <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Poids??')" href ='delparam.php?code<?php echo "=$row[id]";?>'><b>Supprimer</b></a> </div></td>
+      <td><div align="center"><a href ='updparam.php?code<?php echo "=$row[id]";?>'><b><?=$_TXT[21]?></b></a> </div>
+      <div align="center"><a  onclick="return confirm('Vous etes sure de supprimer ce Poids??')" href ='delparam.php?code<?php echo "=$row[id]";?>'><b><?=$_TXT[22]?></b></a> </div></td>
 	</tr>
  <?php		
 	

@@ -5654,7 +5654,7 @@ function leverageNative( el, type, expectSync ) {
 					}
 					if ( saved !== result ) {
 
-						// Cancel the outer synthetic event
+						// Annuler the outer synthetic event
 						event.stopImmediatePropagation();
 						event.preventDefault();
 

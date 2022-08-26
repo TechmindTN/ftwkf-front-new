@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 include('connect.php');
 //$ip = $_SERVER["REMOTE_ADDR"];
 //$query ="SELECT nom,date FROM archive where ip = '$ip' order by date desc";
@@ -9,7 +14,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -32,8 +37,7 @@ window.location.href="login.html";
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Paiement à valider</TITLE>
 </HEAD>
-<style>
-</style><BODY id="page-top">
+<BODY id="page-top" lang="<?=$_SESSION["lang"]?>">
 
 <!-- Page Wrapper -->
     <div id="wrapper">
@@ -52,15 +56,15 @@ window.location.href="login.html";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -89,7 +93,19 @@ window.location.href="login.html";
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+ 
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -257,7 +273,7 @@ window.location.href="login.html";
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -272,9 +288,9 @@ window.location.href="login.html";
 <div class="card shadow mb-4">
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h3 mb-2 text-gray-800">Paiement des Licences </h1>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[58]?> </h1>
                         <a href="paiement.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Ajouter</a>
+                                class="fas fa-download fa-sm text-white-50"></i> <?=$_TXT[16]?></a>
                                  
                         </div>
 <?php
@@ -297,14 +313,14 @@ $i=0;
 ?>
 <div class="card-body">
 <div class="table-responsive">
-<table class="table table-bordered" id="dataTable" >
+<table class="table table-bordered text-center" id="dataTable" >
 	<thead><tr>
-	    <td ><strong>Saison</strong></td>
-	    <td >Club</strong></td>
-	    <td >Montant</strong></td>
-	    <td ><strong>Date</strong></td>
-        <td ><strong>Decharge</strong></td>
-	    <td ><strong>Actions</strong></td>
+	    <td ><strong><?=$_TXT[0]?></strong></td>
+	    <td ><strong><?=$_TXT[12]?></strong></td>
+	    <td ><strong><?=$_TXT[39]?></strong></td>
+	    <td ><strong><?=$_TXT[43]?></strong></td>
+        <td ><strong><?=$_TXT[44]?></strong></td>
+	    <td ><strong><?=$_TXT[23]?></strong></td>
 	</tr></thead>
 <?php
 do {
@@ -320,8 +336,8 @@ do {
 	  <td><div align="center"><?php echo $row['date'];?></div></td>
       
 <td><img src="./decharge<?php echo $row['id']. '.jpg';?>?<?php echo time(); ?>" width="33" height="50"  ></td>
-      <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer cet paiement??')">Supprimer</a><br>
-      <a href ='valpai.php?code<?php echo "=$row[id]";?>'>Valider</a>
+      <td align="center"><a href ='delpai.php?code<?php echo "=$row[id]";?>' onclick="return confirm('Vous etes sure de supprimer cet paiement??')"><?=$_TXT[22]?></a><br>
+      <a href ='valpai.php?code<?php echo "=$row[id]";?>'><?=$_TXT[57]?></a>
         
         </td>
 

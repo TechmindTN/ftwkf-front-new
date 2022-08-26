@@ -11,7 +11,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";
+window.location.href="login.php";
 </script>
 
 <?php	 }
@@ -60,15 +60,15 @@ window.location.href="login.html";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
@@ -276,7 +276,7 @@ window.location.href="login.html";
                 Journal d'activité
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Déconnexion
             </a>
@@ -298,9 +298,9 @@ window.location.href="login.html";
                                
      
      <a href ='listee.php' class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i>  <?=$_TXT[19]?></a>     
+                                class="fas fa-download fa-sm text-white-50"></i>  <?=$_TXT[18]?></a>     
           <a href ='stat.php' class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm"><i
-                                class="fas fa-chart-line fa-sm text-white-50"></i>  <?=$_TXT[31]?></a>
+                                class="fas fa-chart-line fa-sm text-white-50"></i>  <?=$_TXT[63]?></a>
      
 
 <?php 
@@ -368,16 +368,16 @@ $row001 = mysql_fetch_assoc($result001);
 		<td> <div align = "center"> <strong> <?=$_TXT[5]?></strong> </div> </td>
 		<td> <div align = "center"> <strong> <?=$_TXT[6]?> </strong> </div> </td>
 		<td> <div align = "center"> <strong> <?=$_TXT[7]?> </strong> </div> </td>
-		<td> <div align = "center"> <strong><?=$_TXT[9]?></strong> </div> </td>
-	    <td ><div align="center"><strong><?=$_TXT[8]?></strong></div></td>
+		<td> <div align = "center"> <strong><?=$_TXT[10]?></strong> </div> </td>
+	    <td ><div align="center"><strong><?=$_TXT[9]?></strong></div></td>
 	    <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
 		<td> <div align = "center"> <strong><?=$_TXT[13]?> </strong> </div> </td>
+		<td ><div align="center"><strong><?=$_TXT[31]?></strong></div></td>
 		<td ><div align="center"><strong><?=$_TXT[32]?></strong></div></td>
 		<td ><div align="center"><strong><?=$_TXT[33]?></strong></div></td>
-		<td ><div align="center"><strong><?=$_TXT[34]?></strong></div></td>
 		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
 		<td ><div align="center"><strong><?=$_TXT[15]?></strong></div></td>
-		<td ><div align="center"><strong><?=$_TXT[35]?></strong></div></td>
+		<td ><div align="center"><strong><?=$_TXT[34]?></strong></div></td>
 		<td ><div align="center"><strong><?=$_TXT[23]?></strong></div></td>
 	
 	</tr>
@@ -449,7 +449,7 @@ if ($etat == "1") {
             <td> 
  <?php         if ($totalRows==0) { ?>
  
-        <div align="center"><a href ='renouventraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&type<?php echo "=$row[type]";?>'><b>Renouvellementl</b></a>
+        <div align="center"><a href ='renouventraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&type<?php echo "=$row[type]";?>'><b><?=$_TXT[19]?></b></a>
         </div>
         <?PHP  } ?>       
      
@@ -458,7 +458,7 @@ if ($etat == "1") {
    <?PHP 
   //    if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
-        <div align="center"><a href ='updentraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b>Modifier</b></a>
+        <div align="center"><a href ='updentraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b><?=$_TXT[21]?></b></a>
         </div>
         <?PHP // } ?>       
         
@@ -474,7 +474,7 @@ if ($etat == "1") {
         <?PHP 
       //if (($club=="admin")or($club=="ADMIN")or($club=="Admin")) { ?>
      
-       <div align="center"> <a onclick="return confirm('Vous etes sure de supprimer ce Entraineur??')"  href ='delentraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b>Supprimer</b></a></div>
+       <div align="center"> <a onclick="return confirm('Vous etes sure de supprimer ce Entraineur??')"  href ='delentraineur.php?code<?php echo "=$row[n_lic]";?>&saison<?php echo "=$row[saison]";?>&fonct<?php echo "=$row[type]";?>'><b><?=$_TXT[22]?></b></a></div>
       <?PHP //  } ?>       
         
         </td>
@@ -493,7 +493,8 @@ if ($etat == "1") {
 </div>
 </div>
 </div>
-</div>
+</div>                    <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
+
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

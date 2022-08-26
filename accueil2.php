@@ -19,7 +19,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";;
+window.location.href="login.php";;
 </script>
 <?php	 }
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
@@ -119,7 +119,7 @@ $saison = $row01[0];
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <style>
 .ml-1 {
-  margin-left: 25% !important;
+  margin-left: 30% !important;
 }</style>    
 </head>
 <body id="page-top"  lang="<?=$_SESSION["lang"]?>">
@@ -144,7 +144,7 @@ $club = $_SESSION['club'];
  if ($club == null) {
 ?>	 
 <script type="text/javascript">
-window.location.href="login.html";;
+window.location.href="login.php";;
 </script>
 <?php	 }
 $query01 ="SELECT saison FROM saison where actif = 1";
@@ -162,8 +162,8 @@ $saison = $row01[0];
     
         <!-- Content Wrapper -->
       
-        <div id="content-wrapper" class="d-flex flex-column">
-
+        <div id="content-wrapper" class="d-flex flex-column "> 
+        
             <!-- Main Content -->
             <div id="content" class="ml-1">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -370,7 +370,7 @@ $saison = $row01[0];
                                     Journal d'activité
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="login.php" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Déconnexion
                                 </a>
@@ -392,11 +392,11 @@ $saison = $row01[0];
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generer Rapport</a> -->
                     </div>
-
+                    <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
                     <!-- Content Row -->
                     <div class="row">
  <!-- Earnings (Monthly) Card Example -->
-
+<?php if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ ?>
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-3 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -415,7 +415,7 @@ $saison = $row01[0];
                                 </div>
                             </div>
                         </div>
-
+<?php } ?>
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
@@ -423,7 +423,7 @@ $saison = $row01[0];
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                ATHLETES</div>
+                                            <?=$_TXT[17]?></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="atl"><?php echo $rowatt1[0];?></div>
                                         </div>
                                         <div class="col-auto">
@@ -440,7 +440,7 @@ $saison = $row01[0];
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Entraineurs
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><?=$_TXT[30]?>
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
@@ -470,7 +470,7 @@ $saison = $row01[0];
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Arbitres</div>
+                                            <?=$_TXT[48]?></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
                                         </div>
                                         <div class="col-auto">
@@ -492,7 +492,7 @@ $saison = $row01[0];
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Statisques athletes par saison</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><?=$_TXT[49]?></h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -523,7 +523,7 @@ $saison = $row01[0];
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Athletes</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><?=$_TXT[50]?></h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -546,12 +546,12 @@ $saison = $row01[0];
                                     </div>
                                     <div class=" row mt-4 text-center small">
                                      
-                                    <div id="aff"><i class="fas fa-circle text-primary"></i><?php echo $rowatt1[0] ?> Affiliés</div>
+                                    <div id="aff"><i class="fas fa-circle text-primary"></i><?php echo $rowatt1[0] ?> <?=$_TXT[51]?></div>
                                     &nbsp; 
-                                    <div id="att"> <i class="fas fa-circle text-success"></i><?php echo $rowatt2[0] ?> En attente</div>
+                                    <div id="att"> <i class="fas fa-circle text-success"></i><?php echo $rowatt2[0] ?><?=$_TXT[52]?></div>
                                     &nbsp; 
                                     <div id="del">
-                                            <i class="fas fa-circle text-info"></i><?php echo $rowatt3[0] ?> Refusé</div>
+                                            <i class="fas fa-circle text-info"></i><?php echo $rowatt3[0] ?> <?=$_TXT[53]?></div>
                                     </div>
                                 </div>
                             </div>
@@ -588,15 +588,15 @@ $saison = $row01[0];
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Prêt à partir??</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">Sélectionnez "Déconnexion" ci-dessous si vous êtes prêt à terminer votre session en cours.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Déconnexion</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
+                    <a class="btn btn-primary" href="login.php">Déconnexion</a>
                 </div>
             </div>
         </div>
