@@ -14,6 +14,7 @@ window.location.href="login.html";
   "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en" dir="ltr">
 <HEAD>
+    <link rel="stylesheet" href="print.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Consultation competition</title>
 </HEAD>
