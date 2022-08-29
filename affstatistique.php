@@ -681,10 +681,7 @@ $male = mysql_num_rows($result);
     // window.print();
    } 
 
-   function startLoading(){
   
-
-   }
     </script>
 <p align="center">&nbsp;</p></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->
