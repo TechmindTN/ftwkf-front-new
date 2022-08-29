@@ -31,17 +31,46 @@ window.location.href="login.php";
 
     <!-- Custom styles for this page -->
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <style>
+        #content{
+            display:none
+        }
+        .loader {
+            display:block;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+        </style>
 </HEAD>
 
-<BODY id="page-top"
+<BODY id="page-top" onload="endLoading()"
 lang="<?=$_SESSION["lang"]?>">
+<script>
+    function endLoading(){
+     var loader=document.getElementById('loader');
+   var content=document.getElementById('content');
+
+    loader.style.display="none";
+            content.style.display="block";}
+
+    </script>
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
             <!-- Sidebar -->
             <div id='side'></div></div>
             <div id="content-wrapper" class="d-flex flex-column ">
-
-<div id="content" class="ml-1">
+           
+<div  class="ml-1">
   <!-- Déconnexion Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -276,7 +305,11 @@ lang="<?=$_SESSION["lang"]?>">
 
 </nav>
 <!-- End of Topbar -->
-<div class="container-fluid">
+<center> <div id="loader"><div  class="loader"></div>
+<div>Chargement en cours...</div>
+</div>
+</center>
+<div id="content" class="container-fluid">
 <div class="card shadow mb-4 ml-1">
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
@@ -372,7 +405,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
         </select></td>
         <td ></td>
 
-        <td> <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?> >
+        <td> <input name="ok" type="submit" onClick="startLoading()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?> >
         
  </td>
 
@@ -447,11 +480,14 @@ $rowagef = mysql_fetch_assoc($resultagef);
 	<tr>
                       <?php
 					   do { 
+
                                      $res=$rowagem['cat'];?>
 	  <td align="center"><strong><?php echo $res;?></strong></td>
 
                     <?php   } while ($rowagem = mysql_fetch_assoc($resultagem));
+                   
 ?>
+
 	  <td align="center"><strong>م ذكور</strong></td>
 
                       <?php
@@ -461,6 +497,7 @@ $rowagef = mysql_fetch_assoc($resultagef);
 
                     <?php   } while ($rowagef = mysql_fetch_assoc($resultagef));
 ?>
+
 	  <td align="center"><strong>م إناث</strong></td>
   </tr>
 <?php 
@@ -533,8 +570,12 @@ $male = mysql_num_rows($result);
 
 
   </tr>
-<?php					}while	 ($row0=mysql_fetch_assoc($result0)); 
+<?php					
+
+}while	 ($row0=mysql_fetch_assoc($result0)); 
+
 ?>
+
 <tr>	  <td colspan="3"><div align="center">المجموع</div></td>
 
                       <?php
@@ -556,6 +597,7 @@ $query ="SELECT * FROM athletest where sport like '%$sport%' and sexe = 'ذكر'
 $result = mysql_query($query,$connexion);
 $male = mysql_num_rows($result);
 ?>
+
 	  <td align="center"><strong><?php echo $male;?></strong></td>
                       <?php
 					   do { 
@@ -571,6 +613,7 @@ $query ="SELECT * FROM athletest where sport like '%$sport%' and sexe = 'أنث�
 $result = mysql_query($query,$connexion);
 $male = mysql_num_rows($result);
 ?>
+
 	  <td align="center"><strong><?php echo $male;?></strong></td>
 
 
@@ -637,6 +680,11 @@ $male = mysql_num_rows($result);
     // document.body.innerHTML=original;
     // window.print();
    } 
+
+   function startLoading(){
+  
+
+   }
     </script>
 <p align="center">&nbsp;</p></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->
