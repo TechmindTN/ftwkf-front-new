@@ -365,6 +365,8 @@ $row01 = mysql_fetch_row($result01);
 		<td> <div align = "center"> <strong> <?=$_TXT[13]?> </strong> </div> </td>
 
 		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+        <td> <div align = "center"> <strong> Raison</strong> </div> </td>
+
 		<td> <div align = "center"> <strong> <?=$_TXT[23]?> </strong></div></td>
 	</tr>
                       </thead>
@@ -403,6 +405,8 @@ do {
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['ligue'];?></div></td>
 	  <td><div align="center"><?php echo $row['sport'];?></div></td>
+      <td><div align="center"><?php echo $row['raison'];?></div></td>
+
       <td>
         <div align="center"><a href ='licenceverifdel.php?naiss<?php echo "=$row[date_naiss]";?>&club<?php echo "=$row[club]";?>&nom<?php echo "=$row[nom]";?>&prenom<?php echo "=$row[prenom]";?>&code<?php echo "=$row[n_lic]";?>'><b><?=$_TXT[29]?></b></a></div>
      
