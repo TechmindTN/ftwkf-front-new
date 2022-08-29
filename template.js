@@ -9,7 +9,7 @@ const locale = lang;
 const translations = {
   // French translations
   "fr": {
-    "Historique": "Historique",
+    "Acceuil":"Acceuil",
     "Saison": "Saison",
     "Athletes": "athletes",
     "Clubs": "Clubs",
@@ -34,7 +34,7 @@ const translations = {
   },
   // Arabic translations
   "ar": {
-    "Historique": "أرشيف ",
+    "Acceuil":"الاستقبال",
     "Saison": "الموسم",
     "Athletes":"الرياضيين",
     "Clubs": " النوادي ",
@@ -100,9 +100,9 @@ let side=`
 <li  class="nav-item center-text" style="padding-top:15px " ><a href="accueil2.php"><img src="image/logo.png"  class="rounded mx-auto d-block" width="100">
 </a></li>
 <li id="adminhisto" class="nav-item">
-<a class="nav-link" href="affarchive.php">
+<a class="nav-link" href="accueil2.php">
 <i class="fas fa-fw fa-table"></i>
-<span data-i18n-key="Historique">Historique</span></a>
+<span data-i18n-key="Acceuil">Acceuil</span></a>
 </li>
 <li id="pw" class="nav-item">
 <a class="nav-link" href="changepw.php">
@@ -167,7 +167,7 @@ aria-expanded="true" aria-controls="collapsePages">
 </a>
 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 <div class="bg-white py-2 collapse-inner rounded">
-<a class="collapse-item" href="affentraineur.php"  data-i18n-key="Entraineurs ">Entraineurs</a>
+<a class="collapse-item" href="affentraineur.php"  data-i18n-key="Entraineurs">Entraineurs</a>
 <a class="collapse-item" href="affentraineurs.php"  data-i18n-key="Entraineurs a valider">Entraineurs a valider</a>
 
 <div class="collapse-divider"></div>

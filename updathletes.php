@@ -120,7 +120,7 @@ $annee= substr("$date_naiss", 0, 4);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -157,7 +157,7 @@ $annee= substr("$date_naiss", 0, 4);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -216,7 +216,7 @@ $annee= substr("$date_naiss", 0, 4);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -327,7 +327,7 @@ $annee= substr("$date_naiss", 0, 4);
 <div class="card o-hidden border-0 shadow-lg my-5">
 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Athlete</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[85]?></h1></div>
            </div>
 <div class="card-body p-0">
 <div class="row">    
@@ -339,34 +339,34 @@ $annee= substr("$date_naiss", 0, 4);
  <form action="addathletes.php" method="post" enctype="multipart/form-data" name="MForm">
  <div class="form-group row">
 <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Nom :   </label>
+                                      <label ><?=$_TXT[6]?>   </label>
                                         <input name="nom" type="text" id="nom" tabindex="1" size="25" value ="<?php echo $row['nom'];?>" class="form-control form-control-user"   >
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Prénom : </label>
+                                    <label><?=$_TXT[7]?> </label>
                                     <input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="<?php echo $row['prenom'];?>"class="form-control form-control-user" required >
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>N° CIN</label>
+                                      <label><?=$_TXT[5]?></label>
                                     <input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $row['cin'];?>" class="form-control form-control-user" required>
                                     </div>
                                   
                                 </div>
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                <label>Date naissance: </label>
+                                <label><?=$_TXT[9]?></label>
                                      <div class="form-group row">
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>Jour </label>  <input type="number" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" required></div> 
-                                   <div class="col-sm-4 mb-3 mb-sm-0"> <label>Mois </label>
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?> </label>  <input type="number" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" required></div> 
+                                   <div class="col-sm-4 mb-3 mb-sm-0"> <label><?=$_TXT[83]?> </label>
                                    <input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>" class="form-control form-control-user" required>
                                   </div> 
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>année</label> <input required name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>" class="form-control form-control-user"></div></div>
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[84]?></label> <input required name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>" class="form-control form-control-user"></div></div>
                                      
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Sexe: </label>
+                                    <label><?=$_TXT[10]?> </label>
                                     <select  class="form-control form-control-user" name="sexe" size="1" id="sexe" required>
                                        <option> <?php echo $row['sexe'];?></option>
                                        <option>ذكر</option>
@@ -374,27 +374,27 @@ $annee= substr("$date_naiss", 0, 4);
                                      </select>
                                   </div>
                                   <div class="col-sm-4 mb-3 mb-sm-0">
-                                  <label>Nationalité : </label>
-                                  <input required name="nationalite" type="text" id="nationalite" tabindex="10" size="25" value ="<?php echo $row['nationalite'];?>" class="form-control form-control-user">
+                                  <label><?=$_TXT[8]?> </label>
+                                  <input  name="nationalite" type="text" id="nationalite" tabindex="10" size="25" value ="<?php echo $row['nationalite'];?>" class="form-control form-control-user">
                                   
                                   </div>
                                   </div>
                                   <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Descipline :   </label><select name="sport" size="1" id="sport" tabindex="6"class="form-control form-control-user" required>
+                                      <label ><?=$_TXT[14]?>  </label><select name="sport" size="1" id="sport" tabindex="6"class="form-control form-control-user" required>
         <option><?php echo $row['sport'];?></option>        <option></option>
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>
                                      
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Photo: </label>
-                                    <input name="photo" type="file" id="photo" size="1" tabindex="10" class="form-control-file" required>
+                                    <label><?=$_TXT[15]?> </label>
+                                    <input name="photo" type="file" id="photo" size="1" tabindex="10" class="form-control-file" value="./photo/<?php echo $code. ".jpg";?>" >
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Photo CIN: </label>
-                                    <input name="photoid" type="file" id="photoid" size="1" tabindex="11"  class="form-control-file" required>
+                                    <label><?=$_TXT[25]?></label>
+                                    <input name="photoid" type="file" id="photoid" size="1" tabindex="11"  class="form-control-file" value="./photoid/<?php echo $code. ".jpg";?>">
                                     </div>
                                   
                                 </div>
@@ -402,21 +402,21 @@ $annee= substr("$date_naiss", 0, 4);
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label>Bordereau : </label>
-                                <input name="photobor" type="file" id="photobor" size="1" tabindex="11"class="form-control-file" required > 
+                                <input name="photobor" type="file" id="photobor" size="1" tabindex="11"class="form-control-file"  value="./photobor/<?php echo $saison;?>/<?php echo $code. ".jpg";?>"> 
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>autorisation parentale :  </label>
-                                    <input name="photoeng" type="file" id="photobor" size="1" tabindex="11" class="form-control-file" required>                                  </div>
+                                    <label><?=$_TXT[27]?> </label>
+                                    <input name="photoeng" type="file" id="photobor" size="1" tabindex="11" class="form-control-file" value="./photoeng/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" >                                  </div>
                                   <div class="col-sm-4 mb-3 mb-sm-0 text-center">
 
                                   </div>
                                   </div>
                                   <div class="form-group row">
                                 <div class="col-sm-3 mb-3 mb-sm-0" align="center">
-                                <img src="./photot/<?php echo $code. ".jpg";?>" width="33" height="50">
+                                <img src="./photo/<?php echo $code. ".jpg";?>" width="33" height="50">
                                   </div>
                                 <div class="col-sm-3 mb-3 mb-sm-0 " align="center">
-                                <img src="./photoidt/<?php echo $code. ".jpg";?>" width="33" height="50">
+                                <img src="./photoid/<?php echo $code. ".jpg";?>" width="33" height="50">
                               </div>
                                   <div class="col-sm-3 mb-3 mb-sm-0 " align="center">
                                   <img src="./photobor/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" alt="" width="33" height="50">
@@ -451,7 +451,7 @@ $annee= substr("$date_naiss", 0, 4);
       <input name="aphotobor" type="hidden" id="aphoto" size="1" value ="<?php echo $code. ".jpg";?>">
       <input name="aphotoeng" type="hidden" id="aphoto" size="1" value ="<?php echo $code. ".jpg";?>">
 
-      <input type="submit" name="valider" id="valider" value="Valider"  class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?>  class="btn btn-primary">
   </p>
 </form></div></div></div></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->

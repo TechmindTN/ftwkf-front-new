@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -57,7 +62,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 </HEAD>
 
-<BODY>
+<BODY lang="<?=$_SESSION["lang"]?>">
 <div id="wrapper">
 
 <!-- Sidebar -->
@@ -96,7 +101,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -108,7 +113,19 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -121,7 +138,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -180,7 +197,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -287,16 +304,18 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ml-1">        
-<div class="card o-hidden border-0 shadow-lg my-5">
-<div class="card-body p-0">
-<div class="row">    
-<div class="col-lg-12">
-       
-<div class="p-5">
-<div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Modification Coache</h1>
-                            </div>
+<div class="container ">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Entraineur</h1></div>
+           </div>
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                        <div class="p-5">
 <?php
 	include('connect.php');
 $code=$_GET['code'];

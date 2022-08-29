@@ -1266,7 +1266,7 @@
       }
     };
 
-    _proto.show = function show() {
+    _proto.Afficher= function show() {
       var _this = this;
 
       if (this._isTransitioning || $__default['default'](this._element).hasClass(CLASS_NAME_SHOW$1)) {
@@ -1635,7 +1635,7 @@
       this.show(true);
     };
 
-    _proto.show = function show(usePopper) {
+    _proto.Afficher= function show(usePopper) {
       if (usePopper === void 0) {
         usePopper = false;
       }
@@ -2123,7 +2123,7 @@
       return this._isShown ? this.hide() : this.show(relatedTarget);
     };
 
-    _proto.show = function show(relatedTarget) {
+    _proto.Afficher= function show(relatedTarget) {
       var _this = this;
 
       if (this._isShown || this._isTransitioning) {
@@ -2961,11 +2961,11 @@
       this.tip = null;
     };
 
-    _proto.show = function show() {
+    _proto.Afficher= function show() {
       var _this = this;
 
       if ($__default['default'](this.element).css('display') === 'none') {
-        throw new Error('Please use show on visible elements');
+        throw new Error('Please use Afficheron visible elements');
       }
 
       var showEvent = $__default['default'].Event(this.constructor.Event.SHOW);
@@ -4013,7 +4013,7 @@
     var _proto = Tab.prototype;
 
     // Public
-    _proto.show = function show() {
+    _proto.Afficher= function show() {
       var _this = this;
 
       if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $__default['default'](this._element).hasClass(CLASS_NAME_ACTIVE$3) || $__default['default'](this._element).hasClass(CLASS_NAME_DISABLED$1)) {
@@ -4214,7 +4214,7 @@
   var CLASS_NAME_FADE$5 = 'fade';
   var CLASS_NAME_HIDE = 'hide';
   var CLASS_NAME_SHOW$7 = 'show';
-  var CLASS_NAME_SHOWING = 'showing';
+  var CLASS_NAME_Affichage de= 'showing';
   var DefaultType$7 = {
     animation: 'boolean',
     autohide: 'boolean',
@@ -4245,7 +4245,7 @@
     var _proto = Toast.prototype;
 
     // Public
-    _proto.show = function show() {
+    _proto.Afficher= function show() {
       var _this = this;
 
       var showEvent = $__default['default'].Event(EVENT_SHOW$4);

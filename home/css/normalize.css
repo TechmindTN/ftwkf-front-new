@@ -65,7 +65,7 @@ figure {
 
 /**
  * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
+ * 2. Afficherthe overflow in Edge and IE.
  */
 
 hr {
@@ -237,8 +237,8 @@ textarea {
 }
 
 /**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
+ * Afficherthe overflow in IE.
+ * 1. Afficherthe overflow in Edge.
  */
 
 button,

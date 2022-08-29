@@ -70,7 +70,7 @@
 						meanRevealColour: "", // override CSS colours for the reveal background
 						meanScreenWidth: "767", // set the screen width you want meanmenu to kick in at
 						meanNavPush: "", // set a height here in px, em or % if you want to budge your layout now the navigation is missing.
-						meanShowChildren: true, // true to show children in the menu, false to hide them
+						meanShowChildren: true, // true to Afficherchildren in the menu, false to hide them
 						meanExpandableChildren: true, // true to allow expand/collapse children
 						meanExpand: "+", // single character you want to represent the expand for ULs
 						meanContract: "-", // single character you want to represent the contract for ULs
@@ -176,7 +176,7 @@
 									meanMenuExist = true;
 									// add class to body so we don't need to worry about media queries here, all CSS is wrapped in '.mean-container'
 									jQuery(meanContainer).addClass("mean-container");
-									jQuery('.mean-container').prepend('<div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="'+meanStyles+'">Show Navigation</a><nav class="mean-nav"></nav></div>');
+									jQuery('.mean-container').prepend('<div class="mean-bar"><a href="#nav" class="meanmenu-reveal" style="'+meanStyles+'">AfficherNavigation</a><nav class="mean-nav"></nav></div>');
 
 									//push meanMenu navigation into .mean-nav
 									var meanMenuContents = jQuery(meanMenu).html();
@@ -715,7 +715,7 @@ f){var r=Math.max(16,c.steptime);50<r&&(f=r/50,c.speedx*=f,c.speedy*=f,r=50);c.d
 d);c.nc.synched("domomentum2d",function(){c.speedx&&(c.nc.getScrollLeft(),c.chkx=p,c.nc.setScrollLeft(p));c.speedy&&(c.nc.getScrollTop(),c.chky=e,c.nc.setScrollTop(e));c.timer||(c.nc.hideCursor(),c.doSnapy(p,e))});1>c.demulxy?c.timer=setTimeout(v,r):(c.stop(),c.nc.hideCursor(),c.doSnapy(p,e))};v()}else c.doSnapy(c.nc.getScrollLeft(),c.nc.getScrollTop())}},y=f.fn.scrollTop;f.cssHooks.pageYOffset={get:function(h,c,k){return(c=f.data(h,"__nicescroll")||!1)&&c.ishwscroll?c.getScrollTop():y.call(h)},set:function(h,
 c){var k=f.data(h,"__nicescroll")||!1;k&&k.ishwscroll?k.setScrollTop(parseInt(c)):y.call(h,c);return this}};f.fn.scrollTop=function(h){if(void 0===h){var c=this[0]?f.data(this[0],"__nicescroll")||!1:!1;return c&&c.ishwscroll?c.getScrollTop():y.call(this)}return this.each(function(){var c=f.data(this,"__nicescroll")||!1;c&&c.ishwscroll?c.setScrollTop(parseInt(h)):y.call(f(this),h)})};var z=f.fn.scrollLeft;f.cssHooks.pageXOffset={get:function(h,c,k){return(c=f.data(h,"__nicescroll")||!1)&&c.ishwscroll?
 c.getScrollLeft():z.call(h)},set:function(h,c){var k=f.data(h,"__nicescroll")||!1;k&&k.ishwscroll?k.setScrollLeft(parseInt(c)):z.call(h,c);return this}};f.fn.scrollLeft=function(h){if(void 0===h){var c=this[0]?f.data(this[0],"__nicescroll")||!1:!1;return c&&c.ishwscroll?c.getScrollLeft():z.call(this)}return this.each(function(){var c=f.data(this,"__nicescroll")||!1;c&&c.ishwscroll?c.setScrollLeft(parseInt(h)):z.call(f(this),h)})};var E=function(h){var c=this;this.length=0;this.name="nicescrollarray";
-this.each=function(d){f.each(c,d);return c};this.push=function(d){c[c.length]=d;c.length++};this.eq=function(d){return c[d]};if(h)for(var k=0;k<h.length;k++){var l=f.data(h[k],"__nicescroll")||!1;l&&(this[this.length]=l,this.length++)}return this};(function(f,c,k){for(var l=0;l<c.length;l++)k(f,c[l])})(E.prototype,"show hide toggle onResize resize remove stop doScrollPos".split(" "),function(f,c){f[c]=function(){var f=arguments;return this.each(function(){this[c].apply(this,f)})}});f.fn.getNiceScroll=
+this.each=function(d){f.each(c,d);return c};this.push=function(d){c[c.length]=d;c.length++};this.eq=function(d){return c[d]};if(h)for(var k=0;k<h.length;k++){var l=f.data(h[k],"__nicescroll")||!1;l&&(this[this.length]=l,this.length++)}return this};(function(f,c,k){for(var l=0;l<c.length;l++)k(f,c[l])})(E.prototype,"Afficherhide toggle onResize resize remove stop doScrollPos".split(" "),function(f,c){f[c]=function(){var f=arguments;return this.each(function(){this[c].apply(this,f)})}});f.fn.getNiceScroll=
 function(h){return void 0===h?new E(this):this[h]&&f.data(this[h],"__nicescroll")||!1};f.expr[":"].nicescroll=function(h){return void 0!==f.data(h,"__nicescroll")};f.fn.niceScroll=function(h,c){void 0!==c||"object"!=typeof h||"jquery"in h||(c=h,h=!1);c=f.extend({},c);var k=new E;void 0===c&&(c={});h&&(c.doc=f(h),c.win=f(this));var l=!("doc"in c);l||"win"in c||(c.win=f(this));this.each(function(){var d=f(this).data("__nicescroll")||!1;d||(c.doc=l?f(this):c.doc,d=new S(c,f(this)),f(this).data("__nicescroll",
 d));k.push(d)});return 1==k.length?k[0]:k};window.NiceScroll={getjQuery:function(){return f}};f.nicescroll||(f.nicescroll=new E,f.nicescroll.options=K)});
 
@@ -3446,7 +3446,7 @@ $.fn.extend( {
 			}
 
 			// Override mode option on a per element basis,
-			// as toggle can be either show or hide depending on element state
+			// as toggle can be either Afficheror hide depending on element state
 			args.mode = modes.shift();
 
 			if ( $.uiBackCompat !== false && !defaultMode ) {
@@ -3471,7 +3471,7 @@ $.fn.extend( {
 		}
 
 		// Run prefilter on all elements first to ensure that
-		// any showing or hiding happens before placeholder creation,
+		// any Affichage deor hiding happens before placeholder creation,
 		// which ensures that any layout changes are correctly captured.
 		return queue === false ?
 			this.each( prefilter ).each( run ) :
@@ -3488,7 +3488,7 @@ $.fn.extend( {
 				return this.effect.call( this, args );
 			}
 		};
-	} )( $.fn.show ),
+	} )( $.fn.Afficher),
 
 	hide: ( function( orig ) {
 		return function( option ) {
@@ -3737,13 +3737,13 @@ var effectsEffectBounce = $.effects.define( "bounce", function( options, done ) 
 		// Defaults:
 		mode = options.mode,
 		hide = mode === "hide",
-		show = mode === "show",
+		Afficher= mode === "show",
 		direction = options.direction || "up",
 		distance = options.distance,
 		times = options.times || 5,
 
 		// Number of internal animations
-		anims = times * 2 + ( show || hide ? 1 : 0 ),
+		anims = times * 2 + ( Afficher|| hide ? 1 : 0 ),
 		speed = options.duration / anims,
 		easing = options.easing,
 
@@ -3763,7 +3763,7 @@ var effectsEffectBounce = $.effects.define( "bounce", function( options, done ) 
 		distance = element[ ref === "top" ? "outerHeight" : "outerWidth" ]() / 3;
 	}
 
-	if ( show ) {
+	if ( Afficher) {
 		downAnim = { opacity: 1 };
 		downAnim[ ref ] = refValue;
 
@@ -3882,7 +3882,7 @@ var effectsEffectDrop = $.effects.define( "drop", "hide", function( options, don
 	var distance,
 		element = $( this ),
 		mode = options.mode,
-		show = mode === "show",
+		Afficher= mode === "show",
 		direction = options.direction || "left",
 		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
 		motion = ( direction === "up" || direction === "left" ) ? "-=" : "+=",
@@ -3898,7 +3898,7 @@ var effectsEffectDrop = $.effects.define( "drop", "hide", function( options, don
 
 	animation[ ref ] = motion + distance;
 
-	if ( show ) {
+	if ( Afficher) {
 		element.css( animation );
 
 		animation[ ref ] = oppositeMotion + distance;
@@ -3941,9 +3941,9 @@ var effectsEffectExplode = $.effects.define( "explode", "hide", function( option
 		cells = rows,
 		element = $( this ),
 		mode = options.mode,
-		show = mode === "show",
+		Afficher= mode === "show",
 
-		// Show and then visibility:hidden the element before calculating offset
+		// Afficherand then visibility:hidden the element before calculating offset
 		offset = element.show().css( "visibility", "hidden" ).offset(),
 
 		// Width and height of a piece
@@ -3990,14 +3990,14 @@ var effectsEffectExplode = $.effects.define( "explode", "hide", function( option
 						overflow: "hidden",
 						width: width,
 						height: height,
-						left: left + ( show ? mx * width : 0 ),
-						top: top + ( show ? my * height : 0 ),
-						opacity: show ? 0 : 1
+						left: left + ( Afficher? mx * width : 0 ),
+						top: top + ( Afficher? my * height : 0 ),
+						opacity: Afficher? 0 : 1
 					} )
 					.animate( {
-						left: left + ( show ? 0 : mx * width ),
-						top: top + ( show ? 0 : my * height ),
-						opacity: show ? 1 : 0
+						left: left + ( Afficher? 0 : mx * width ),
+						top: top + ( Afficher? 0 : my * height ),
+						opacity: Afficher? 1 : 0
 					}, options.duration || 500, options.easing, childComplete );
 		}
 	}
@@ -4030,12 +4030,12 @@ var effectsEffectExplode = $.effects.define( "explode", "hide", function( option
 
 
 var effectsEffectFade = $.effects.define( "fade", "toggle", function( options, done ) {
-	var show = options.mode === "show";
+	var Afficher= options.mode === "show";
 
 	$( this )
-		.css( "opacity", show ? 0 : 1 )
+		.css( "opacity", Afficher? 0 : 1 )
 		.animate( {
-			opacity: show ? 1 : 0
+			opacity: Afficher? 1 : 0
 		}, {
 			queue: false,
 			duration: options.duration,
@@ -4067,7 +4067,7 @@ var effectsEffectFold = $.effects.define( "fold", "hide", function( options, don
 	// Create element
 	var element = $( this ),
 		mode = options.mode,
-		show = mode === "show",
+		Afficher= mode === "show",
 		hide = mode === "hide",
 		size = options.size || 15,
 		percent = /([0-9]+)%/.exec( size ),
@@ -4092,7 +4092,7 @@ var effectsEffectFold = $.effects.define( "fold", "hide", function( options, don
 	animation2.clip[ ref[ 0 ] ] = size;
 	animation2.clip[ ref[ 1 ] ] = 0;
 
-	if ( show ) {
+	if ( Afficher) {
 		element.cssClip( animation2.clip );
 		if ( placeholder ) {
 			placeholder.css( $.effects.clipToBox( animation2 ) );
@@ -4428,18 +4428,18 @@ var effectsEffectPuff = $.effects.define( "puff", "hide", function( options, don
 var effectsEffectPulsate = $.effects.define( "pulsate", "show", function( options, done ) {
 	var element = $( this ),
 		mode = options.mode,
-		show = mode === "show",
+		Afficher= mode === "show",
 		hide = mode === "hide",
-		showhide = show || hide,
+		showhide = Afficher|| hide,
 
-		// Showing or hiding leaves off the "last" animation
+		// Affichage deor hiding leaves off the "last" animation
 		anims = ( ( options.times || 5 ) * 2 ) + ( showhide ? 1 : 0 ),
 		duration = options.duration / anims,
 		animateTo = 0,
 		i = 1,
 		queuelen = element.queue().length;
 
-	if ( show || !element.is( ":visible" ) ) {
+	if ( Afficher|| !element.is( ":visible" ) ) {
 		element.css( "opacity", 0 ).show();
 		animateTo = 1;
 	}
@@ -7955,8 +7955,8 @@ function Datepicker() {
 	this._curInst = null; // The current instance in use
 	this._keyEvent = false; // If the last event was a key event
 	this._disabledInputs = []; // List of date picker inputs that have been disabled
-	this._datepickerShowing = false; // True if the popup picker is showing , false if not
-	this._inDialog = false; // True if showing within a "dialog", false if not
+	this._datepickerAffichage de= false; // True if the popup picker is Affichage de, false if not
+	this._inDialog = false; // True if Affichage dewithin a "dialog", false if not
 	this._mainDivId = "ui-datepicker-div"; // The ID of the main datepicker division
 	this._inlineClass = "ui-datepicker-inline"; // The name of the inline marker class
 	this._appendClass = "ui-datepicker-append"; // The name of the append marker class
@@ -7992,7 +7992,7 @@ function Datepicker() {
 		showOptions: {}, // Options for enhanced animations
 		defaultDate: null, // Used when field is blank: actual date,
 			// +/-number for offset from today, null for today
-		appendText: "", // Display text following the input box, e.g. showing the format
+		appendText: "", // Display text following the input box, e.g. Affichage dethe format
 		buttonText: "...", // Text for trigger button
 		buttonImage: "", // URL for trigger button image
 		buttonImageOnly: false, // True if the image appears alone, false if it appears on a button
@@ -8005,9 +8005,9 @@ function Datepicker() {
 		yearRange: "c-10:c+10", // Range of years to display in drop-down,
 			// either relative to today's year (-nn:+nn), relative to currently displayed year
 			// (c-nn:c+nn), absolute (nnnn:nnnn), or a combination of the above (nnnn:-n)
-		showOtherMonths: false, // True to show dates in other months, false to leave blank
+		showOtherMonths: false, // True to Afficherdates in other months, false to leave blank
 		selectOtherMonths: false, // True to allow selection of dates in other months, false for unselectable
-		showWeek: false, // True to show week of the year, false to not show it
+		showWeek: false, // True to Afficherweek of the year, false to not Afficherit
 		calculateWeek: this.iso8601Week, // How to calculate the week of the year,
 			// takes a Date and returns the number of the week for it
 		shortYearCutoff: "+10", // Short year values < this are in the current century,
@@ -8024,14 +8024,14 @@ function Datepicker() {
 		onSelect: null, // Define a callback function when a date is selected
 		onChangeMonthYear: null, // Define a callback function when the month or year is changed
 		onClose: null, // Define a callback function when the datepicker is closed
-		numberOfMonths: 1, // Number of months to show at a time
-		showCurrentAtPos: 0, // The position in multipe months at which to show the current month (starting at 0)
+		numberOfMonths: 1, // Number of months to Afficherat a time
+		showCurrentAtPos: 0, // The position in multipe months at which to Afficherthe current month (starting at 0)
 		stepMonths: 1, // Number of months to step back/forward
 		stepBigMonths: 12, // Number of months to step back/forward for the big links
 		altField: "", // Selector for an alternate field to store selected dates into
 		altFormat: "", // The date format to use for the alternate field
 		constrainInput: true, // The input is constrained by the current date format
-		showButtonPanel: false, // True to show button panel, false to not show it
+		showButtonPanel: false, // True to Afficherbutton panel, false to not Afficherit
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false // The initial disabled state
 	};
@@ -8149,9 +8149,9 @@ $.extend( Datepicker.prototype, {
 					{ src:buttonImage, alt:buttonText, title:buttonText } ) ) );
 			input[ isRTL ? "before" : "after" ]( inst.trigger );
 			inst.trigger.on( "click", function() {
-				if ( $.datepicker._datepickerShowing && $.datepicker._lastInput === input[ 0 ] ) {
+				if ( $.datepicker._datepickerAffichage de&& $.datepicker._lastInput === input[ 0 ] ) {
 					$.datepicker._hideDatepicker();
-				} else if ( $.datepicker._datepickerShowing && $.datepicker._lastInput !== input[ 0 ] ) {
+				} else if ( $.datepicker._datepickerAffichage de&& $.datepicker._lastInput !== input[ 0 ] ) {
 					$.datepicker._hideDatepicker();
 					$.datepicker._showDatepicker( input[ 0 ] );
 				} else {
@@ -8202,7 +8202,7 @@ $.extend( Datepicker.prototype, {
 		this._updateDatepicker( inst );
 		this._updateAlternate( inst );
 
-		//If disabled option is true, disable the datepicker before showing it (see ticket #5665)
+		//If disabled option is true, disable the datepicker before Affichage deit (see ticket #5665)
 		if ( inst.Réglages.disabled ) {
 			this._disableDatepicker( target );
 		}
@@ -8488,7 +8488,7 @@ $.extend( Datepicker.prototype, {
 			isRTL = inst.dpDiv.is( ".ui-datepicker-rtl" );
 
 		inst._keyEvent = true;
-		if ( $.datepicker._datepickerShowing ) {
+		if ( $.datepicker._datepickerAffichage de) {
 			switch ( event.keyCode ) {
 				case 9: $.datepicker._hideDatepicker();
 						handled = false;
@@ -8638,7 +8638,7 @@ $.extend( Datepicker.prototype, {
 		inst = $.datepicker._getInst( input );
 		if ( $.datepicker._curInst && $.datepicker._curInst !== inst ) {
 			$.datepicker._curInst.dpDiv.stop( true, true );
-			if ( inst && $.datepicker._datepickerShowing ) {
+			if ( inst && $.datepicker._datepickerAffichage de) {
 				$.datepicker._hideDatepicker( $.datepicker._curInst.input[ 0 ] );
 			}
 		}
@@ -8689,7 +8689,7 @@ $.extend( Datepicker.prototype, {
 			showAnim = $.datepicker._get( inst, "showAnim" );
 			duration = $.datepicker._get( inst, "duration" );
 			inst.dpDiv.css( "z-index", datepicker_getZindex( $( input ) ) + 1 );
-			$.datepicker._datepickerShowing = true;
+			$.datepicker._datepickerAffichage de= true;
 
 			if ( $.effects && $.effects.effect[ showAnim ] ) {
 				inst.dpDiv.show( showAnim, $.datepicker._get( inst, "showOptions" ), duration );
@@ -8731,7 +8731,7 @@ $.extend( Datepicker.prototype, {
 		inst.dpDiv[ ( this._get( inst, "isRTL" ) ? "add" : "remove" ) +
 			"Class" ]( "ui-datepicker-rtl" );
 
-		if ( inst === $.datepicker._curInst && $.datepicker._datepickerShowing && $.datepicker._shouldFocusInput( inst ) ) {
+		if ( inst === $.datepicker._curInst && $.datepicker._datepickerAffichage de&& $.datepicker._shouldFocusInput( inst ) ) {
 			inst.input.trigger( "focus" );
 		}
 
@@ -8769,7 +8769,7 @@ $.extend( Datepicker.prototype, {
 		offset.left -= ( isFixed && offset.left === inst.input.offset().left ) ? $( document ).scrollLeft() : 0;
 		offset.top -= ( isFixed && offset.top === ( inst.input.offset().top + inputHeight ) ) ? $( document ).scrollTop() : 0;
 
-		// Now check if datepicker is showing outside window viewport - move to a better place if so.
+		// Now check if datepicker is Affichage deoutside window viewport - move to a better place if so.
 		offset.left -= Math.min( offset.left, ( offset.left + dpWidth > viewWidth && viewWidth > dpWidth ) ?
 			Math.abs( offset.left + dpWidth - viewWidth ) : 0 );
 		offset.top -= Math.min( offset.top, ( offset.top + dpHeight > viewHeight && viewHeight > dpHeight ) ?
@@ -8803,7 +8803,7 @@ $.extend( Datepicker.prototype, {
 			return;
 		}
 
-		if ( this._datepickerShowing ) {
+		if ( this._datepickerAffichage de) {
 			showAnim = this._get( inst, "showAnim" );
 			duration = this._get( inst, "duration" );
 			postProcess = function() {
@@ -8821,7 +8821,7 @@ $.extend( Datepicker.prototype, {
 			if ( !showAnim ) {
 				postProcess();
 			}
-			this._datepickerShowing = false;
+			this._datepickerAffichage de= false;
 
 			onClose = this._get( inst, "onClose" );
 			if ( onClose ) {
@@ -8858,7 +8858,7 @@ $.extend( Datepicker.prototype, {
 				$target.parents( "#" + $.datepicker._mainDivId ).length === 0 &&
 				!$target.hasClass( $.datepicker.markerClassName ) &&
 				!$target.closest( "." + $.datepicker._triggerClass ).length &&
-				$.datepicker._datepickerShowing && !( $.datepicker._inDialog && $.blockUI ) ) ) ||
+				$.datepicker._datepickerAffichage de&& !( $.datepicker._inDialog && $.blockUI ) ) ) ||
 			( $target.hasClass( $.datepicker.markerClassName ) && $.datepicker._curInst !== inst ) ) {
 				$.datepicker._hideDatepicker();
 		}
@@ -13323,7 +13323,7 @@ $.widget( "ui.dialog", {
 
 	_position: function() {
 
-		// Need to show the dialog to get the actual offset in the position plugin
+		// Need to Afficherthe dialog to get the actual offset in the position plugin
 		var isVisible = this.uiDialog.is( ":visible" );
 		if ( !isVisible ) {
 			this.uiDialog.show();
@@ -18667,7 +18667,7 @@ $.widget( "ui.tabs", {
 		function show() {
 			that._addClass( eventData.newTab.closest( "li" ), "ui-tabs-active", "ui-state-active" );
 
-			if ( toShow.length && that.options.show ) {
+			if ( toShow.length && that.options.Afficher) {
 				that._show( toShow, that.options.show, complete );
 			} else {
 				toShow.show();

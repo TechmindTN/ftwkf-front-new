@@ -683,7 +683,7 @@
       // That means that this code won't compile until after the outer script has run and injected
       // this code into the iframe. There are some compile time errors that might occur there.
       // For example, using single line (double-slash) comments like this one inside that function
-      // will probably cause it to choke. Chrome will show an error like this:
+      // will probably cause it to choke. Chrome will Afficheran error like this:
       // Uncaught SyntaxError: Unexpected end of input
 
       var diagScriptFun = function diagScriptFun(nodeUnderTestId, testIconId, md5, parentOrigin) {

@@ -158,7 +158,7 @@ document.forms[0].submit();
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -195,7 +195,7 @@ document.forms[0].submit();
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -254,7 +254,7 @@ document.forms[0].submit();
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -363,10 +363,10 @@ document.forms[0].submit();
 <!-- End of Topbar -->
 
             <div class="container ">        
-            <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+            <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Athlete</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[80]?></h1></div>
            </div>
             <div class="card-body p-0">
             <div class="row">    
@@ -377,24 +377,24 @@ document.forms[0].submit();
   <form action="addathlete.php" method="post" enctype="multipart/form-data" name="MForm">
   <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Nom :   </label>
+                                      <label ><?=$_TXT[6]?></label>
                                         <input name="nom" type="text" id="nom" tabindex="1" size="25" value ="" class="form-control form-control-user"   >
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Prénom : </label>
+                                    <label><?=$_TXT[7]?> </label>
                                         <input name="prenom" type="text" id="prenom" value =""   class="form-control form-control-user" required >
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>CIN</label>
+                                      <label><?=$_TXT[5]?></label>
                                     <input name="cin" type="number" id="cin" tabindex="7" size="25" value ="" class="form-control form-control-user" required>
                                     </div>
                                   
                                 </div>
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                <label>Date naissance: </label>
+                                <label><?=$_TXT[9]?> </label>
                                      <div class="form-group row">
                                    <div class="col-sm-4 mb-3 mb-sm-0"><label>Jour </label> <input name="jour" type="number" id="jour" tabindex="3" size="4" maxlength="2" value =""  class="form-control form-control-user" required></div> 
                                    <div class="col-sm-4 mb-3 mb-sm-0"> <label>Mois </label>
@@ -404,7 +404,7 @@ document.forms[0].submit();
                                      
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Sexe: </label>
+                                    <label><?=$_TXT[10]?></label>
                                     <select  class="form-control form-control-user" name="sexe" size="1" id="sexe" required>
                                        <option> </option>
                                        <option>ذكر</option>
@@ -412,14 +412,14 @@ document.forms[0].submit();
                                      </select>
                                   </div>
                                   <div class="col-sm-4 mb-3 mb-sm-0">
-                                  <label>Nationalité : </label>
+                                  <label><?=$_TXT[8]?> </label>
                                   <input required name="nationalite" type="text" id="nationalite" tabindex="10" size="25" value ="" class="form-control form-control-user">
                                   
                                   </div>
                                   </div>
                                   <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >sport :   </label>
+                                      <label ><?=$_TXT[14]?>   </label>
                                       <select name="sport" size="1" id="sport" tabindex="6" class="form-control form-control-user" required>
                                       <option></option>
         <option>وشوكونغ فو</option>
@@ -431,13 +431,13 @@ document.forms[0].submit();
         <option>هابكيدو</option><option>الكيسندو</option></select>
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Photo: </label>
+                                    <label><?=$_TXT[15]?></label>
                                     <input name="photo" type="file" id="photo" size="1" tabindex="15" class="form-control-file" required>
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Photo CIN: </label>
+                                    <label><?=$_TXT[25]?></label>
                                     <input name="photoid" type="file" id="photoid" size="1" tabindex="15"  class="form-control-file" required>
                                     </div>
                                   
@@ -445,17 +445,17 @@ document.forms[0].submit();
                                                                           
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                <label>Certificat du médecin : </label>
+                                <label><?=$_TXT[26]?> </label>
                                      
                                 <input name="photobor" type="file" id="photobor" size="1" tabindex="15" class="form-control-file" required>
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>autorisation parentale :  </label>
+                                    <label><?=$_TXT[27]?> </label>
                                     <input name="photoeng" type="file" id="photobor" size="1" tabindex="15"class="form-control-file" required>                                  </div>
                                   <div class="col-sm-4 mb-3 mb-sm-0 text-center">
                                   <input name="club" type="hidden" id="cin" tabindex="10" size="25" value ="<?php echo $club ; ?> ">
   <p align="center"><br>
-      <input type="submit" name="valider" id="valider" value="valider"  class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-primary">
   </p>
                                   </div>
                                   </div>

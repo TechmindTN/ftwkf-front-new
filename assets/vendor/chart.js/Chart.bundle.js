@@ -5436,7 +5436,7 @@ core_defaults._set('doughnut', {
 				var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 
 				if (helpers$1.isArray(dataLabel)) {
-					// show value on first line of multiline label
+					// Affichervalue on first line of multiline label
 					// need to clone because we are changing the value
 					dataLabel = dataLabel.slice();
 					dataLabel[0] += value;
@@ -11086,7 +11086,7 @@ var core_ticks = {
 					tickString = tickValue.toFixed(numDecimal);
 				}
 			} else {
-				tickString = '0'; // never show decimal places for 0
+				tickString = '0'; // never Afficherdecimal places for 0
 			}
 
 			return tickString;
@@ -11486,7 +11486,7 @@ var Scale = core_element.extend({
 	 * @param {number} maxHeight - the max height in pixels
 	 * @param {object} margins - the space between the edge of the other scales and edge of the chart
 	 *   This space comes from two sources:
-	 *     - padding - space that's required to show the labels at the edges of the scale
+	 *     - padding - space that's required to Afficherthe labels at the edges of the scale
 	 *     - thickness of scales or legends in another orientation
 	 */
 	update: function(maxWidth, maxHeight, margins) {
@@ -11775,7 +11775,7 @@ var Scale = core_element.extend({
 			minSize.height = getTickMarkLength(gridLineOpts) + getScaleLabelHeight(scaleLabelOpts);
 		}
 
-		// Don't bother fitting the ticks if we are not showing the labels
+		// Don't bother fitting the ticks if we are not Affichage dethe labels
 		if (tickOpts.display && display) {
 			var tickFonts = parseTickFontOptions(tickOpts);
 			var labelSizes = me._getLabelSizes();
@@ -13415,7 +13415,7 @@ var defaultConfig$3 = {
 
 	// label Réglages
 	ticks: {
-		// Boolean - Show a backdrop to the scale label
+		// Boolean - Affichera backdrop to the scale label
 		showLabelBackdrop: true,
 
 		// String - The colour of the label backdrop
@@ -13431,7 +13431,7 @@ var defaultConfig$3 = {
 	},
 
 	pointLabels: {
-		// Boolean - if true, show point labels
+		// Boolean - if true, Afficherpoint labels
 		display: true,
 
 		// Number - Point label font size in pixels
@@ -14030,7 +14030,7 @@ function getMax(options) {
 
 /**
  * Returns an array of {time, pos} objects used to interpolate a specific `time` or position
- * (`pos`) on the scale, by searching entries before and after the requested value. `pos` is
+ * (`pos`) on the scale, by searching entrées before and after the requested value. `pos` is
  * a decimal between 0 and 1: 0 being the start of the scale (left or top) and 1 the other
  * extremity (left + width or top + height). Note that it would be more optimized to directly
  * store pre-computed pixels, but the scale dimensions are not guaranteed at the time we need

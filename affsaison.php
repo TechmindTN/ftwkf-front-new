@@ -94,7 +94,7 @@ window.location.href="login.php";
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
@@ -119,7 +119,7 @@ window.location.href="login.php";
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
                                         <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
+                                            placeholder="Rechercher..." aria-label="Search"
                                             aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
@@ -191,7 +191,7 @@ window.location.href="login.php";
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
                             </div>
                         </li>
 
@@ -331,7 +331,7 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
                      
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+                                <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0" >
                                 
                              <form name="stat" method="post" action="">
                              <thead>
@@ -344,7 +344,7 @@ if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
 ?>                                       
 
-                                            <th>Actions</th>                                       
+                                            <th><?=$_TXT[23]?></th>                                       
                           <?php } ?>                  
                                         </tr>
                                         </thead>
@@ -359,27 +359,27 @@ do {?>
 	  <td><?php echo $row['saison'];?></td>
 	  <td><?php echo $row['datedebut'];?></td>
 	  <td><?php echo $row['datefin'];?></td>
-	  <td><?php 
+	  <td align="center"><?php 
       
       $bol= $row['actif'];
       if($bol =="1"){
     //  echo"Activé";
     ?>
-<div style="color:green">Activé</div>
+<div style="color:green;"><i class="fa fa-bell" aria-hidden="true"></i></div>
     <?php
      }
       else{ 
         // echo"désactivé";
         ?>
-        <div style="color:red">Désactivé</div>
+        <div style="color:red"><i class="fa fa-bell-slash" aria-hidden="true"></i></div>
             <?php
     }
       ?>
       <?php
 if (($club == "ADMIN")or($club == "Admin")or($club == "admin")){ 
-?>  <td> <div align="center"><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b>Activer</b></a></div>
-      <div align="center"><a href ='updsaison.php?code<?php echo "=$row[code]";?>'><b>Modifier</b></a></div>
-      <div align="center"><a onclick="return confirm('Vous etes sure de supprimer cette saison??')" href ='delsaison.php?code<?php echo "=$row[code]";?>'><b>Supprimer</b></a></div></td>
+?>  <td> <div align="center"><a href ='saiactif.php?code<?php echo "=$row[code]";?>'><b><?=$_TXT[76]?></b></a></div>
+      <div align="center"><a href ='updsaison.php?code<?php echo "=$row[code]";?>'><b><?=$_TXT[21]?></b></a></div>
+      <div align="center"><a onclick="return confirm('Vous etes sure de supprimer cette saison??')" href ='delsaison.php?code<?php echo "=$row[code]";?>'><b><?=$_TXT[22]?></b></a></div></td>
   
   <?php } ?>
     </tr>

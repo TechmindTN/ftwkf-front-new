@@ -117,7 +117,7 @@ $row = mysql_fetch_assoc($result);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -154,7 +154,7 @@ $row = mysql_fetch_assoc($result);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -213,7 +213,7 @@ $row = mysql_fetch_assoc($result);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -325,7 +325,7 @@ $row = mysql_fetch_assoc($result);
         <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier poid</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[90]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -336,11 +336,11 @@ $row = mysql_fetch_assoc($result);
                             <form action="addparam.php" method="post" enctype="multipart/form-data" name="MForm">
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Age : </label>
+                                      <label><?=$_TXT[11]?> </label>
                                       <input name="age" type="text" id="age" tabindex="2" size="25" value ="<?php echo $row['cat'];?>" class="form-control form-control-user">
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Type </label>
+                                    <label><?=$_TXT[60]?> </label>
                                     <select name="type" size="1" id="type2" tabindex="5" class="custom-select">
         <option><?php echo $row['type'];?> </option><option>كطا</option>
         <option>فردي</option>
@@ -349,7 +349,7 @@ $row = mysql_fetch_assoc($result);
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Sexe</label>
+                                    <label><?=$_TXT[10]?> </label>
                                     <select name="sexe" size="1" id="sexe" tabindex="3" class="custom-select">
         <option><?php echo $row['sexe'];?> </option>        <option>ذكر</option>
         <option>أنثى</option>
@@ -359,10 +359,10 @@ $row = mysql_fetch_assoc($result);
                                 </div>
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Ordre</label>
+                                    <label><?=$_TXT[69]?></label>
                                     <input class="form-control form-control-user" name="ord" type="number" id="ord" tabindex="7" size="25" value="<?php echo $row['ordre'];?>">
                                     </div><div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Poids</label>
+                                    <label><?=$_TXT[68]?></label>
                                     <input  class="form-control form-control-user" name="poids" type="number" id="poids" tabindex="8" size="25" value="<?php echo $row['poids'];?>">
                                     </div>
                                     </div>
@@ -373,7 +373,7 @@ $row = mysql_fetch_assoc($result);
                                
                                 <div class="container my-3 ">
                <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-danger">Modifier</button>
+            <button type="submit" class="btn btn-danger"><?=$_TXT[21]?></button>
                      </div>
              </div>
                             </form>

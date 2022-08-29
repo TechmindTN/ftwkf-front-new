@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
@@ -60,7 +65,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <meta name="Description" content="Softricks Javascript Popup date picker calendar. The most versatile and feature-packed popup calendar for taking date inputs on the web." />
 </HEAD>
 
-<BODY>
+<BODY lang="<?=$_SESSION["lang"]?>">
 <?php
 	include('connect.php');
 $code=$_GET['code'];
@@ -117,7 +122,7 @@ $annee= substr("$date_naiss", 0, 4);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -129,7 +134,19 @@ $annee= substr("$date_naiss", 0, 4);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -142,7 +159,7 @@ $annee= substr("$date_naiss", 0, 4);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -201,7 +218,7 @@ $annee= substr("$date_naiss", 0, 4);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -308,44 +325,46 @@ $annee= substr("$date_naiss", 0, 4);
 
 </nav>
 <!-- End of Topbar -->
-<div class="container ml-1">        
-<div class="card o-hidden border-0 shadow-lg my-5">
-<div class="card-body p-0">
-<div class="row">    
-<div class="col-lg-12">
-       
-<div class="p-5">
-<div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Modification des Athlètes</h1>
-                            </div>
+<div class="container ">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+           
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[85]?></h1></div>
+           </div>
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
 
  <form action="addathletess.php" method="post" enctype="multipart/form-data" name="MForm">
  <div class="form-group row">
 <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label >Nom :   </label>
+                                      <label ><?=$_TXT[6]?>   </label>
                                         <input name="nom" type="text" id="nom" tabindex="1" size="25" value ="<?php echo $row['nom'];?>" class="form-control form-control-user"   >
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Prénom : </label>
+                                    <label><?=$_TXT[7]?> </label>
                                     <input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="<?php echo $row['prenom'];?>"class="form-control form-control-user"  >
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>N° CIN</label>
+                                      <label><?=$_TXT[5]?></label>
                                     <input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $row['cin'];?>" class="form-control form-control-user" >
                                     </div>
                                   
                                 </div>
                                 <div class="form-group row">
                                 <div class="col-sm-4 mb-3 mb-sm-0">
-                                <label>Date naissance: </label>
+                                <label><?=$_TXT[9]?>  </label>
                                      <div class="form-group row">
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>Jour </label>  <input tabindex="3" type="number" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" ></div> 
-                                   <div class="col-sm-4 mb-3 mb-sm-0"> <label>Mois </label>
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?></label>  <input tabindex="3" type="number" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" ></div> 
+                                   <div class="col-sm-4 mb-3 mb-sm-0"> <label><?=$_TXT[83]?> </label>
                                    <input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>" class="form-control form-control-user" >
                                   </div> 
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label>année</label> <input  name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>" class="form-control form-control-user"></div></div>
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[84]?></label> <input  name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>" class="form-control form-control-user"></div></div>
                                      
                                   </div>
                                 <div class="col-sm-4 mb-3 mb-sm-0">
@@ -434,7 +453,7 @@ $annee= substr("$date_naiss", 0, 4);
       <input name="aphotobor" type="hidden" id="aphoto" size="1" value ="<?php echo $code. ".jpg";?>">
       <input name="aphotoeng" type="hidden" id="aphoto" size="1" value ="<?php echo $code. ".jpg";?>">
 
-      <input type="submit" name="valider" id="valider" value="Valider"  class="btn btn-primary">
+      <a href ='licenceverif.php?naiss<?php echo "=$date_naissance";?>&club<?php echo "=$club1";?>&club1<?php echo "=$club";?>&nom<?php echo "=$nom";?>&prenom<?php echo "=$prenom";?>&code<?php echo "=$code";?>'>    <input type="submit" name="valider" id="valider" value="Valider"  class="btn btn-primary"></a>
   </p>
   
 </form>

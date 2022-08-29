@@ -98,7 +98,7 @@ if (isset($_POST['crit'])) {
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -135,7 +135,7 @@ if (isset($_POST['crit'])) {
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -194,7 +194,7 @@ if (isset($_POST['crit'])) {
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -305,7 +305,8 @@ if (isset($_POST['crit'])) {
 <div class="card shadow mb-4">
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
-<h1 class="h3 mb-2 text-gray-800">Statistiques </h1>
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[63]?>
+ </h1>
                        
                                  
                         </div>
@@ -313,17 +314,16 @@ if (isset($_POST['crit'])) {
 
 	<div class="form-group row"><div class="col-sm-1 mb-3 mb-sm-0"></div>
 	<div class="col-sm-3 mb-3 mb-sm-0">
-	<label>Critère</label>
+	<label><?=$_TXT[87]?></label>
 		<select name="crit" size="1" id="Discipline" tabindex="9" class="custom-select">
           <option><?php echo $crit;?></option>
-          <option></option>
           <option>جهات</option>
           <option>نوادي</option>
         </select>
 </div> 
 				 <div class="col-sm-3 mb-3 mb-sm-2">
                                
-				 <label>Saison</label>
+				 <label><?=$_TXT[0]?></label>
 		<select name="saison" size="1" id="saison" tabindex="9" class="custom-select">
           <option><?php echo $saison;?></option>
           <?php
@@ -336,8 +336,9 @@ if (isset($_POST['crit'])) {
 					
 								</div>  
 								<div class="col-sm-1 mb-1 mb-sm-0"><br>
-								<input name="ok" type="submit" class="btn btn-primary" value = "Rechercher">
+								<input name="ok" type="submit" class="btn btn-primary" value = <?=$_TXT[20]?>>
       </div>			<div class="col-sm-2 mb-1 mb-sm-0"><br>
+
 								<input type=button value="Imprimer" onClick="printthis()" class="btn btn-warning" >
       </div>
 </div>
@@ -412,7 +413,7 @@ if ($crit == "نوادي"){$test = $row0['club'];}
 ?>
 	<tr>
 	  <td><div align="center"><?php echo $saison;?></div></td>
-	  <td><div align="center"><?php echo $test;?></div></td>
+	  <td><div align="center"><?php echo $crit;?></div></td>
 
 
 

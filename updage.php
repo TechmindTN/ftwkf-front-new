@@ -1,4 +1,12 @@
+ <?php session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
+//$club = $_SESSION['club'];
+$club = $_SESSION['club'];
+//$club = $_GET['club']; ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
   "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en" dir="ltr">
@@ -54,13 +62,10 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 }</style>
 </HEAD>
 
-<BODY style="background-color:#fafafa">
+<BODY style="background-color:#fafafa" lang="<?=$_SESSION["lang"]?>">
 
 <?php
-session_start();
-//$club = $_SESSION['club'];
-$club = $_SESSION['club'];
-//$club = $_GET['club'];
+
 if ($club == null) {
 ?>	 
 <script type="text/javascript">
@@ -112,7 +117,7 @@ $row = mysql_fetch_assoc($result);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -124,7 +129,19 @@ $row = mysql_fetch_assoc($result);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -137,7 +154,7 @@ $row = mysql_fetch_assoc($result);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -196,7 +213,7 @@ $row = mysql_fetch_assoc($result);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -302,49 +319,49 @@ $row = mysql_fetch_assoc($result);
 </ul>
 
 </nav>
-<!-- End of Topbar -->
-            <div class="container ">
-            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
+<div class="container ">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modification age</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[93]?></h1></div>
            </div>
-<div class="card o-hidden border-0 shadow-lg my-5 ml-1">
-    <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="p-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    
+                    <div class="col-lg-12">
+                        <div class="p-5">
                 
                              <form  class="user"  action="addage.php" method="post" enctype="multipart/form-data" name="MForm">
                              <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Sexe</label>
+                                        <label><?=$_TXT[10]?></label>
                                         <select name="sexe" size="1" id="sexe" tabindex="3" class="custom-select">
                                                  <option><?php echo $row['sexe'];?> </option>        <option>ذكر</option>
                                                  <option>أنثى</option>
                                          </select>
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Age</label>
+                                    <label><?=$_TXT[11]?></label>
                                        <input type="text" class="form-control "  placeholder="ligue"
                                        name="age"  id="age" tabindex="2"  value ="<?php echo $row['cat'];?>">
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Min</label>
+                                    <label><?=$_TXT[71]?></label>
                                     <input name="min" type="number" class="form-control " id="poids" tabindex="8" size="25" value ="<?php echo $row['min'];?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Max</label>
+                                        <label><?=$_TXT[72]?></label>
                                         <input name="sup"  class="form-control " type="number" id="name" tabindex="8" size="25" value ="<?php echo $row['sup'];?>">
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Prix</label>
+                                    <label><?=$_TXT[92]?></label>
                                     <input name="prix" class="form-control " type="number" id="name2" tabindex="8" size="25" value ="<?php echo $row['prix'];?>">
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Nom</label>
+                                    <label><?=$_TXT[6]?></label>
                                     <input name="nom" class="form-control " type="text" id="name3" tabindex="8" size="25" value ="<?php echo $row['nom'];?>">
                                     </div>
                                 </div>
@@ -352,7 +369,7 @@ $row = mysql_fetch_assoc($result);
 
   <p align="center">
       <input name="cod" type="hidden" id="cod" tabindex="100" size="0" value ="<?php echo $row['code'];?>">
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary ">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-primary ">
   </p>
 </form>
 </div></div></div></div></div></div></div>

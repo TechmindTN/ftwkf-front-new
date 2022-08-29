@@ -70,6 +70,11 @@ $row1 = mysql_fetch_assoc($result1);
 $queryl ="SELECT ligue from clubb group by ligue order by ligue";	 
 $resultl = mysql_query($queryl,$connexion);
 $rowl = mysql_fetch_assoc($resultl);
+$queryw ="SELECT saison FROM saison where actif = 1";
+$resultw = mysql_query($queryw,$connexion);
+$roww = mysql_fetch_row($resultw);
+$saison1 = $roww[0];
+if ($saison == "") {$saison = $saison1;}
 $querys ="SELECT saison from clubb group by saison order by saison";	 
 $results = mysql_query($querys,$connexion);
 $rows = mysql_fetch_assoc($results);
@@ -115,7 +120,7 @@ $rows = mysql_fetch_assoc($results);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -151,7 +156,7 @@ $rows = mysql_fetch_assoc($results);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -210,7 +215,7 @@ $rows = mysql_fetch_assoc($results);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -343,7 +348,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
                    <td > <?=$_TXT[0]?> </td>
 
    <td ><select name="saison" size="1" id="club" tabindex="9" class="custom-select " >
-        <option>Choisir...</option>
+        <option><?php echo  $saison;?></option>
                       <?php
 					   do { 
                                      $res=$rows['saison'];
@@ -369,7 +374,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 
                    <td > <?=$_TXT[12]?> </td>
 
-   <td  ><select name="club" size="1" id="club" tabindex="9" class="custom-select "  >
+   <td  ><select name="club" size="1" id="club" tabindex="9" class="custom-select">
         <option><?php echo $club1;?> </option>
         <option> </option>
                       <?php
@@ -401,7 +406,7 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 
 
 <div class="table-responsive">
-<table class="table table-bordered" id="dataTable" >
+<table class="table table-bordered text-center" id="dataTable" >
 <thead>
                                         <tr>
                                             <th><?=$_TXT[12]?></th>
@@ -413,14 +418,13 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
                                         </tr>
                                         </thead>
 
-<?php
-$row=null;
-if ($saison<>""){$query ="SELECT * FROM clubb where club like '%$club1%' and saison like '%$saison%' and ligue like '%$ligue%' ";
-// else if ($saison==""){$query ="SELECT * FROM clubb order club";}
+                                        <?php
+if ($saison<>""){$query ="SELECT * FROM clubb where club like '%$club1%' and saison like '%$saison%' and ligue like '%$ligue%' ";}
+if ($saison==""){$query ="SELECT * FROM clubb order club";}
 
 $result = mysql_query($query,$connexion);
-$row = mysql_fetch_assoc($result);}
-$i=0;
+$row = mysql_fetch_assoc($result);
+
 do {?>
 	<tr>
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
@@ -429,12 +433,7 @@ do {?>
     
     
    </tr>
-<?php		
-$i++;		
-	// }while	 (($row=mysql_fetch_assoc($result))); 
-}while($i<count($row))
-
-?> 
+   <?php					}while	 ($row=mysql_fetch_assoc($result)); ?>
 </table>
 </div></div>
 <p>&nbsp;</p>
