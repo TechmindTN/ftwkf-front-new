@@ -27,6 +27,18 @@ window.location.href="login.php";
 <HEAD>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Vérification athlete</TITLE>
+<style>
+
+#delid{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+</style>
 </HEAD>
 
 <BODY  lang="<?=$_SESSION["lang"]?>">
@@ -456,7 +468,7 @@ if ($bilan >0){
       <td ><div align="center" ><a style="color:#fff" href ='updathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Modifier</b></a>
       <div align="center"><a  style="color:#fff" href ='licencevalid.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Validate</b></a>
       <!-- <button id="delid" style="color:#fff" onclick="getReason" ><b>Supprimer</b></button></td> -->
-      <button type="button" id="delid">supprimer</button>
+      <div><button type="button" id="delid"><b>Supprimer</b></button></div>
   
   </tr>
 </table></div></div>
