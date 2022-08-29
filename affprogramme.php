@@ -386,7 +386,7 @@ if (($jours1 >= 0) and ($actif ==1)){
 ?>
       <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b>Enregistrement</b></a>
       </div>
-<?php}      
+<?php }      
 
 if (($jours1 < 0)and(($club == "ADMIN")or($club == "DTN"))){ 
 ?>

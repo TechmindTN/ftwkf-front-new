@@ -30,6 +30,7 @@ window.location.href="login.php";
 </HEAD>
 
 <BODY  lang="<?=$_SESSION["lang"]?>">
+
 <div id="wrapper">
 <div class="navbar-nav sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -448,13 +449,14 @@ if ($bilan >0){
 	  <td><div align="center"><?php echo $row['date_naiss'];?></div></td>
 	  <td><div align="center"><?php echo $row['sexe'];?></div></td>
 	  <td><div align="center"><?php echo $row['age'];?></div></td>
-	  <td><div align="center"><?php echo $row['club'];?></div></td>
+	  <td><div id="cl" align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['ligue'];?></div></td>
 
 	  <td><div align="center"><?php echo $row['sport'];?></div></td>
       <td ><div align="center" ><a style="color:#fff" href ='updathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Modifier</b></a>
       <div align="center"><a  style="color:#fff" href ='licencevalid.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Validate</b></a>
-      <a style="color:#fff" href ='delathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Supprimer</b></a></td>
+      <!-- <button id="delid" style="color:#fff" onclick="getReason" ><b>Supprimer</b></button></td> -->
+      <button type="button" id="delid">supprimer</button>
   
   </tr>
 </table></div></div>
@@ -494,6 +496,24 @@ else {
 	</div> 	</div>
 	</div>
 	</div></div>
+    <script> var a="";
+    document.getElementById('delid').addEventListener("click",getReason)
+        function getReason(){
+            // alert('dsdsd')
+             
+              reason=prompt("Quel est la raison de supprimer ce athlete")
+            //   alert(reason)
+              cl=document.getElementById('cl').innerText
+              window.location.href="delathletess.php?code=<?php echo $_GET['code'];?>&club="+cl+"&raison="+reason
+            //  alert("sasasa")
+            //  console.log("klklklkl")
+       // Simulate a mouse click:
+    //    if(a!=null){
+        // window.location.href = "delathletess.php?code="+<?php echo $_GET['code'];?>+"&club="+<?php echo $_GET['club'];?>+"&raison=";
+
+    //    }
+            }
+        </script>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
