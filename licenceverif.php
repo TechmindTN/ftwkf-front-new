@@ -5,9 +5,9 @@ if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
 // (D) LOAD LANGUAGE FILE
 require "languages/"."lang-" . $_SESSION["lang"] . ".php";
-//$club = $_SESSION['club'];
+//$club=  $_SESSION['club'];
 $club = $_GET['club1'];
-if ($club == null) {
+if ( $_SESSION['club'] == null) {
 ?>	 
 <script type="text/javascript">
 window.location.href="login.php";
@@ -242,7 +242,7 @@ window.location.href="login.php";
     <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span id="currentClub" class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $club; ?> </span>
+            <span id="currentClub" class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['club']; ?> </span>
             <img class="img-profile rounded-circle"
                 src="assets/img/undraw_profile.svg">
         </a>

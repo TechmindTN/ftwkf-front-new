@@ -8,7 +8,7 @@ require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
 //$club = $_GET['club'];
-if ($club == null) {
+if ($_SESSION['club'] == null) {
 ?>	 
 <script type="text/javascript">
 window.location.href="login.php";
