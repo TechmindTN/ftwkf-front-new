@@ -338,7 +338,8 @@ if (isset($_POST['crit'])) {
 								<div class="col-sm-1 mb-1 mb-sm-0"><br>
 								<input name="ok" type="submit" class="btn btn-primary" value = <?=$_TXT[20]?>>
       </div>			<div class="col-sm-2 mb-1 mb-sm-0"><br>
-								<input type=button value=<?=$_TXT[37]?> onClick="window.print()" class="btn btn-warning" >
+
+								<input type=button value="Imprimer" onClick="printthis()" class="btn btn-warning" >
       </div>
 </div>
     
@@ -363,6 +364,7 @@ if ($crit == "نوادي"){$critere = "club";}
 
 
 ?>
+<div id="divprint">
 <p style="page-break-before:always">
 <table width="100%" border="0">
   <tr>
@@ -547,9 +549,55 @@ $nb = mysql_num_rows($result);
 
 
 </table></div></div>
+</div></div></div>
 <?php 
 ?>
+<script>
+   function printthis(){
 
+    // divprint=document.getElementById("divprint").innerHTML;
+    // divprint.document.getElementById('datatable').id="";
+    //  dataTable=document.getElementById("dataTable").innerHTML
+    //  dataTable.id="blabla";
+
+            var a = window.open('', '', 'height=500, width=500');
+            // document.getElementById('dataTable').removeAttribute('id');
+            
+            a.document.write('<html>');
+            a.document.write(`<head>
+       
+    <style>
+    @page{
+        size:portrait;
+        
+    }
+    table{
+        table-layout: auto;
+        border-collapse: collapse;
+    },
+   
+    </style>
+</HEAD>`)
+            a.document.write('<body > ');
+            // a.document.write(pprint);
+            // a.document.write(dataTable);
+            divprint=document.getElementById("divprint").innerHTML;
+
+            a.document.write(divprint);
+            // a.document.getElementById('dataTable').id="bla";
+            a.document.write('</body></html>');
+            a.document.close();
+            // a.document.style.size='landscape';
+            a.print();
+    // divprint.print();
+    // document.body.innerHTML=divprint;
+    // window.print();
+    // document.body.innerHTML=original;
+    // window.print();
+   } 
+
+  
+    </script>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
