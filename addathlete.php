@@ -1,5 +1,7 @@
 <?php
 session_start();
+$club = $_POST['club'];
+
 //$club = $_SESSION['club'];
 //$club = $_SESSION['club'];
 //$club = $_GET['club'];?>
@@ -25,7 +27,6 @@ session_start();
 
 <body>
 <?php
-$club = $_POST['club'];
 
 include('connect.php');
 $query ="SELECT club,ligue FROM club where club = '$club'";

@@ -912,7 +912,7 @@ function createCache() {
 		// Use (key + " ") to avoid collision with native prototype properties (see Issue #157)
 		if ( keys.push( key + " " ) > Expr.cacheLength ) {
 
-			// Only keep the most recent entries
+			// Only keep the most recent entrées
 			delete cache[ keys.shift() ];
 		}
 		return ( cache[ key + " " ] = value );
@@ -4830,7 +4830,7 @@ function getDefaultDisplay( elem ) {
 	return display;
 }
 
-function showHide( elements, show ) {
+function showHide( elements, Afficher) {
 	var display, elem,
 		values = [],
 		index = 0,
@@ -4844,7 +4844,7 @@ function showHide( elements, show ) {
 		}
 
 		display = elem.style.display;
-		if ( show ) {
+		if ( Afficher) {
 
 			// Since we force visibility upon cascade-hidden elements, an immediate (and slow)
 			// check is required in this first loop unless we have a nonempty display value (either
@@ -7016,7 +7016,7 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 		get: function( elem, computed, extra ) {
 			if ( computed ) {
 
-				// Certain elements can have dimension info if we invisibly show them
+				// Certain elements can have dimension info if we invisibly Afficherthem
 				// but it must have a current display style that would benefit
 				return rdisplayswap.test( jQuery.css( elem, "display" ) ) &&
 

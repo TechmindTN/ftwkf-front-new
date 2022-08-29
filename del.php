@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 $club5 = $_SESSION['club'];
  if ($club5 == null) {
 ?>	 
@@ -14,6 +19,14 @@ window.location.href="login.php";
   "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en" dir="ltr">
 <HEAD>
+          <!-- Custom fonts for this template-->
+          <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="print.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Consultation competition</title>
@@ -203,7 +216,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 .ml-1 {
   margin-left: 15% !important;
 }</style>
-<body>
+<body lang="<?=$_SESSION["lang"]?>">
 <div></div>
 <div id="wrapper">
 <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion">
@@ -243,7 +256,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -255,7 +268,19 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -268,7 +293,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -327,7 +352,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -444,7 +469,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 <table >
 <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h1 class="h3 mb-0 text-gray-800">Consultaion compétition</h1>
+                        <h1 class="h3 mb-0 text-gray-800"><?=$_TXT[99]?></h1>
                         
 						
                  
@@ -460,19 +485,19 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
 <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" >
   <tr>
-      <td  ><div align="center"><strong>Competition</strong></div></td>
-      <td  ><div align="center"><strong>Discipline</strong></div></td>
-      <td  ><div align="center"><strong>Age </strong></div></td>
-      <td  ><div align="center"><strong>Type </strong></div></td>
-      <td  ><div align="center"><strong>Année </strong></div></td>
-      <td  ><div align="center"><strong>Lieu </strong></div></td>
-      <td  ><div align="center"><strong>Qualité </strong></div></td>
-      <td ><div align="center"> <strong>N Licence</strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[59]?></strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[14]?></strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[11]?> </strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[60]?> </strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[84]?>  </strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[61]?> </strong></div></td>
+      <td  ><div align="center"><strong><?=$_TXT[100]?> </strong></div></td>
+      <td ><div align="center"> <strong><?=$_TXT[4]?></strong></div></td>
 <?php if ($type == "Equipe"){ ?>
-     <td ><div align="center"><strong>Equipe</strong></div></td>
+     <td ><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
 <?php } ?>
 <?php if ($qualif <> 2){ ?>
-     <td ><div align="center"><strong>Poids</strong></div></td>
+     <td ><div align="center"><strong><?=$_TXT[68]?></strong></div></td>
 <?php } ?>
     </tr>
                 <tr>
@@ -528,7 +553,7 @@ $row_poids = mysql_fetch_assoc($resultat_poids);
                 </tr>
                 <tr>
                   <td colspan="9" valign="center"><div align="center">
-<input name="ok" type="submit" class="btn btn-danger" value="Ajouter" >
+<input name="ok" type="submit" class="btn btn-danger" value=<?=$_TXT[16]?> >
                   </td>
                 </tr>
               </table></div></div>
@@ -568,24 +593,24 @@ $resultat1 = mysql_query($query_resultat1, $connexion) or die(mysql_error());
 ?>
 
 
-<h1 class="h3 mb-2 text-gray-1000 text-center">Athletes </h1><div class="card-body">
+<h1 class="h3 mb-2 text-gray-1000 text-center"><?=$_TXT[17]?> </h1><div class="card-body">
 
 
 <div class="table-responsive">
 <table class="table table-bordered" id="dataTable" >
     <tr style="color:#fff">
-     <td width="81"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Poids</strong></div></td>
-      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>N Licence </strong></div></td>
-      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Nom </strong></div></td>
-      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Prenom </strong></div></td>
-<td width="257"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Club</strong></div></td>
+     <td width="81"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[68]?></strong></div></td>
+      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[4]?></strong></div></td>
+      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[6]?> </strong></div></td>
+      <td width="159"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[7]?> </strong></div></td>
+<td width="257"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
  <?php if ($type == "Equipe"){ ?>
-     <td rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Equipe</strong></div></td>
+     <td rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[12]?></strong></div></td>
 <?php } ?>
-     <td width="257"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong>Ligue </strong></div></td>      
+     <td width="257"  rowspan="2" bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[13]?> </strong></div></td>      
       
-      <td width="135" bgcolor="#0000FF" ><div align="center"><strong>Date Naissance</strong></div></td>
-      <td colspan="2" rowspan="3" bgcolor="#0000FF" align="center"><strong>Details</strong></td>
+      <td width="135" bgcolor="#0000FF" ><div align="center"><strong><?=$_TXT[9]?></strong></div></td>
+      <td colspan="2" rowspan="3" bgcolor="#0000FF" align="center"><strong><?=$_TXT[101]?> </strong></td>
     </tr>
     <tr>
       <td bgcolor="#0000FF" border="0"><div align="center" style="color:#fff">(DD/MM/YYYY)</div></td>
@@ -604,7 +629,7 @@ $totalRows = mysql_num_rows($result11);
 $row11 = mysql_fetch_assoc($result11);
 
 ?>    <tr>
-      <td colspan="9" bgcolor="#00FF00"><div align="center" style="color:#fff"><strong>Garcons (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#00FF66" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
+      <td colspan="9" bgcolor="#00FF00"><div align="center" style="color:#fff"><strong><?=$_TXT[102]?> (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#00FF66" ><div align="center" style="color:#fff" ><strong><?=$_TXT[23]?> </strong></div></td>
     </tr>
 
 
@@ -673,8 +698,8 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
     <td><?php echo $annee1;?></td>
 <?PHP     if (($club5 == "ADMIN")){?>   
 
-    <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>' ><div class="bleu"> Qualifier</div></a></td>
-    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>'><div class="bleu"> Non Qualifier</div></a></td>
+    <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>' ><div class="bleu"> <?=$_TXT[104]?></div></a></td>
+    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>&poid<?php echo "=$code";?>'><div class="bleu"><?=$_TXT[105]?></div></a></td>
  
  <?PHP }if (($club5 <> "DTN")){ ?>
     <td width="23"><a href ='deldel.php?code<?php echo "=$row11[code]"; ?>' ><img src="sup.png" width="16" height="16"></a></td>
@@ -695,7 +720,7 @@ $row11 = mysql_fetch_assoc($result11);
 
 ?>
     <tr>
-      <td colspan="9" bgcolor="#FF0099"><div align="center"style="color:#fff"><strong>Filles (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#FF0099" ><div align="center" style="color:#fff" ><strong>Actions</strong></div></td>
+      <td colspan="9" bgcolor="#FF0099"><div align="center"style="color:#fff"><strong><?=$_TXT[103]?> (<?php echo $totalRows;?>)</strong></div></td><td bgcolor="#FF0099" ><div align="center" style="color:#fff" ><strong><?=$_TXT[23]?> </strong></div></td>
     </tr>
     <?PHP 
 
@@ -755,8 +780,8 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
     <td><?php echo $annee1;?></td>
 <?PHP     if (($club5 == "ADMIN")){?>   
 
-    <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> Qualifier</div></a></td>
-    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> Non Qualifier</div></a></td>
+    <td width="23"><a href ='qualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> <?=$_TXT[104]?></div></a></td>
+    <td width="23"><a href ='nqualif.php?code<?php echo "=$row11[code]"; ?>' ><div class="bleu"> <?=$_TXT[105]?></div></a></td>
   
  <?PHP } 
  if (($club5 <> "DTN")){
@@ -778,7 +803,7 @@ $row_poids1 = mysql_fetch_assoc($resultat_poids1);
 if (($club5 == "ADMIN")or($club5 == "DTN")){ 
 ?>     
 </p>
-      <td><div align="center"><a href ='exp.php?cat<?php echo "=$cat";?>&comp<?php echo "=$comp";?>&dat<?php echo "=$dat";?>&lieu<?php echo "=$lieu";?>&type<?php echo "=$type";?>' ><img src="./image/ex.jpg" width="33" height="40"><div  class="btn btn-warning">Exporter</div></a></td>
+      <td><div align="center"><a href ='exp.php?cat<?php echo "=$cat";?>&comp<?php echo "=$comp";?>&dat<?php echo "=$dat";?>&lieu<?php echo "=$lieu";?>&type<?php echo "=$type";?>' ><div  class="btn btn-warning"><?=$_TXT[18]?> </div></a></td>
       
   <?php 
 }else {
@@ -791,18 +816,18 @@ if (($club5 == "ADMIN")or($club5 == "DTN")){
  ?>
 </tr>
 </table>
-<h1 class="h3 mb-2 text-gray-1000 text-center">Entraineurs </h1> <div class="card-body">
+<h1 class="h3 mb-2 text-gray-1000 text-center"><?=$_TXT[30]?> </h1> <div class="card-body">
 
 
 <div class="table-responsive">
 <table class="table table-bordered" id="dataTable" >
    <tr style="color:#fff">
-      	<td width="103" bgcolor="#0000FF"  ><div align="center"><strong>Nom </strong></div></td>
-		<td width="103" bgcolor="#0000FF"  ><div align="center"><strong>Prénom </strong></div></td>
-     	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong>Club </strong></div></td>
-     	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong>Ligue </strong></div></td>
- 		<td width="257"  bgcolor="#0000FF"><div align="center"><strong>Sexe </strong></div></td>
-    	<td width="18" bgcolor="#0000FF">Actions</td>
+      	<td width="103" bgcolor="#0000FF"  ><div align="center"><strong><?=$_TXT[6]?> </strong></div></td>
+		<td width="103" bgcolor="#0000FF"  ><div align="center"><strong><?=$_TXT[7]?> </strong></div></td>
+     	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong><?=$_TXT[12]?> </strong></div></td>
+     	<td width="278" bgcolor="#0000FF"  ><div align="center"><strong><?=$_TXT[13]?> </strong></div></td>
+ 		<td width="257"  bgcolor="#0000FF"><div align="center"><strong><?=$_TXT[10]?>  </strong></div></td>
+    	<td width="18" bgcolor="#0000FF"><?=$_TXT[23]?> </td>
    </tr>
 <?php 
 
@@ -838,7 +863,7 @@ $row12 = mysql_fetch_assoc($result12);
 <?PHP  //   if (($Login <> "ADMIN")AND($Login <> "Admin")AND($Login <> "admin")){ 
 if (($club5 <> "DTN")){
 ?>     
-    <td width="23"><a href ='deldel.php?code<?php echo "=$row1[code]"; ?>' ><b>Supprimer</b></a></td>
+    <td width="23"><a href ='deldel.php?code<?php echo "=$row1[code]"; ?>' ><b><?=$_TXT[22]?> </b></a></td>
 <?php  }
 ?>
   </tr>

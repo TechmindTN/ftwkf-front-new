@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
+
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 	include('connect.php');
 //$club = $_SESSION['club'];
 $club = $_SESSION['club'];
@@ -105,7 +110,7 @@ document.forms[0].submit();
 }</style>
 </HEAD>
 
-<BODY style="background-color:#fafafa">
+<BODY style="background-color:#fafafa" lang="<?=$_SESSION["lang"]?>">
 
 <?php 
 
@@ -154,7 +159,7 @@ $row2 = mysql_fetch_assoc($result2);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -166,7 +171,19 @@ $row2 = mysql_fetch_assoc($result2);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -179,7 +196,7 @@ $row2 = mysql_fetch_assoc($result2);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -238,7 +255,7 @@ $row2 = mysql_fetch_assoc($result2);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -348,10 +365,10 @@ $row2 = mysql_fetch_assoc($result2);
 
     <div class="container ">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+        <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Paiement</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[94]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -363,7 +380,7 @@ $row2 = mysql_fetch_assoc($result2);
  <form action="addpaiement.php" method="post" enctype="multipart/form-data" name="MForm" onSubmit="return verif_formulaire()">
  <div class="form-group row">
  <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Saison</label>
+                                        <label><?=$_TXT[0]?></label>
                                         <select name="saison" size="1" id="saison" tabindex="12"  class="custom-select" required>
         <option></option>
                        <?php
@@ -374,7 +391,7 @@ $row2 = mysql_fetch_assoc($result2);
 ?>
      </select>
                                     </div><div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Club</label>
+                                        <label><?=$_TXT[12]?></label>
                                         <select name="club" size="1" id="club" tabindex="12"  class="custom-select" required>
         <option></option>
                        <?php
@@ -386,18 +403,18 @@ $row2 = mysql_fetch_assoc($result2);
      </select>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Montant</label>
+                                    <label><?=$_TXT[39]?></label>
                                     <input name="montant" type="number" id="montant" tabindex="10" size="25" class="form-control "  placeholder="Saisir Montant" required>
                                        
                                     </div>
                                 </div>   <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label>Date </label>
+                                        <label><?=$_TXT[43]?> </label>
                                         <input name="date" type="date" id="date" tabindex="10" size="25" class="form-control " required>
                                        
                                     </div>
                                     <div class="col-sm-6">
-                                    <label>Decharge</label>
+                                    <label><?=$_TXT[44]?> </label>
                                     <input name="decharge" type="file" id="photoid" size="1" tabindex="15" class="form-control-file " required>
 
                                     </div>
@@ -405,7 +422,7 @@ $row2 = mysql_fetch_assoc($result2);
                       </div>
  
 <p align="center">
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?>  class="btn btn-primary">
   </p>
 </form> </div></div></div></div></div></div></div>
 <!-- Bootstrap core JavaScript-->

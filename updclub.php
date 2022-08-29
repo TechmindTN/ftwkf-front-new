@@ -110,7 +110,7 @@ $row = mysql_fetch_assoc($result);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -135,7 +135,7 @@ $row = mysql_fetch_assoc($result);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -194,7 +194,7 @@ $row = mysql_fetch_assoc($result);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 

@@ -120,7 +120,7 @@ window.location.href="login.php";
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -157,7 +157,7 @@ window.location.href="login.php";
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -216,7 +216,7 @@ window.location.href="login.php";
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -329,7 +329,7 @@ window.location.href="login.php";
 <div class="card o-hidden border-0 shadow-lg my-5">
 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Saison</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[77]?></h1></div>
            </div>
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
@@ -341,16 +341,16 @@ window.location.href="login.php";
                     <form action="addsaison.php" method="post" enctype="multipart/form-data" name="MForm">
                         <div class="form-group row">
                             <div class="col-sm-4 mb-3 mb-sm-0">
-                            <label>Saison :</label>
+                            <label><?=$_TXT[0]?> </label>
                                 <input type="text" class="form-control form-control-user"name="saison"  id="saison" tabindex="2"  required>
                             </div>
                             <div class="col-sm-4 mb-3 mb-sm-0">
-                              <label>Date Début :</label>
+                              <label><?=$_TXT[1]?> </label>
                                 <input type="date" class="form-control form-control-user" id="datedebut" name="datedebut"
                                      tabindex="2" required>
                             </div> 
                             <div class="col-sm-4 mb-3 mb-sm-0">
-                              <label>Date Fin :</label>
+                              <label><?=$_TXT[2]?> </label>
                                 <input type="date" class="form-control form-control-user" id="datefin" name="datefin"
                                     tabindex="2" required>
                             </div> 
@@ -359,8 +359,8 @@ window.location.href="login.php";
                         
                         <div class="container my-3 ">
 <div class="col-md-12 text-center">
-    <button type="submit" class="btn btn-danger">Ajouter</button>
-    <button type="reset" class="btn btn-info">réinitialiser</button>
+    <button type="submit" class="btn btn-danger"><?=$_TXT[16]?></button>
+    <button type="reset" class="btn btn-info"><?=$_TXT[78]?></button>
 </div>
 </div>
                     </form>

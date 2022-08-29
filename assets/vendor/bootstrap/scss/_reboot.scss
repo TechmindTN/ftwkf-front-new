@@ -55,7 +55,7 @@ body {
 }
 
 // Future-proof rule: in browsers that support :focus-visible, suppress the focus outline
-// on elements that programmatically receive focus but wouldn't normally show a visible
+// on elements that programmatically receive focus but wouldn't normally Affichera visible
 // focus outline. In general, this would mean that the outline is only applied if the
 // interaction that led to the element receiving programmatic focus was a keyboard interaction,
 // or the browser has somehow determined that the user is primarily a keyboard user and/or
@@ -71,7 +71,7 @@ body {
 // Content grouping
 //
 // 1. Add the correct box sizing in Firefox.
-// 2. Show the overflow in Edge and IE.
+// 2. Afficherthe overflow in Edge and IE.
 
 hr {
   box-sizing: content-box; // 1
@@ -329,7 +329,7 @@ textarea {
 
 button,
 input {
-  overflow: visible; // Show the overflow in Edge
+  overflow: visible; // Afficherthe overflow in Edge
 }
 
 button,

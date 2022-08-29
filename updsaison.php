@@ -120,7 +120,7 @@ $row = mysql_fetch_assoc($result);
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -157,7 +157,7 @@ $row = mysql_fetch_assoc($result);
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -216,7 +216,7 @@ $row = mysql_fetch_assoc($result);
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -328,7 +328,7 @@ $row = mysql_fetch_assoc($result);
         <div class="card o-hidden border-0 shadow-lg my-5">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Saison</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[79]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -339,17 +339,17 @@ $row = mysql_fetch_assoc($result);
                             <form action="addsaison.php" method="post" enctype="multipart/form-data" name="MForm">
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                      <label>Saison : </label>
+                                      <label><?=$_TXT[0]?> </label>
                                         <input name="saison" type="text" id="club" tabindex="3" class="form-control form-control-user"  value ="<?php echo $row['saison'];?>" >
                                     </div>
                                     <div class="col-sm-4 col-sm-4 mb-3 mb-sm-0">
-                                    <label>Date début : </label>
+                                    <label><?=$_TXT[1]?> </label>
                                         <input name="datedebut" type="date" id="ligue" tabindex="2"   class="form-control form-control-user" value ="<?php echo $row['datedebut'];?>">
                                     </div>
                                 
                                
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Date fin : </label>
+                                    <label><?=$_TXT[2]?> </label>
                                     <input  class="form-control form-control-user"
                                     name="datefin" type="date" id="pw" tabindex="1" size="25" value ="<?php echo $row['datefin'];?>">
                                     </div>
@@ -366,7 +366,7 @@ $row = mysql_fetch_assoc($result);
                                
                                 <div class="container my-3 ">
                <div class="col-md-12 text-center">
-               <input name="mod" type="submit" value ="modifier" class="btn btn-danger">
+               <input name="mod" type="submit" value =<?=$_TXT[21]?> class="btn btn-danger">
                      </div>
              </div>
                             </form>

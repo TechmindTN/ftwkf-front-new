@@ -80,7 +80,7 @@ window.location.href="login.php";
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -116,7 +116,7 @@ window.location.href="login.php";
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -175,7 +175,7 @@ window.location.href="login.php";
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -384,19 +384,19 @@ if (($jours1 >= 0)or(($club == "ADMIN")or($club == "Admin")or($club == "admin")o
       <?php
 if (($jours1 >= 0) and ($actif ==1)){ 
 ?>
-      <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b>Enregistrement</b></a>
+      <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b><?=$_TXT[98]?></b></a>
       </div>
 <?php}      
 
 if (($jours1 < 0)and(($club == "ADMIN")or($club == "DTN"))){ 
 ?>
-      <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b>Consultation</b></a></div>
+      <div align="center"><a href ='del.php?code<?php echo "=$row[id]";?>&cat<?php echo "=$row[age]";?>&comp<?php echo "=$row[action]";?>&dat<?php echo "=$date_debut1";?>&lieu<?php echo "=$row[lieu]";?>&type<?php echo "=$row[type]";?>&max<?php echo "=$row[max]";?>&min<?php echo "=$row[min]";?>&qualif<?php echo "=$row[qualif]";?>&sais<?php echo "=$row[saison]";?>&sport<?php echo "=$row[sport]";?>' ><b><?=$_TXT[97]?></b></a></div>
 <?php }?>      
 
       
       <?php if (($club == "ADMIN")){ ?>
 
-     <div align="center"><a href ='updprogramme.php?code<?php echo "=$row[id]";?>' ><b>Modification</b></a></div></td>
+     <div align="center"><a href ='updprogramme.php?code<?php echo "=$row[id]";?>' ><b><?=$_TXT[21]?></b></a></div></td>
 <?php	} ?> 
       
   </tr>

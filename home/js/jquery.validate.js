@@ -953,7 +953,7 @@ $.extend( $.validator, {
 				if ( this.Réglages.wrapper ) {
 
 					// Make sure the element is visible, even in IE
-					// actually showing the wrapped element is handled elsewhere
+					// actually Affichage dethe wrapped element is handled elsewhere
 					place = error.hide().show().wrap( "<" + this.Réglages.wrapper + "/>" ).parent();
 				}
 				if ( this.labelContainer.length ) {

@@ -84,7 +84,7 @@ window.location.href="login.php";
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -121,7 +121,7 @@ window.location.href="login.php";
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -180,7 +180,7 @@ window.location.href="login.php";
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -358,7 +358,7 @@ $row1 = mysql_fetch_assoc($result1);}
 
 
 <div class="table-responsive">
-<table class="table table-bordered" id="dataTable" >
+<table class="table table-bordered text-center" id="dataTable" >
 <thead>
                                         <tr>
                                             <th><?=$_TXT[12]?></th>
@@ -387,11 +387,27 @@ do {?>
 	  <td><div align="center"><?php echo $row['ligue'];?></div></td>
 	  <td><div align="center"><?php echo $row['club'];?></div></td>
 	  <td><div align="center"><?php echo $row['pw'];?></div></td>
-	  <td><div align="center"><?php echo $row['actif'];?></div></td>
+	  <td><div align="center"><?php 
+      
+      $bol= $row['actif'];
+      if($bol =="1"){
+    //  echo"Activé";
+    ?>
+<div style="color:green;"><i class="fa fa-bell" aria-hidden="true"></i></div>
+    <?php
+     }
+      else{ 
+        // echo"désactivé";
+        ?>
+        <div style="color:red"><i class="fa fa-bell-slash" aria-hidden="true"></i></div>
+            <?php
+    }
+      ?></div></td>
     
     
-      <td><div align="center"><?php if ($row['club'] <> "ADMIN") {?><a href ='delclub.php?code<?php echo "=$row[id]";?>'  onclick="return confirm('Vous etes sure de supprimer ce club??')"><b><?=$_TXT[22]?></b></a><?php }?>
-      <div align="center"><a href ='updclub.php?code<?php echo "=$row[id]";?>'><b><?=$_TXT[21]?></b></a></td>
+      <td><div align="center"><a href ='updclub.php?code<?php echo "=$row[id]";?>'><b><?=$_TXT[21]?></b></a></div>
+        <div align="center"><?php if ($row['club'] <> "ADMIN") {?><a href ='delclub.php?code<?php echo "=$row[id]";?>'  onclick="return confirm('Vous etes sure de supprimer ce club??')"><b><?=$_TXT[22]?></b></a><?php }?>
+      </td>
    </tr>
 <?php					}while	 ($row=mysql_fetch_assoc($result)); 
 

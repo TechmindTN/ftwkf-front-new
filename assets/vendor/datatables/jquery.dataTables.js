@@ -441,7 +441,7 @@
 		 *  @param {int|null} [iColumn] Column to limit filtering to
 		 *  @param {bool} [bRegex=false] Treat as regular expression or not
 		 *  @param {bool} [bSmart=true] Perform smart filtering or not
-		 *  @param {bool} [bShowGlobal=true] Show the input global filter in it's input box(es)
+		 *  @param {bool} [bShowGlobal=true] Afficherthe input global filter in it's input box(es)
 		 *  @param {bool} [bCaseInsensitive=true] Do case-insensitive matching (true) or not (false)
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
@@ -695,9 +695,9 @@
 		
 		
 		/**
-		 * Show a particular column
+		 * Affichera particular column
 		 *  @param {int} iCol The column whose display should be changed
-		 *  @param {bool} bShow Show (true) or hide (false) the column
+		 *  @param {bool} bShow Afficher(true) or hide (false) the column
 		 *  @param {bool} [bRedraw=true] Redraw the table or not
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
@@ -732,7 +732,7 @@
 		 *      var oTable = $('#example').dataTable();
 		 *      var oSettings = oTable.fnSettings();
 		 *
-		 *      // Show an example parameter from the Réglages
+		 *      // Afficheran example parameter from the Réglages
 		 *      alert( oSettings._iDisplayStart );
 		 *    } );
 		 */
@@ -745,7 +745,7 @@
 		/**
 		 * Sort the table by a particular column
 		 *  @param {int} iCol the data index to sort on. Note that this will not match the
-		 *    'display index' if you have hidden data entries
+		 *    'display index' if you have hidden data entrées
 		 *  @dtopt API
 		 *  @deprecated Since v1.10
 		 *
@@ -4669,7 +4669,7 @@
 	 */
 	function _fnUpdateInfo ( Réglages )
 	{
-		/* Show information about the table */
+		/* Afficherinformation about the table */
 		var nodes = Réglages.aanFeatures.i;
 		if ( nodes.length === 0 ) {
 			return;
@@ -4745,7 +4745,7 @@
 			return;
 		}
 	
-		/* Show the display HTML options */
+		/* Afficherthe display HTML options */
 		_fnAddOptionsHtml( Réglages );
 	
 		/* Build and draw the header / footer for the table */
@@ -4753,7 +4753,7 @@
 		_fnDrawHead( Réglages, Réglages.aoHeader );
 		_fnDrawHead( Réglages, Réglages.aoFooter );
 	
-		/* Okay to show that something is going on now */
+		/* Okay to Afficherthat something is going on now */
 		_fnProcessingDisplay( Réglages, true );
 	
 		/* Calculate sizes for columns */
@@ -4774,7 +4774,7 @@
 		// If there is default sorting required - let's do it. The sort function
 		// will do the drawing for us. Otherwise we draw the table regardless of the
 		// Ajax source - this allows the table to look initialised for Ajax sourcing
-		// data (show 'loading' message possibly)
+		// data (Afficher'loading' message possibly)
 		_fnReDraw( Réglages );
 	
 		// Server-side processing init complete is done by _fnAjaxUpdateDraw
@@ -5063,13 +5063,13 @@
 	/**
 	 * Display or hide the processing indicator
 	 *  @param {object} Réglages dataTables Réglages object
-	 *  @param {bool} show Show the processing indicator (true) or not (false)
+	 *  @param {bool} AfficherAfficherthe processing indicator (true) or not (false)
 	 *  @memberof DataTable#oApi
 	 */
-	function _fnProcessingDisplay ( Réglages, show )
+	function _fnProcessingDisplay ( Réglages, Afficher)
 	{
 		if ( Réglages.oFeatures.bProcessing ) {
-			$(Réglages.aanFeatures.r).css( 'display', show ? 'block' : 'none' );
+			$(Réglages.aanFeatures.r).css( 'display', Afficher? 'block' : 'none' );
 		}
 	
 		_fnCallbackFire( Réglages, null, 'processing', [Réglages, show] );
@@ -6702,7 +6702,7 @@
 			end = Réglages.fnDisplayEnd(),
 			len = Réglages._iDisplayLength;
 	
-		/* If we have space to show extra rows (backing up from the end point - then do so */
+		/* If we have space to Afficherextra rows (backing up from the end point - then do so */
 		if ( start >= end )
 		{
 			start = end - len;
@@ -7514,7 +7514,7 @@
 	 *//**
 	 * Set the current page.
 	 *
-	 * Note that if you attempt to show a page which does not exist, DataTables will
+	 * Note that if you attempt to Affichera page which does not exist, DataTables will
 	 * not throw an error, but rather reset the paging.
 	 *
 	 * @param {integer|string} action The paging action to take. This can be one of:
@@ -7551,7 +7551,7 @@
 	 *  * `end` - Display index for the last record shown on the current page
 	 *  * `length` - Display length (number of records). Note that generally `start
 	 *    + length = end`, but this is not always true, for example if there are
-	 *    only 2 records to show on the final page, with a length of 10.
+	 *    only 2 records to Afficheron the final page, with a length of 10.
 	 *  * `recordsTotal` - Full data set length
 	 *  * `recordsDisplay` - Data set length once the current filtering criterion
 	 *    are applied.
@@ -7589,7 +7589,7 @@
 	 *//**
 	 * Set the current page length.
 	 *
-	 * @param {integer} Page length to set. Use `-1` to show all records.
+	 * @param {integer} Page length to set. Use `-1` to Afficherall records.
 	 * @returns {DataTables.Api} this
 	 */
 	_api_register( 'page.len()', function ( len ) {
@@ -8308,7 +8308,7 @@
 	};
 	
 	
-	var __details_display = function ( api, show ) {
+	var __details_display = function ( api, Afficher) {
 		var ctx = api.context;
 	
 		if ( ctx.length && api.length ) {
@@ -8317,7 +8317,7 @@
 			if ( row._details ) {
 				row._detailsShow = show;
 	
-				if ( show ) {
+				if ( Afficher) {
 					row._details.insertAfter( row.nTr );
 				}
 				else {
@@ -8430,7 +8430,7 @@
 	_api_register( [
 		_child_obj+'.show()',
 		_child_mth+'.show()' // only when `child()` was called with parameters (without
-	], function ( show ) {   // it returns an object and this method is not executed)
+	], function ( Afficher) {   // it returns an object and this method is not executed)
 		__details_display( this, true );
 		return this;
 	} );
@@ -10240,7 +10240,7 @@
 	
 	
 		/**
-		 * This parameter allows you to readily specify the entries in the length drop
+		 * This parameter allows you to readily specify the entrées in the length drop
 		 * down menu that DataTables shows when pagination is enabled. It can be
 		 * either a 1D array of options which will be used for both the displayed
 		 * option and the value, or a 2D array which will use the array in the first
@@ -10250,7 +10250,7 @@
 		 * Note that the `pageLength` property will be automatically set to the
 		 * first value given in this array, unless `pageLength` is also provided.
 		 *  @type array
-		 *  @default [ 10, 25, 50, 100 ]
+		 *  @default [ 10, 25, 50, 100, 100000 ]
 		 *
 		 *  @dtopt Option
 		 *  @name DataTable.defaults.lengthMenu
@@ -10262,7 +10262,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aLengthMenu": [ 10, 25, 50, 100 ],
+		"aLengthMenu": [ 10, 25, 50, 100, "All" ],
 	
 	
 		/**
@@ -10505,7 +10505,7 @@
 		 * Enable or disable the display of a 'processing' indicator when the table is
 		 * being processed (e.g. a sort). This is particularly useful for tables with
 		 * large amounts of data where it can take a noticeable amount of time to sort
-		 * the entries.
+		 * the entrées.
 		 *  @type boolean
 		 *  @default false
 		 *
@@ -10791,14 +10791,14 @@
 	
 		/**
 		 * When rendering large numbers in the information element for the table
-		 * (i.e. "Showing 1 to 10 of 57 entries") DataTables will render large numbers
+		 * (i.e. "Affichage de1 to 10 of 57 entrées") DataTables will render large numbers
 		 * to have a comma separator for the 'thousands' units (e.g. 1 million is
 		 * rendered as "1,000,000") to help readability for the end user. This
 		 * function will override the default method DataTables uses.
 		 *  @type function
 		 *  @member
 		 *  @param {int} toFormat number to be formatted
-		 *  @returns {string} formatted string for DataTables to show the number
+		 *  @returns {string} formatted string for DataTables to Afficherthe number
 		 *
 		 *  @dtopt Callbacks
 		 *  @name DataTable.defaults.formatNumber
@@ -11108,7 +11108,7 @@
 		 *  @name DataTable.defaults.stateLoaded
 		 *
 		 *  @example
-		 *    // Show an alert with the filtering value that was saved
+		 *    // Afficheran alert with the filtering value that was saved
 		 *    $(document).ready( function() {
 		 *      $('#example').dataTable( {
 		 *        "stateSave": true,
@@ -11526,7 +11526,7 @@
 			 * * `\_PAGES\_` - Total number of pages of data in the table
 			 *
 			 *  @type string
-			 *  @default Showing _START_ to _END_ of _TOTAL_ entries
+			 *  @default Affichage de_START_ to _END_ of _TOTAL_ entrées
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.info
@@ -11535,19 +11535,19 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "info": "Showing page _PAGE_ of _PAGES_"
+			 *          "info": "Affichage depage _PAGE_ of _PAGES_"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Affichage de_START_ to _END_ of _TOTAL_ entrées",
 	
 	
 			/**
 			 * Display information string for when the table is empty. Typically the
 			 * format of this string should match `info`.
 			 *  @type string
-			 *  @default Showing 0 to 0 of 0 entries
+			 *  @default Affichage de0 to 0 of 0 entrées
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.infoEmpty
@@ -11556,12 +11556,12 @@
 			 *    $(document).ready( function() {
 			 *      $('#example').dataTable( {
 			 *        "language": {
-			 *          "infoEmpty": "No entries to show"
+			 *          "infoEmpty": "No entrées to show"
 			 *        }
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Affichage de0 to 0 of 0 entrées",
 	
 	
 			/**
@@ -11569,7 +11569,7 @@
 			 * to the information (`info`) to give an idea of how strong the filtering
 			 * is. The variable _MAX_ is dynamically updated.
 			 *  @type string
-			 *  @default (filtered from _MAX_ total entries)
+			 *  @default (filtered from _MAX_ total entrées)
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.infoFiltered
@@ -11583,7 +11583,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(filtered from _MAX_ total entrées)",
 	
 	
 			/**
@@ -11669,7 +11669,7 @@
 			 * with a default select list of 10, 25, 50 and 100, and can be replaced
 			 * with a custom select box if required.
 			 *  @type string
-			 *  @default Show _MENU_ entries
+			 *  @default Afficher_MENU_ entrées
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.lengthMenu
@@ -11701,7 +11701,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Afficher_MENU_ entrées",
 	
 	
 			/**
@@ -12012,7 +12012,7 @@
 		/**
 		 * Enable horizontal scrolling. When a table is too wide to fit into a
 		 * certain layout, or you have a large number of columns in the table, you
-		 * can enable x-scrolling to show the table in a viewport, which can be
+		 * can enable x-scrolling to Afficherthe table in a viewport, which can be
 		 * scrolled. This property can be `true` which will allow the table to
 		 * scroll horizontally when needed, or any CSS unit, or a number (in which
 		 * case it will be treated as a pixel measurement). Setting as simply `true`
@@ -13058,7 +13058,7 @@
 			"bFilter": null,
 	
 			/**
-			 * Table information element (the 'Showing x of y records' div) enable
+			 * Table information element (the 'Affichage dex of y records' div) enable
 			 * flag.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
@@ -14161,9 +14161,9 @@
 		 *
 		 * * `first` - Jump to first page when activated
 		 * * `last` - Jump to last page when activated
-		 * * `previous` - Show previous page when activated
-		 * * `next` - Show next page when activated
-		 * * `{int}` - Show page of the index given
+		 * * `previous` - Afficherprevious page when activated
+		 * * `next` - Affichernext page when activated
+		 * * `{int}` - Afficherpage of the index given
 		 * * `{array}` - A nested array containing the above elements to add a
 		 *   containing 'DIV' element (might be useful for styling).
 		 *
@@ -14177,7 +14177,7 @@
 		 *  @default {}
 		 *
 		 *  @example
-		 *    // Show previous, next and current page buttons only
+		 *    // Afficherprevious, next and current page buttons only
 		 *    $.fn.dataTableExt.oPagination.current = function ( page, pages ) {
 		 *      return [ 'previous', page, 'next' ];
 		 *    };
@@ -15356,7 +15356,7 @@
 	 */
 
 	/**
-	 * Page length change event, fired when number of records to show on each
+	 * Page length change event, fired when number of records to Afficheron each
 	 * page (the length) is changed.
 	 *  @name DataTable#length.dt
 	 *  @event

@@ -147,7 +147,7 @@ document.forms[0].submit();
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -184,7 +184,7 @@ document.forms[0].submit();
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -243,7 +243,7 @@ document.forms[0].submit();
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -352,10 +352,10 @@ document.forms[0].submit();
 <!-- End of Topbar -->
 
 <div class="container ">        
-<div class="card o-hidden border-0 shadow-lg my-5">
-<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+<div class="card o-hidden border-0 shadow-lg my-5  ml-1">
+<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Staff</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[88]?></h1></div>
            </div>
 <div class="card-body p-0">
 <div class="row">    
@@ -367,15 +367,15 @@ document.forms[0].submit();
   <div class="form-group row">
 
 <div class="col-sm-4 mb-3 mb-sm-0">
-<label>Nom</label>
+<label><?=$_TXT[6]?></label>
     <input name="nom" type="text" id="nom" tabindex="1" size="25" class="form-control">
   </div> 
 <div class="col-sm-4 mb-3 mb-sm-2">
-  <label>Prénom</label>
+  <label><?=$_TXT[7]?></label>
   <input name="prenom" type="text" id="prenom" tabindex="2" size="25" class="form-control" >
 </div>  
 <div class="col-sm-4 mb-1 mb-sm-0">
-<label>Sexe</label>
+<label><?=$_TXT[10]?></label>
       <select name="sexe" size="1" id="sexe" tabindex="13" class="custom-select">
         <option> </option>        <option>ذكر</option>
         <option>أنثى</option>
@@ -386,13 +386,13 @@ document.forms[0].submit();
 <div class="form-group row">
 
 	<div class="col-sm-4 mb-3 mb-sm-0">
-	<label>Discipline</label>
+	<label><?=$_TXT[14]?></label>
      <select name="sport" size="1" id="sport" tabindex="6" class="custom-select">
         <option></option>        <option></option>
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>
     </div> 
 	<div class="col-sm-4 mb-3 mb-sm-2">
-    <label>Grade</label>	      
+    <label><?=$_TXT[31]?></label>	      
     <select name="grade" size="1" id="grade" tabindex="12" class="custom-select">
                 <option>-</option>
        <option>أسود درجة أولى</option>
@@ -405,7 +405,7 @@ document.forms[0].submit();
 </select>
 	</div>  
 	<div class="col-sm-4 mb-1 mb-sm-0">
-  <label>Degre</label>
+  <label><?=$_TXT[32]?></label>
    <select name="degre" size="1" id="degre" tabindex="9" class="custom-select">
         <option>-</option>
         <option>مدرب فدرالي</option>
@@ -419,7 +419,7 @@ document.forms[0].submit();
 <div class="form-group row">
 
 	<div class="col-sm-4 mb-3 mb-sm-0">
-	<label>Grade Arbitrage</label>
+	<label> <?=$_TXT[89]?></label>
 
     <select name="gradear" size="1" id="degre2" tabindex="9" class="custom-select">
         <option>-</option>
@@ -435,7 +435,7 @@ document.forms[0].submit();
 
     </div> 
 	<div class="col-sm-4 mb-3 mb-sm-2">
-    <label>Type</label>
+    <label><?=$_TXT[60]?></label>
 <select name="type" size="1" id="type" tabindex="14" class="custom-select">
         <option> </option>
         <option>مسير</option>
@@ -445,7 +445,7 @@ document.forms[0].submit();
       </select>
 	</div>  
 	<div class="col-sm-4 mb-1 mb-sm-0">
-  <label>Date Naissance</label>
+  <label><?=$_TXT[9]?> </label>
       <input name="naiss" type="date" id="naiss" tabindex="1" size="15" class="form-control">
 </div>	
 	  
@@ -453,18 +453,18 @@ document.forms[0].submit();
 <div class="form-group row">
 
 	<div class="col-sm-4 mb-3 mb-sm-0">
-	<label>CIN</label>
+	<label><?=$_TXT[5]?></label>
 
   <input name="cin" type="number" id="nom2" tabindex="1" size="25" class="form-control">
     
     </div> 
 	<div class="col-sm-4 mb-3 mb-sm-2">
-    <label>Photo</label>
+    <label><?=$_TXT[15]?></label>
    <input name="photo" type="file" id="photo" size="1" tabindex="15"class="custom-file">
 
 	</div>  
 	<div class="col-sm-4 mb-1 mb-sm-0">
-  <label>Diplome</label>
+  <label><?=$_TXT[34]?></label>
      <input name="diplome" type="file" id="diplome" size="1" tabindex="15"class="custom-file">
     </div>			
 	  
@@ -474,7 +474,7 @@ document.forms[0].submit();
 <table width="100%" border="0">
     </table>
 <p align="center">
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-primary">
   </p>
 </form>
 </div></div></div></div></div></div></div>  

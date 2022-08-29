@@ -70,7 +70,7 @@ window.location.href="login.php";
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -107,7 +107,7 @@ window.location.href="login.php";
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -166,7 +166,7 @@ window.location.href="login.php";
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -275,13 +275,15 @@ window.location.href="login.php";
 <!-- End of Topbar -->
 <div class="container-fluid">
 <div class="card shadow mb-4">
+
+
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <table >
-<h1 class="h3 mb-2 text-gray-800"> Rechercher Athlete </h1>
-                  
+<h1 class="h3 mb-2 text-gray-800"><?=$_TXT[81]?> </h1>
+                        
                                  
-                        </div>
+                        </div>               
 <?php
 	   	include('connect.php');
 $query ="SELECT club FROM club where club = '$club'";
@@ -304,7 +306,7 @@ if (isset($_POST['id'])) {
                 <tr>
    <td><input name="id" type="text" id="id" size="15" class="form-control " value="<?php echo $id;?>"></td>
                    <td >
-<input name="ok" type="submit"  value = "Rechercher" class="btn btn-primary" >
+<input name="ok" type="submit"  value = <?=$_TXT[20]?> class="btn btn-primary" >
                   </td>
 
                 </tr>
@@ -312,9 +314,7 @@ if (isset($_POST['id'])) {
           </form></td>
         </tr>
 </table>
-      </td>
-  </tr>
-</table>
+</div>
 
 <?php
 
@@ -380,45 +380,49 @@ if (($totalRows > 0)){
 
 
 <div class="table-responsive">
-<table class="table table-bordered" id="dataTable" >
+<table class="table table-bordered text-center" id="dataTable" >
     <thead><tr>
-      <td width="" rowspan="2" align="left">Nom</td>
-      <td width="" rowspan="2" align="left"><input name="nom" type="text" id="nom" tabindex="1" size="25" value ="<?php echo $nom;?>"></td>
-      <td width="" rowspan="2" align="left">Prénom </td>
-      <td width="" rowspan="2" align="left"><input name="prenom" type="text" id="prenom" tabindex="2" size="25" value ="<?php echo $prenom;?>"></td>
-      <td width="12%" rowspan="2" align="left">Date de Naissance</td>
-      <td width="4%" align="center">Jours</td>
-      <td width="4%" align="center">Mois</td>
-      <td width="6%" align="center">Années</td>
-      <td width="8%" rowspan="2" align="left">Discipline</td>
-      <td width="4%" rowspan="2" align="center"><select name="sport" size="1" id="sport" tabindex="6">
+      <td  ><?=$_TXT[6]?></td>
+      <td   ><?=$_TXT[7]?></td>
+      <td colspan="3" ><?=$_TXT[9]?></td>
+      <td  ><?=$_TXT[14]?></td>
+
+    </tr>
+</thead>
+    <tr>
+    <td  align="left"><input name="nom" type="text" id="nom" tabindex="1"  value ="<?php echo $nom;?>" class="form-control"></td>
+    <td  align="left"><input name="prenom" type="text" id="prenom" tabindex="2"  value ="<?php echo $prenom;?>" class="form-control"></td>
+    <td align="center"><?=$_TXT[82]?><input name="jour" type="number" id="jour" tabindex="3" maxlength="2" value ="<?php echo $jour;?>" class="form-control"></td>
+      <td align="center"><?=$_TXT[83]?> <input name="mois" type="number" id="mois" tabindex="4"  maxlength="2" value ="<?php echo $mois;?>" class="form-control"></td>
+      <td align="center"><?=$_TXT[84]?> <input name="annee" type="number" id="annee" tabindex="5"  maxlength="4" value ="<?php echo $annee;?>" class="form-control"></td>
+      <td rowspan="2" align="center"><select name="sport" id="sport" tabindex="6" class="form-control">
         <option><?php echo $sport;?></option>        <option></option>
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select></td>
-    
-    <tr>
-      <td align="center"><input name="jour" type="number" id="jour" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>"></td>
-      <td align="center"><input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>"></td>
-      <td align="left"><input name="annee" type="number" id="annee" tabindex="5" size="8" maxlength="4" value ="<?php echo $annee;?>"></td>
-    </tr><thead>
+    </tr>
        </table></div></div>
        <div class="card-body">
 
 
 <div class="table-responsive">
 <table class="table table-bordered" id="dataTable" >
-    <thead><tr>
-      <td width="" align="left">N° CIN </td>
-      <td width="" align="left"><input name="cin" type="number" id="cin" tabindex="7" size="25" value ="<?php echo $cin;?>"></td>
-      <td width="" align="left">Sexe</td>
-      <td width="" align="left"><select name="sexe" size="1" id="sexe" tabindex="9">
+    <thead>
+        <tr>
+      <td align="left"><?=$_TXT[5]?> </td>
+      <td align="left"><?=$_TXT[10]?></td>
+      <td  align="left"><?=$_TXT[8]?></td>
+        </tr>
+    </thead>
+    <tr>
+    <td align="left"><input name="cin" type="number" id="cin" tabindex="7"  value ="<?php echo $cin;?>" class="form-control"></td>
+    <td  align="left"><select name="sexe" id="sexe" tabindex="9" class="form-control">
         <option><?php echo $sexe;?></option>
         <option>ذكر</option>
         <option>أنثى</option>
-      </select></td>
-      <td width="" align="left">Nationalité</td>
-      <td colspan="10" align="left"><input name="nationalite" type="text" id="nationalite" tabindex="10" size="25" value ="<?php echo $nationalite;?>"></td>
-      <td width="" colspan="3" align="center">&nbsp;</td>
-    </tr></thead>
+      </select>
+    </td>
+      <td align="left"><input name="nationalite" type="text" id="nationalite" tabindex="10" value ="<?php echo $nationalite;?>" class="form-control"></td>
+
+    </tr>
         </table></div></div>
         <div class="card-body">
 
@@ -428,24 +432,23 @@ if (($totalRows > 0)){
 
  <thead>
     <tr>
-      <td align="left">Photo</td>
-      <td align="left"><input name="photo" type="file" id="photo" size="1" tabindex="10"></td>
-      <td align="left">Identité</td>
-      <td align="left"><input name="photoid" type="file" id="photoid" size="1" tabindex="11"></td>
-	  <td>Bordereau</td>
-      <td colspan="10" align="left"><input name="photobor" type="file" id="photobor" size="1" tabindex="11"></td>
-	  <td>Eng Parentale</td>
-      <td colspan="4" align="left"><input name="photoeng" type="file" id="photobor" size="1" tabindex="12"></td>
+      <td align="left"><?=$_TXT[15]?>
+      <input name="photo" type="file" id="photo" size="1" tabindex="10"></td>
+      <td align="left"><?=$_TXT[25]?>
+     <input name="photoid" type="file" id="photoid" size="1" tabindex="11"></td>
+	  <td>Bordereau
+      <input name="photobor" type="file" id="photobor" size="1" tabindex="11"></td>
+	  <td><?=$_TXT[27]?> 
+      <input name="photoeng" type="file" id="photobor" size="1" tabindex="12"></td>
     </tr>
     <tr>
-      <td align="left">&nbsp;</td>
-      <td align="left"><img src="./photo/<?php echo $photo;?>" width="33" height="50"></td>
-      <td align="left">&nbsp;</td>
+      
+      <td  align="left"><img src="./photo/<?php echo $photo;?>" width="33" height="50"></td>
+     
       <td align="left"><img src="./photoid/<?php echo $id. ".jpg";?>" width="33" height="50"></td>
-       <td>&nbsp;</td>
-      <td align="left"><img src="./photobor/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" alt="" width="33" height="50"></td>
-     <td>&nbsp;</td>
-      <td align="left"><img src="./photoeng/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" alt="" width="33" height="50"></td>
+   
+      <td  align="left"><img src="./photobor/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" alt="" width="33" height="50"></td>
+      <td  align="left"><img src="./photoeng/<?php echo $saison;?>/<?php echo $code. ".jpg";?>" alt="" width="33" height="50"></td>
     </tr></thead>
   </table></div></div>
 <input name="aphoto" type="hidden" id="aphoto" size="1" value ="<?php echo $photo;?>">
@@ -464,11 +467,11 @@ if (($totalRows > 0)){
 
 
   <p align="center">
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-danger">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-danger">
   </p>
 </form>
-</div></div>
-</div></div></div></div></div>
+</div>
+</div></div></div></div>
 <?php
 }else 
 {?>  <div class="alert alert-primary" role="alert">

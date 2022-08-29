@@ -70,7 +70,7 @@ window.location.href="login.php";
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -107,7 +107,7 @@ window.location.href="login.php";
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -166,7 +166,7 @@ window.location.href="login.php";
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -318,7 +318,7 @@ $bilan = $tpai - $tprix ;
 ?>
       <div class="card shadow mb-4">
                         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4">
-                        <div class="h3 mb-2 text-gray-800">Verification athlete</div>
+                        <div class="h3 mb-2 text-gray-800"><?=$_TXT[86]?> </div>
                       </div>
 					  <div class="card-body">
 
@@ -327,20 +327,20 @@ $bilan = $tpai - $tprix ;
 	<table class="table table-bordered" id="dataTable">
 	
 	<thead><tr>
-	    <td ><div align="center"><strong>Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>		
+	    <td ><div align="center"><strong><?=$_TXT[0]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong><?=$_TXT[4]?>  </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[5]?>  </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[6]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[7]?> </strong> </div> </td>		
         
-		<td> <div align = "center"> <strong> Nationalité </strong> </div> </td>
-        <td> <div align = "center"> <strong> Date Naissance </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-		<td> <div align = "center"> <strong> Age </strong> </div> </td>
-		<td> <div align = "center"> <strong> Club </strong> </div> </td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[8]?> </strong> </div> </td>
+        <td> <div align = "center"> <strong>  <?=$_TXT[9]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[10]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[11]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[12]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[13]?> </strong> </div> </td>
 
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
+		<td> <div align = "center"> <strong>  <?=$_TXT[14]?></strong> </div> </td>
 	</tr>
 			</thead>
 <?php
@@ -366,7 +366,7 @@ if ((($percentn >50) or ($percentpn >50)or($percentn1 >50) or ($percentpn1 >50))
 
 
 ?>
-	<tr bgcolor="#FF0000">
+	<tr bgcolor="#FF0000" style="color:#fff">
 <?php }else {?>
 	<tr>
 <?php }?>
@@ -405,21 +405,21 @@ while	 ($row=mysql_fetch_assoc($result));
 	<table class="table table-bordered" id="dataTable">
 	<thead>
 	<tr>
-	    <td ><div align="center"><strong>Saison </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° Lic </strong> </div> </td>
-		<td> <div align = "center"> <strong> N° CIN </strong> </div> </td>
-		<td> <div align = "center"> <strong> Nom </strong> </div> </td>
-		<td> <div align = "center"> <strong> Prénom </strong> </div> </td>		
+	    <td ><div align="center"><strong> <?=$_TXT[0]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[4]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[5]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[6]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[7]?> </strong> </div> </td>		
         
-		<td> <div align = "center"> <strong> Nationalité </strong> </div> </td>
-<td> <div align = "center"> <strong> Date Naissance </strong> </div> </td>
-		<td> <div align = "center"> <strong> Sexe </strong> </div> </td>
-		<td> <div align = "center"> <strong> Age </strong> </div> </td>
-		<td> <div align = "center"> <strong> Club </strong> </div> </td>
-		<td> <div align = "center"> <strong> Ligue </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[8]?> </strong> </div> </td>
+<td> <div align = "center"> <strong> <?=$_TXT[9]?>  </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[10]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[11]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[12]?> </strong> </div> </td>
+		<td> <div align = "center"> <strong> <?=$_TXT[13]?> </strong> </div> </td>
 
-		<td> <div align = "center"> <strong> Discipline</strong> </div> </td>
-		<td><div align="center"><strong>Actions</strong></div></td>
+		<td> <div align = "center"> <strong> <?=$_TXT[14]?></strong> </div> </td>
+		<td><div align="center"><strong><?=$_TXT[23]?></strong></div></td>
 	</tr>
 </thead>
 <?php  
@@ -452,12 +452,13 @@ if ($bilan >0){
 	  <td><div align="center"><?php echo $row['ligue'];?></div></td>
 
 	  <td><div align="center"><?php echo $row['sport'];?></div></td>
+      
       <td ><div align="center" ><a style="color:#fff" href ='updathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Modifier</b></a>
-      <div align="center"><a  style="color:#fff" href ='licencevalid.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Validate</b></a>
-      <a style="color:#fff" href ='delathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Supprimer</b></a></td>
+      <div align="center"><a  style="color:#fff" href ='licencevalid.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Valider</b></a></div>
+      <div align="center"> <a style="color:#fff" href ='delathletess.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$row[club]";?>'><b>Supprimer</b></a></div></td>
   
   </tr>
-</table></div></div>
+</table></div>
 
 <div class="card-body">
 

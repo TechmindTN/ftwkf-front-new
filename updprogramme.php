@@ -30,7 +30,7 @@ window.location.href="login.php";
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<TITLE>Un document bilingue</TITLE>
+<TITLE>Modification programme</TITLE>
 <script language="JavaScript" src="Calendar1-903.js" type="text/javascript"></script>
 <script language="JavaScript" type="text/javascript">
 function TryCallFunction() {
@@ -112,7 +112,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <form
     class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" >
     <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+        <input type="text" class="form-control bg-light border-0 small" placeholder="Rechercher..."
             aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
             <button class="btn btn-primary" type="button">
@@ -149,7 +149,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             <form class="form-inline mr-auto w-100 navbar-search">
                 <div class="input-group">
                     <input type="text" class="form-control bg-light border-0 small"
-                        placeholder="Search for..." aria-label="Search"
+                        placeholder="Rechercher..." aria-label="Search"
                         aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
@@ -208,7 +208,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                     Spending Alert: We've noticed unusually high spending for your account.
                 </div>
             </a>
-            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+            <a class="dropdown-item text-center small text-gray-500" href="#">AfficherAll Alerts</a>
         </div>
     </li>
 
@@ -320,7 +320,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
         <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
         <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Competition</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[95]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -346,30 +346,30 @@ if ($row1['qualif'] == 2) { $niveau ="Final Après Eliminatoire";}
 <form class="user" action="addprogramme.php" method="post" enctype="multipart/form-data" name="MForm">
 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Competition    </label>
+                                        <label><?=$_TXT[59]?>    </label>
                                         <input name="action" type="text" id="action" tabindex="1" size="70" value="<?php echo$row1['action'];?>" class="form-control " 
                                      > 
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Discipline</label>
+                                    <label><?=$_TXT[14]?></label>
                                     <select name="sport" size="1" id="sport" tabindex="6" class="custom-select ">
         <option><?php echo $row1['sport'];?></option>        <option></option>
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Lieu</label>
+                                    <label><?=$_TXT[61]?></label>
                                     <input name="lieu" type="text" id="lieu" tabindex="3" size="25" value="<?php echo$row1['lieu'];?>" class="form-control " required>
     
                                     </div>
                                 </div>         <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Années    </label>
+                                        <label><?=$_TXT[84]?>    </label>
                                         <input name="annee" type="text" id="annee" tabindex="12" size="15"  class="form-control " value="<?php echo $row1['saison'];?>">
                                         
                                     
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Niveau</label>
+                                    <label><?=$_TXT[96]?>   </label>
                                     <select name="niveau" size="1" id="niveau" tabindex="5" class="custom-select ">
         <option selected><?php echo $niveau;?></option>
         <option>Eliminatoire</option>
@@ -380,18 +380,18 @@ if ($row1['qualif'] == 2) { $niveau ="Final Après Eliminatoire";}
                                     
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Date</label>
+                                    <label><?=$_TXT[43]?></label>
                                     <input name="date" type="date" id="date" tabindex="6" size="15"  value="<?php echo  $row1['date_debut'];?>" class="form-control " required>
    
                                     </div>
                                 </div>         <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Deadline    </label>
+                                        <label><?=$_TXT[62]?>    </label>
                                         <input name="delais" type="date" id="delais" tabindex="12" size="15"  value="<?php echo $row1['delais'];?>" class="form-control ">
 
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Type</label>
+                                    <label><?=$_TXT[60]?> </label>
                                     <select name="type" size="1" id="type2" tabindex="5"  value="" class="custom-select " required>
         <option selected><?php echo $row1['type'];?></option>
 <option>كطا</option>
@@ -400,7 +400,7 @@ if ($row1['qualif'] == 2) { $niveau ="Final Après Eliminatoire";}
                                     
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Age</label>
+                                    <label><?=$_TXT[11]?> </label>
                                     <select name="cat" size="1" id="type" tabindex="2" class="custom-select " required>
         <option selected> <?php echo $row1['age'];?></option>
         <?php     do { 
@@ -412,20 +412,20 @@ if ($row1['qualif'] == 2) { $niveau ="Final Après Eliminatoire";}
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Min    </label>
+                                        <label><?=$_TXT[71]?>     </label>
                                         <input name="min" type="text" id="min" tabindex="12" size="15"  value="<?php echo $row1['min'];?>" class="form-control "
                                      >
   
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Max</label>
+                                    <label><?=$_TXT[72]?> </label>
                                     <input name="max" type="text" id="max" tabindex="12" size="15"  class="form-control " value="<?php echo $row1['max'];?>">
                                 
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <input name="id" type="hidden" id="id" tabindex="12" size="15"  value="<?php echo $id;?>">
                                     <p align="center"><br>
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-primary">
   </p>
                                     </div>
                                     
