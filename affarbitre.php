@@ -47,8 +47,8 @@ body {
 	font-weight: bold;
 	font-size: 36px;
 }
--->
-</style><BODY>
+</style>
+<BODY>
 
 <?php 
 	   	include('connect.php');
@@ -344,11 +344,15 @@ console.log("<?php echo $result4 ?>");
 <div class="mb-4 ">
 <div class="card-header  py-3 d-sm-flex align-items-center justify-content-between mb-4">
 <form name="stat" method="post" action="affarbitre.php">
-<h1 class="h3 mb-2 text-gray-800">Liste des arbitres </h1>
-<a href="param.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+<table>
+<tr>
+<td >
+<h1 style="margin-right:80px" class="h3 mb-2 text-gray-800">Liste des arbitres </h1>
+</td><td >
+<a style="margin-right:20px" href="param.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i>Ajouter</a>
-
-Saison <select class="custom-select "name="sai" size="1" id="club" tabindex="9">
+								</td><td>
+Saison</td><td> <select style="margin-right:20px" class="custom-select "name="sai" size="1" id="club" tabindex="9">
         <option><?php echo $row2['saison'];?> </option>
 		<option></option>
                       <?php
@@ -357,8 +361,9 @@ Saison <select class="custom-select "name="sai" size="1" id="club" tabindex="9">
                                       echo "<option >".$row2['saison']."</option>";
                        } while ($row2 = mysql_fetch_assoc($result2));
 ?>
-      </select>
-	  Club <select class="custom-select "name="cl" size="1" id="club" tabindex="9">
+</td><td>
+      </select></td><td>
+	  Club</td><td > <select style="margin-right:20px" class="custom-select "name="cl" size="1" id="club" tabindex="9">
 	  <?php
 	 if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['club'] == "admin")){ 
 	  ?><option >Tous</option>"<?php } ?>
@@ -369,9 +374,11 @@ Saison <select class="custom-select "name="sai" size="1" id="club" tabindex="9">
                        } while ($row3 = mysql_fetch_assoc($result3));
 ?>
       </select>
+	  </td><td>
 <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = "rechercher">
-                 
-
+</td>
+   </tr>              
+</table>
           </form>
         
 
