@@ -25,10 +25,38 @@ $club = $_SESSION['club'];
     <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Liste athletes à valider</TITLE>
+<style>
+     #content{
+            display:none
+        }
+        .loader {
+            display:block;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
 </HEAD>
-<BODY id="page-top"  lang="<?=$_SESSION["lang"]?>">
+<BODY id="page-top" onload="endLoading()"  lang="<?=$_SESSION["lang"]?>">
+<script>
+    function endLoading(){
+     var loader=document.getElementById('loader');
+   var content=document.getElementById('content');
+
+    loader.style.display="none";
+            content.style.display="block";}
+
+    </script>
 <div id="wrapper">
-<div class="navbar-nav  sidebar sidebar-dark accordion bg-gradient-primary">
+<div class="navbar-nav sidebar sidebar-dark accordion bg-gradient-primary">
             <!-- Sidebar -->
             <div id='side'></div></div>
 
@@ -44,7 +72,7 @@ $club = $_SESSION['club'];
 
 
             <!-- Main Content -->
-            <div id="content" >
+            <div  >
               <!-- Déconnexion Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -277,8 +305,12 @@ $club = $_SESSION['club'];
 </ul>
 
 </nav>
+<center> <div id="loader"><div  class="loader"></div>
+<div>Chargement en cours...</div>
+</div>
+</center>
 <!-- End of Topbar -->
-            <div class="container-fluid">
+            <div id="content" class="container-fluid">
                             
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
