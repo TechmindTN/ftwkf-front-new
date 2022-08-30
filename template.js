@@ -101,7 +101,7 @@ let side=`
 </a></li>
 <li id="adminhisto" class="nav-item">
 <a class="nav-link" href="accueil2.php">
-<i class="fas fa-fw fa-table"></i>
+<i class="fa fa-home"></i>
 <span data-i18n-key="Acceuil">Acceuil</span></a>
 </li>
 <li id="pw" class="nav-item">
@@ -132,7 +132,7 @@ aria-expanded="true" aria-controls="collapseTwo">
 <li id="adminclub" class="nav-item">
 <a class="nav-link collapsed" href="# " data-toggle="collapse" data-target="#collapseUtilities"
 aria-expanded="true" aria-controls="collapseUtilities">
-<i class="fas fa-fw fa-wrench"></i>
+<i class="fas fa-fw fa-user"></i>
 
 <span  data-i18n-key="Clubs">Clubs</span>
 </a>
@@ -147,7 +147,7 @@ aria-expanded="true" aria-controls="collapseUtilities">
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiess"
 aria-expanded="true" aria-controls="collapseUtilitiess">
-<i class="fas fa-fw fa-wrench"></i>
+<i class="fas fa-fw fa-user"></i>
 <span data-i18n-key="Arbitres">Arbitres</span>
 </a>
 <div id="collapseUtilitiess" class="collapse" aria-labelledby="headingUtilitiess" data-parent="#accordionSidebar">
@@ -162,7 +162,7 @@ aria-expanded="true" aria-controls="collapseUtilitiess">
 <li class="nav-item">
 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
 aria-expanded="true" aria-controls="collapsePages">
-<i class="fas fa-fw fa-folder"></i>
+<i class="fas fa-fw fa-user"></i>
 <span data-i18n-key="Entraineurs"> Entraineurs</span>
 </a>
 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">

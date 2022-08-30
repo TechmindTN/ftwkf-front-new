@@ -28,7 +28,7 @@ $club = $_SESSION['club'];
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Athletes Non valide</TITLE>
 </HEAD>
-<BODY  lang="<?=$_SESSION["lang"]?>">
+<BODY  lang="<?=$_SESSION["lang"]?>" id="page-top">
 <?php
 	   	include('connect.php');
  $club1 = "";
@@ -428,6 +428,9 @@ do {
 </div> </div> </div> </div> </div> </div>
 
 </div>
+<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 <!-- Bootstrap core JavaScript-->
 <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

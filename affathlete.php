@@ -54,7 +54,7 @@ $club = $_SESSION['club'];
 }</style>
 </HEAD>
 
-<BODY onload="endLoading()">
+<BODY  id="page-top" onload="endLoading()">
 <script>
     function endLoading(){
      var loader=document.getElementById('loader');
@@ -539,6 +539,9 @@ if (file_exists($filename)) {
 </div>
 </div>
 </div>
+<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

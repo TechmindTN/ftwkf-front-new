@@ -41,7 +41,7 @@ window.location.href="login.php";
 }</style>
 </HEAD>
 
-<BODY lang="<?=$_SESSION["lang"]?>">
+<BODY lang="<?=$_SESSION["lang"]?>" id="page-top">
 <div id="wrapper">
 <div id="side"></div>
 
@@ -442,6 +442,9 @@ do {?>
 </div>
 </div></div>
 </div></div>
+<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
     <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
