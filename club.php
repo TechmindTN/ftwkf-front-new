@@ -315,10 +315,10 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 <!-- End of Topbar -->
 <div class="container ">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+        <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Club</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[106]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -331,15 +331,15 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="club" name="club"
-                                            placeholder="Club" tabindex="1" required>
+                                            placeholder=<?=$_TXT[12]?> tabindex="1" required>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="ligue" name="ligue"
-                                            placeholder="Ligue"  tabindex="2" required>
+                                            placeholder=<?=$_TXT[13]?>  tabindex="2" required>
                                     </div> 
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                            id="pw" placeholder="Mot de passe" name="pw" tabindex="1" required>
+                                            id="pw" placeholder=<?=$_TXT[66]?> name="pw" tabindex="1" maxlenghth="4" required>
                                     </div> 
                                  
                                 </div>

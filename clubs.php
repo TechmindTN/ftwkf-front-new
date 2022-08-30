@@ -349,10 +349,10 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 </nav>
 <!-- End of Topbar -->
 <div class="container ">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+        <div class="card o-hidden border-0 shadow-lg my-5  ml-1">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Club</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[106]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -365,22 +365,22 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="club" name="club"
-                                            placeholder="Club" tabindex="1" required>
+                                            placeholder=<?=$_TXT[12]?> tabindex="1" required>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="ligue" name="ligue"
-                                            placeholder="Ligue"  tabindex="2" required>
+                                            placeholder=<?=$_TXT[13]?>  tabindex="2" required>
                                     </div> 
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <input placeholder="saison"  name="pw" type="text" id="pw" tabindex="1" size="25"  class="form-control form-control-user" required>
+                                    <input placeholder=<?=$_TXT[0]?>  name="pw" type="text" id="pw" tabindex="1" size="25"  class="form-control form-control-user" required>
                                     </div> 
                                  
                                 </div>
                                 
                                 <div class="container my-3 ">
         <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-danger">Ajouter</button>
-            <button type="reset" class="btn btn-info">réinitialiser</button>
+            <button type="submit" class="btn btn-danger"><?=$_TXT[16]?></button>
+            <button type="reset" class="btn btn-info"><?=$_TXT[78]?></button>
         </div>
     </div>
                             </form>
