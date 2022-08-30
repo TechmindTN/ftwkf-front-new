@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/html4/strict.dtd">
 <HTML lang="en" dir="ltr">
 <HEAD>
- <title>FEDERATION TUNISIENNE DE WUSHU KUNG FU </TITLE> 
+ <title>FEDERATION TUNISIENNE DE WUSHU KUNG FU ET DISCIPLINES ASSOCIEES </TITLE> 
  <meta NAME="Author" CONTENT="Usager non enregistré"> 
   <meta http-equiv="Content-Type" content="text/html; charset= UTF8 "> 
   <meta NAME="Description" CONTENT=""> 
