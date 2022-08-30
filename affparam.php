@@ -30,7 +30,7 @@ require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Liste de Poids</TITLE>
 </HEAD>
-<BODY  lang="<?=$_SESSION["lang"]?>">
+<BODY  lang="<?=$_SESSION["lang"]?>" id="page-top">
 <div id="wrapper">
 <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
@@ -385,7 +385,9 @@ $i=0;
 
 </div></div></div></div></div>
 </div></div>
-
+<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

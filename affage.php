@@ -30,7 +30,7 @@ require "languages/"."lang-" . $_SESSION["lang"] . ".php";
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <TITLE>Liste age</TITLE>
 </HEAD>
-<BODY lang="<?=$_SESSION["lang"]?>">
+<BODY lang="<?=$_SESSION["lang"]?>" id="page-top">
 <div id="wrapper">
 <div class="navbar-nav  sidebar sidebar-dark accordion">
             <!-- Sidebar -->
@@ -365,6 +365,9 @@ if (($_SESSION['club'] == "ADMIN")or($_SESSION['club'] == "Admin")or($_SESSION['
 </div>
 </div>
 </div>
+<a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 <!-- Bootstrap core JavaScript-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

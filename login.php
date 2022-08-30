@@ -114,7 +114,7 @@ function Verification(theForm)
 </p>
 	
 
-<!-- <form  name="form1" method="post" action= "ident.php" onSubmit= "writecookie()"  >
+<!-- <form  name="form1" method="post" action= "ident.php" >
 <p align="center">
 <h2 align="center"><strong>Identification</strong>
 </h2>
@@ -143,9 +143,10 @@ function Verification(theForm)
 			<img  src="image/logo2.png" class="img-fluid" alt="Responsive image" width="400px">
 		</div>
 		<div class="col-md-6 login-form-2 ">
-	<div class="row" style="float:right" >	<a href="index.php" style="color:#fff ;"><i class="fa fa-home fa-2xl" style="font-size:70px;float:right" aria-hidden="true"></i></a></div><br>
+	<div class="row" style="float:right" >	
+	<a href="index.php" style="color:#fff ;"><i class="fa fa-home fa-2xl" style="font-size:70px;float:right" aria-hidden="true"></i></a></div><br>
 	
-		<form  name="form1" method="post" action= "ident.php" onSubmit= "writecookie()" >
+		<form  name="form1" method="post" action= "ident.php"  >
 
 				<h3>Connectez-vous </h3>
 				<br>

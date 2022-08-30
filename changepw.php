@@ -325,7 +325,7 @@ function Verification(theForm)
                        
             <div class="col-lg-12">
                         <div class="p-5">
-<form  name="form1" method="post" action= "changepw.php" onSubmit= "writecookie()"  >
+<form  name="form1" method="post" action= "changepw.php"  >
 
 <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4 text-center"><?=$_TXT[54]?>   </h1>
