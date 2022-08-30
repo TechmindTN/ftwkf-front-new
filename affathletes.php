@@ -348,7 +348,7 @@ $row2 = mysql_fetch_assoc($result2);
 
 	  ?>
  <form name="stat" method="post" action="">
-              Club<select class="custom-select col-sm-4" name="club" size="1" id="club" tabindex="9">
+ <?=$_TXT[11]?><select class="custom-select col-sm-4" name="club" size="1" id="club" tabindex="9">
      <option><?php echo $club1;?></option>
      <?php
 					   do { 
@@ -356,7 +356,7 @@ $row2 = mysql_fetch_assoc($result2);
                                       echo "<option >$res</option>";
                        } while ($row1 = mysql_fetch_assoc($result1));
 ?>
-   </select>Age<select class="custom-select col-sm-4" name="age" size="1" id="club2" tabindex="9">
+   </select> <?=$_TXT[12]?><select class="custom-select col-sm-4" name="age" size="1" id="club2" tabindex="9">
      <option><?php echo $age1;?></option>
      <?php
 					   do { 
@@ -365,7 +365,7 @@ $row2 = mysql_fetch_assoc($result2);
                        } while ($row2 = mysql_fetch_assoc($result2));
 ?>
    </select>
-<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value = "Rechercher">
+<input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-info shadow-sm" value = <?=$_TXT[20]?>>
                   
           </form>
 

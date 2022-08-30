@@ -368,9 +368,9 @@ if ($crit == "نوادي"){$critere = "club";}
 <p style="page-break-before:always">
 <table width="100%" border="0">
   <tr>
-    <td align="right" valign="middle" width="40%">الجامعة التونسية للوشو كونغ فو</td>
+    <td align="right" valign="middle" width="40%">الجامعة التونسية للوشو كونغ فو و الرياضات التابعة</td>
     <td align="center" width="20%"><img src="image/logo.png" alt="" width="60" height="60"></td>
-    <td align="left" valign="middle" width="40%">FEDERATION TUNISIENNE DE WUSHU KUNG FU</td>
+    <td align="left" valign="middle" width="40%">FEDERATION TUNISIENNE DE WUSHU KUNG FU ET DISCIPLINES ASSOCIEES</td>
   </tr>
 </table>
   
