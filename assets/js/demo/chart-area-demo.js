@@ -40,7 +40,6 @@ stat9=parseInt(document.getElementById("stat8").innerText);
 stat10=parseInt(document.getElementById("stat9").innerText);
 stat11=parseInt(document.getElementById("stat10").innerText);
 stat12=parseInt(document.getElementById("stat11").innerText);
-console.log(stat1)
 
 
 
