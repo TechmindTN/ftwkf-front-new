@@ -60,7 +60,13 @@ $crit = "";
 if (isset($_POST['crit'])) {
   $crit = (get_magic_quotes_gpc()) ? $_POST['crit'] : addslashes($_POST['crit']);
 }
-
+$test = "";
+if (isset($_POST['ligue'])) {
+  $crit = (get_magic_quotes_gpc()) ? $_POST['ligue'] : addslashes($_POST['ligue']);
+}
+if (isset($_POST['club'])) {
+    $crit = (get_magic_quotes_gpc()) ? $_POST['club'] : addslashes($_POST['club']);
+  }
 ?>
 <BODY id="page-top">
 <div id="wrapper">
@@ -413,7 +419,7 @@ if ($crit == "نوادي"){$test = $row0['club'];}
 ?>
 	<tr>
 	  <td><div align="center"><?php echo $saison;?></div></td>
-	  <td><div align="center"><?php echo $crit;?></div></td>
+	  <td><div align="center"><?php echo $test;?></div></td>
 
 
 
