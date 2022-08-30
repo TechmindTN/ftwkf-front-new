@@ -544,14 +544,15 @@ $saison = $row01[0];
                                     <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
+                                    <div class="text-center">
                                     <div class=" row mt-4 text-center small">
-                                     
-                                    <div id="aff"><i class="fas fa-circle text-primary"></i><?php echo $rowatt1[0] ?> <?=$_TXT[51]?></div>
+                                     <div class="col-3"></div>
+                                    <div id="aff"><i class="fas fa-circle text-primary"></i>&nbsp<?php echo $rowatt1[0] ?> <?=$_TXT[51]?></div>
                                     &nbsp; 
-                                    <div id="att"> <i class="fas fa-circle text-success"></i><?php echo $rowatt2[0] ?><?=$_TXT[52]?></div>
+                                    <div id="att"> <i class="fas fa-circle text-success"></i>&nbsp<?php echo $rowatt2[0] ?><?=$_TXT[52]?></div>
                                     &nbsp; 
                                     <div id="del">
-                                            <i class="fas fa-circle text-info"></i><?php echo $rowatt3[0] ?> <?=$_TXT[53]?></div>
+                                            <i class="fas fa-circle text-info"></i>&nbsp<?php echo $rowatt3[0] ?> <?=$_TXT[53]?></div>
                                     </div>
                                 </div>
                             </div>
