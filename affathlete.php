@@ -36,7 +36,6 @@ $club = $_SESSION['club'];
 </HEAD>
 
 <BODY>
-    
 <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
  
 <div id="wrapper">
@@ -282,7 +281,6 @@ $club = $_SESSION['club'];
 </ul>
 
 </nav>
-
 <!-- End of Topbar -->
  <div  class="container-fluid">
 
