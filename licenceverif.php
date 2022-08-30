@@ -520,7 +520,6 @@ else {
               cl=document.getElementById('cl').innerText
               window.location.href="delathletess.php?code=<?php echo $_GET['code'];?>&club="+cl+"&raison="+reason
             //  alert("sasasa")
-            //  console.log("klklklkl")
        // Simulate a mouse click:
     //    if(a!=null){
         // window.location.href = "delathletess.php?code="+<?php echo $_GET['code'];?>+"&club="+<?php echo $_GET['club'];?>+"&raison=";

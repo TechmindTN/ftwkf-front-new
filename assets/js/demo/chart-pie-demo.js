@@ -7,7 +7,6 @@ var att = parseInt(document.getElementById('att').innerText.split(' '))
 
 var del = parseInt(document.getElementById('del').innerText.split(' '))
 
-console.log(aff)
 // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
