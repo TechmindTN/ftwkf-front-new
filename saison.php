@@ -326,8 +326,8 @@ window.location.href="login.php";
 <div class="container ">
 
 
-<div class="card o-hidden border-0 shadow-lg my-5">
-<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+<div class="card o-hidden border-0 shadow-lg my-5  ml-1">
+<div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
            <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[77]?></h1></div>
            </div>

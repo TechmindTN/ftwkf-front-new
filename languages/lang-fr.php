@@ -106,5 +106,8 @@ $_TXT = [
   "Filles",
   "qualifier",
   "non qualifier",
+  "Ajouter club",
+  "Modifier club",
+  "Ajouter compétition",
 ];
 

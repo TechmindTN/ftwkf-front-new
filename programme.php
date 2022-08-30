@@ -327,7 +327,7 @@ $row = mysql_fetch_assoc($result);
 <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
 <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Ajouter Competition</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[108]?></h1></div>
            </div>
     <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
@@ -338,31 +338,31 @@ $row = mysql_fetch_assoc($result);
 <form class="user" action="addprogramme.php" method="post" enctype="multipart/form-data" name="MForm">
                                  <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Competition    </label>
+                                        <label><?=$_TXT[59]?>     </label>
                                         <input name="action" type="text" id="action" tabindex="1" size="70" class="form-control " 
                                      required> 
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Discipline</label>
+                                    <label><?=$_TXT[14]?></label>
                                     
                                     <select name="sport" size="1" id="sport" tabindex="6" class="custom-select " required>
         <option>Choisir...  </option>        
         <option>وشوكونغ فو</option><option>كمبو</option><option>ديكايتو ريو</option><option>الدفاع عن النفس بودو</option><option>فوفينام فيات فوداو</option><option>فوت وات فان فوداوو و الأنشطة التابعة</option><option>هابكيدو</option><option>الكيسندو</option></select>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Place</label>
+                                    <label><?=$_TXT[61]?></label>
                                     
                                         <input name="lieu" type="text" id="lieu" tabindex="3" size="25" class="form-control " required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Année    </label>
+                                        <label><?=$_TXT[84]?>    </label>
                                         
                                      <input name="annee" type="text" id="annee" tabindex="12" size="15" class="form-control " required>
                                     </div>
                                     <div class="col-sm-4  mb-3 mb-sm-0">
-                                    <label>Niveau</label>
+                                    <label><?=$_TXT[96]?> </label>
                                     <select name="niveau" size="1" id="niveau" tabindex="5"  class="custom-select " required>
                                     <option selected>Choisir niveau</option>
                                     <option>Eliminatoire</option>
@@ -371,19 +371,19 @@ $row = mysql_fetch_assoc($result);
       </select>            
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Date</label>
+                                    <label><?=$_TXT[43]?></label>
                                     <input name="date" type="date" id="date" tabindex="6" size="15" class="form-control " required>
                                         
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Deadline    </label>
+                                        <label><?=$_TXT[62]?>     </label>
                                         <input name="delais" type="date" id="delais" tabindex="12" size="15" class="form-control " required>
                                      
                                     </div>
                                     <div class="col-sm-4">
-                                    <label>Type</label>
+                                    <label><?=$_TXT[60]?> </label>
                                     <select name="type" size="1" id="type2" tabindex="5" class="custom-select " required>
            <option selected>Choisir type</option>
      <option>كطا</option>
@@ -391,7 +391,7 @@ $row = mysql_fetch_assoc($result);
       </select>
                     </div>
                                     <div class="col-sm-4  mb-3 mb-sm-0">
-                                    <label>Age</label>
+                                    <label><?=$_TXT[11]?></label>
                                     <select name="cat" size="1" id="type" tabindex="2"  class="custom-select " required>
         <option>_</option>
         <?php     do { 
@@ -404,19 +404,19 @@ $row = mysql_fetch_assoc($result);
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                        <label>Min    </label>
+                                        <label><?=$_TXT[71]?>     </label>
                                         <input name="min" type="text" id="min" tabindex="12" size="15" class="form-control "
                                      required>
                                         
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
-                                    <label>Max</label>
+                                    <label><?=$_TXT[72]?> </label>
                                     <input name="max" type="text" id="max" tabindex="12" size="15" class="form-control "
                                      required>
                                     </div>
                                     <div class="col-sm-4 mb-3 mb-sm-0">
                                     <p align="center"><br>
-      <input type="submit" name="valider" id="valider" value="Valider" class="btn btn-primary">
+      <input type="submit" name="valider" id="valider" value=<?=$_TXT[57]?> class="btn btn-primary">
   </p>
                                     </div>
                                     

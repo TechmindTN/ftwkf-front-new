@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION["lang"])) { $_SESSION["lang"] = "fr"; }
+if (isset($_POST["lang"])) { $_SESSION["lang"] = $_POST["lang"]; }
 
+// (D) LOAD LANGUAGE FILE
+require "languages/"."lang-" . $_SESSION["lang"] . ".php";
+//$club = $_SESSION['club'];
+$club = $_SESSION['club'];
+//$club = $_GET['club'];
+if ($club == null) {
+?>	 
+<script type="text/javascript">
+window.location.href="login.php";
+</script>
+
+<?php	 }	
+	include('connect.php'); ?>
 <head>
 
     <meta charset="utf-8">
@@ -53,20 +70,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 }</style>
 </head>
 
-<body style="background-color:#fafafa">
+<body style="background-color:#fafafa" lang="<?=$_SESSION["lang"]?>">
 <?php
-session_start();
-//$club = $_SESSION['club'];
-$club = $_SESSION['club'];
-//$club = $_GET['club'];
-if ($club == null) {
-?>	 
-<script type="text/javascript">
-window.location.href="login.php";
-</script>
-
-<?php	 }	
-	include('connect.php');
 	
 $code=$_GET['code'];
 $query ="select * FROM `club` where `id` = '$code'";
@@ -122,7 +127,19 @@ $row = mysql_fetch_assoc($result);
 
 <!-- Topbar Navbar -->
 <ul class="navbar-nav ml-auto">
+<li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <form method="post">
+      <input type="submit" name="lang" value="fr" class="btn"/>
+      <input type="submit" name="lang" value="ar" class="btn"/>
+      <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
 
+    </form>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                           
+                        </li>
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <li class="nav-item dropdown no-arrow d-sm-none">
         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -303,10 +320,10 @@ $row = mysql_fetch_assoc($result);
 <!-- End of Topbar -->
     <div class="container ">
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ml-1">
+        <div class="card o-hidden border-0 shadow-lg my-5 ml-1">
+        <div class="card-header py-3 d-sm-flex align-items-center justify-content-between mb-4 text-center ">
            
-           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%">Modifier Club</h1></div>
+           <div class="row" style="width:100%" >       <h1 class="h4 text-gray-900 mb-4" style=" width:100%"><?=$_TXT[107]?></h1></div>
            </div>
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
@@ -317,12 +334,12 @@ $row = mysql_fetch_assoc($result);
                             <form class="user" action="addclub.php" method="post" enctype="multipart/form-data" name="MForm">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <label>club</label>
+                                        <label><?=$_TXT[12]?></label>
                                         <input type="text" class="form-control form-control-user" id="club"
                                         value ="<?php echo $row['club'];?>" name="club"> 
                                     </div>
                                     <div class="col-sm-6">
-                                    <label>ligue</label>
+                                    <label><?=$_TXT[13]?></label>
                                        <input type="text" class="form-control form-control-user" name="ligue" placeholder="ligue"
                                         id="ligue" tabindex="2"  value ="<?php echo $row['ligue'];?>">
                                     </div>
@@ -330,7 +347,7 @@ $row = mysql_fetch_assoc($result);
                              
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label>mot de passe</label>
+                                    <label><?=$_TXT[66]?></label>
 
                                         <input  class="form-control form-control-user"
                                          placeholder="Mot de passe"
@@ -338,7 +355,7 @@ $row = mysql_fetch_assoc($result);
                                     </div>
                                     <div class="col-sm-6 ">
                                       
-                                      <label >Activite</label>
+                                      <label ><?=$_TXT[76]?></label>
                                       <div><input name="actif" value="1" type="checkbox" <?php if($row['actif']==1){?>checked <?php } ?>  data-toggle="toggle" data-onstyle="success" data-offstyle="danger"></div>
                                       <!-- <div class="custom-control custom-switch">
   <input type="checkbox"  class="custom-control-input" tabindex="1" size="25" id="sw">
@@ -354,7 +371,7 @@ $row = mysql_fetch_assoc($result);
                                
                                 <div class="container my-3 ">
         <div class="col-md-12 text-center">
-            <button type="submit" class="btn btn-danger">Modifier</button>
+            <button type="submit" class="btn btn-danger"><?=$_TXT[21]?></button>
         </div>
     </div>
                             </form>
