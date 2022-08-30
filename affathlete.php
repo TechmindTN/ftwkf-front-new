@@ -64,6 +64,7 @@ $club = $_SESSION['club'];
             content.style.display="block";}
 
     </script>
+
 <div id="lang" style="display:none"><?php echo $_SESSION["lang"] ?></div>
  
 <div id="wrapper">
@@ -309,10 +310,12 @@ $club = $_SESSION['club'];
 </ul>
 
 </nav>
+
 <center> <div id="loader"><div  class="loader"></div>
 <div>Chargement en cours...</div>
 </div>
 </center>
+
 <!-- End of Topbar -->
  <div id="content" class="container-fluid">
 
