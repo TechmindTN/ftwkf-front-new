@@ -84,7 +84,6 @@ $saison = $row01[0];
                                                 ?>
                                                 <script type="text/javascript">
 var phpvar="<?php echo strval($club); ?>";
-    console.log(phpvar);
     document.getElementById('club_place').innerHTML=phpvar
 </script>
 <body id="page-top">
