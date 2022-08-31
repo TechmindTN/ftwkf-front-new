@@ -349,7 +349,7 @@ console.log("<?php echo $result4 ?>");
 <td >
 <h1 style="margin-right:80px" class="h3 mb-2 text-gray-800">Liste des arbitres </h1>
 </td><td >
-<a style="margin-right:20px" href="param.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+<a style="margin-right:20px" href="arbitre.php"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i>Ajouter</a>
 								</td><td>
 Saison</td><td> <select style="margin-right:20px" class="custom-select "name="sai" size="1" id="club" tabindex="9">
