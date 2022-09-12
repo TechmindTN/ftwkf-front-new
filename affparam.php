@@ -320,7 +320,7 @@ $row1 = mysql_fetch_assoc($result1);
 <input name="ok" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" value = <?=$_TXT[20]?>></td>
                  
 
-          </form></td>
+          </form>
         </tr>
 </table>
       </td>
