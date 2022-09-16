@@ -491,7 +491,7 @@ if (($club <> "CENTRE")and($club <> "Centre")and($club <> "centre") and ($club <
 		  
 		  
 		  ?>       
-        <div align="center"><a  style="color:#000" href ='updathletes.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b><strong>  <?=$_TXT[21]?></b></a>
+        <div align="center"><a  style="color:#000" href ='updathleteverif.php?code<?php echo "=$row[n_lic]";?>&club<?php echo "=$club";?>'><b><strong>  <?=$_TXT[21]?></b></a>
 	</div>
       <?PHP  } }
 ?>	  

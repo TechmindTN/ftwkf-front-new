@@ -358,7 +358,7 @@ $annee= substr("$date_naiss", 0, 4);
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label><?=$_TXT[9]?></label>
                                      <div class="form-group row">
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?> </label>  <input type="number" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" required></div> 
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?> </label>  <input name="jour" id="jour" type="number" tabindex="3" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" required></div> 
                                    <div class="col-sm-4 mb-3 mb-sm-0"> <label><?=$_TXT[83]?> </label>
                                    <input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>" class="form-control form-control-user" required>
                                   </div> 
@@ -465,11 +465,7 @@ $annee= substr("$date_naiss", 0, 4);
     <script src="assets/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="assets/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="assets/js/demo/chart-area-demo.js"></script>
-    <script src="assets/js/demo/chart-pie-demo.js"></script>
     <script src="template.js"></script>
 </body>
 

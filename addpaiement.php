@@ -69,7 +69,7 @@ $size1=1;
 
 if (($club <> '')and($date <> '')and($montant <> '')and($saison <> '')and($extension == '.jpg'))
 {
-$query ="INSERT INTO `paiement` (`code` ,`club` ,`saison`,`montant` , `date`, `etat`) VALUES ('$club','$saison','$montant','$date',0 )";
+$query ="INSERT INTO `paiement` (`club` ,`saison`,`montant` , `date`, `etat`) VALUES ('$club','$saison','$montant','$date',0 )";
 $result = mysql_query($query,$connexion);
 ?>
 
