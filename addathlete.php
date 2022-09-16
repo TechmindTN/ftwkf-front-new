@@ -189,7 +189,7 @@ $result = mysql_query($query,$connexion);
 ?>
  
 <script type="text/javascript">
-window.location.href="affathlete.php?club<?php echo "=$club";?>";
+window.location.href="affathletes.php?club<?php echo "=$club";?>";
 </script>
 
 <?php 

@@ -390,10 +390,11 @@ if ($crit == "نوادي"){$critere = "club";}
 <div class="table-responsive">
 <table class="table " id="dataTable"  border="1">
 	<tr class="text-center">
-	    <th ><strong>الموسم</strong></td>
+	    <td ><strong>الموسم</strong></td>
 	    <td ><strong>/النادي</strong></td>
 	    <td ><strong>ممرنين</strong></td>
-	    <td ><strong>منشطين</strong></td>
+	    <td ><strong>مدرب فدرالي
+</strong></td>
 	    <td ><strong>حكام</strongv></td>
 	    <td ><strong>مسيرين</strong></td>
 	    <td ><strong>مرافقين</strong></td>
@@ -436,8 +437,8 @@ $nb = mysql_num_rows($result);
 
 
                       <?php
-if ($crit == "جهات"){$query ="SELECT * FROM entraineur where saison = '$saison' and ligue = '$test' and type = 'منشط'";}
-if ($crit == "نوادي"){$query ="SELECT * FROM entraineur where saison = '$saison' and club = '$test' and type = 'منشط'";}
+if ($crit == "جهات"){$query ="SELECT * FROM entraineur where saison = '$saison' and ligue = '$test' and type = 'مدرب فدرالي '";}
+if ($crit == "نوادي"){$query ="SELECT * FROM entraineur where saison = '$saison' and club = '$test' and type = 'مدرب فدرالي'";}
 $result = mysql_query($query,$connexion);
 $nb = mysql_num_rows($result);
 									 ?>
@@ -505,7 +506,7 @@ $nb = mysql_num_rows($result);
 
 
                       <?php
-$query ="SELECT * FROM entraineur where saison = '$saison' and type = 'منشط'";
+$query ="SELECT * FROM entraineur where saison = '$saison' and type = 'مدرب فدرالي'";
 $result = mysql_query($query,$connexion);
 $nb = mysql_num_rows($result);
 									 ?>

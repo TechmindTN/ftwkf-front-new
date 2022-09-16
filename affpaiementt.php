@@ -306,7 +306,7 @@ $saison = "";
 if (isset($_POST['saison'])) {$saison = (get_magic_quotes_gpc()) ? $_POST['saison'] : addslashes($_POST['saison']);}
 $row=null;
 {
-$query ="SELECT * FROM paiement where saison = '$saison' and etat = 0";}
+$query ="SELECT * FROM paiement where etat = 0";}
 $result = mysql_query($query,$connexion);
 $row = mysql_fetch_assoc($result);
 $i=0;
@@ -324,8 +324,7 @@ $i=0;
 	</tr></thead>
 <?php
 do {
-  $i++;		
-
+  
 ?>
 <tbody>
 	<tr>
@@ -344,8 +343,7 @@ do {
 
   </tr></tbody>
 <?php		
-	// }while	 (($row=mysql_fetch_assoc($result))); 
-}while($i<count($row))
+	}while	 (($row=mysql_fetch_assoc($result))); 
 
 ?> 
 </table></div></div>

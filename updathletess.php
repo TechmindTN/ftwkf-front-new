@@ -360,7 +360,7 @@ $annee= substr("$date_naiss", 0, 4);
                                 <div class="col-sm-4 mb-3 mb-sm-0">
                                 <label><?=$_TXT[9]?>  </label>
                                      <div class="form-group row">
-                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?></label>  <input tabindex="3" type="number" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" ></div> 
+                                   <div class="col-sm-4 mb-3 mb-sm-0"><label><?=$_TXT[82]?></label>  <input tabindex="3"  name="jour" id="jour" type="number" size="4" maxlength="2" value ="<?php echo $jour;?>" class="form-control form-control-user" ></div> 
                                    <div class="col-sm-4 mb-3 mb-sm-0"> <label><?=$_TXT[83]?> </label>
                                    <input name="mois" type="number" id="mois" tabindex="4" size="4" maxlength="2" value ="<?php echo $mois;?>" class="form-control form-control-user" >
                                   </div> 
