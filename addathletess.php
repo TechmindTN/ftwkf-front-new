@@ -163,7 +163,7 @@ $result = mysql_query($query,$connexion);
 ?>
  
  <script type="text/javascript">
-window.location.href='licenceverif.php?naiss<?php echo "=$date_naissance";?>&club<?php echo "=$club1";?>&club1<?php echo "=$club";?>&nom<?php echo "=$nom";?>&prenom<?php echo "=$prenom";?>&code<?php echo "=$code";?>&cin<?php echo "=$cin";?>';
+window.location.href='licenceverif.php?naiss<?php echo "=$date_naissance";?>&club1<?php echo "=$club";?>&nom<?php echo "=$nom";?>&prenom<?php echo "=$prenom";?>&code<?php echo "=$code";?>&cin<?php echo "=$cin";?>';
 </script>
 
 </body>

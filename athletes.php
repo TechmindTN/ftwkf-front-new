@@ -482,6 +482,7 @@ document.forms[0].submit();
     <script src="assets/js/demo/chart-area-demo.js"></script>
     <script src="assets/js/demo/chart-pie-demo.js"></script>
     <script src="template.js"></script>
+ 
 </body>
 
 </html>

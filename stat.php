@@ -60,7 +60,13 @@ $crit = "";
 if (isset($_POST['crit'])) {
   $crit = (get_magic_quotes_gpc()) ? $_POST['crit'] : addslashes($_POST['crit']);
 }
-
+$test = "";
+if (isset($_POST['ligue'])) {
+  $crit = (get_magic_quotes_gpc()) ? $_POST['ligue'] : addslashes($_POST['ligue']);
+}
+if (isset($_POST['club'])) {
+    $crit = (get_magic_quotes_gpc()) ? $_POST['club'] : addslashes($_POST['club']);
+  }
 ?>
 <BODY id="page-top">
 <div id="wrapper">
@@ -384,10 +390,11 @@ if ($crit == "نوادي"){$critere = "club";}
 <div class="table-responsive">
 <table class="table " id="dataTable"  border="1">
 	<tr class="text-center">
-	    <th ><strong>الموسم</strong></td>
+	    <td ><strong>الموسم</strong></td>
 	    <td ><strong>/النادي</strong></td>
 	    <td ><strong>ممرنين</strong></td>
-	    <td ><strong>منشطين</strong></td>
+	    <td ><strong>مدرب فدرالي
+</strong></td>
 	    <td ><strong>حكام</strongv></td>
 	    <td ><strong>مسيرين</strong></td>
 	    <td ><strong>مرافقين</strong></td>
@@ -413,7 +420,7 @@ if ($crit == "نوادي"){$test = $row0['club'];}
 ?>
 	<tr>
 	  <td><div align="center"><?php echo $saison;?></div></td>
-	  <td><div align="center"><?php echo $crit;?></div></td>
+	  <td><div align="center"><?php echo $test;?></div></td>
 
 
 
@@ -430,8 +437,8 @@ $nb = mysql_num_rows($result);
 
 
                       <?php
-if ($crit == "جهات"){$query ="SELECT * FROM entraineur where saison = '$saison' and ligue = '$test' and type = 'منشط'";}
-if ($crit == "نوادي"){$query ="SELECT * FROM entraineur where saison = '$saison' and club = '$test' and type = 'منشط'";}
+if ($crit == "جهات"){$query ="SELECT * FROM entraineur where saison = '$saison' and ligue = '$test' and type = 'مدرب فدرالي '";}
+if ($crit == "نوادي"){$query ="SELECT * FROM entraineur where saison = '$saison' and club = '$test' and type = 'مدرب فدرالي'";}
 $result = mysql_query($query,$connexion);
 $nb = mysql_num_rows($result);
 									 ?>
@@ -499,7 +506,7 @@ $nb = mysql_num_rows($result);
 
 
                       <?php
-$query ="SELECT * FROM entraineur where saison = '$saison' and type = 'منشط'";
+$query ="SELECT * FROM entraineur where saison = '$saison' and type = 'مدرب فدرالي'";
 $result = mysql_query($query,$connexion);
 $nb = mysql_num_rows($result);
 									 ?>
